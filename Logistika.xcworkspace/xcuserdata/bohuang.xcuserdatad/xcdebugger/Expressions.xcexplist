@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[PaymentViewController order]:PaymentViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DoneViewController viewDidLoad]:DoneViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "curPaymentWay">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[BorderTextField textField:shouldChangeCharactersInRange:replacementString:]:BorderTextField.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "range.location">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PaymentViewController viewWillAppear:]:PaymentViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "curPaymentWay">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[OrderItemCorView showCarriers]:OrderItemCorView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.data.carrierModel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__58-[PickupLocationViewController getLocationFromCoordinate:]_block_invoke:PickupLocationViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PaymentViewController done:]:PaymentViewController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
