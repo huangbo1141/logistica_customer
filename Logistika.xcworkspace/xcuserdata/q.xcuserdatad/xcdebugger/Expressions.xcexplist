@@ -6,6 +6,9 @@
          contextName = "-[PaymentViewController done:]:PaymentViewController.m">
          <PersistentStrings>
             <PersistentString
+               value = "g_addressModel.sourcePhonoe">
+            </PersistentString>
+            <PersistentString
                value = "g_serviceModel.price">
             </PersistentString>
          </PersistentStrings>

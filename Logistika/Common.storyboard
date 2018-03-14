@@ -637,7 +637,7 @@
                                                                             <constraint firstAttribute="bottom" secondItem="A2v-CZ-Ez0" secondAttribute="bottom" id="mlm-8F-ScA"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Landmark, Instruction to Associate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Jv-A3-Swj" customClass="BorderTextField">
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Landmark, Instruction to Associate(optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Jv-A3-Swj" customClass="BorderTextField">
                                                                         <rect key="frame" x="0.0" y="314" width="359" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="8b5-mI-atz"/>
@@ -811,7 +811,7 @@
                                                                             <constraint firstItem="9Pd-6e-ANP" firstAttribute="centerY" secondItem="bEO-Ex-Qxv" secondAttribute="centerY" id="z1J-oW-hY5"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Landmark, Instruction to Associate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bas-v7-OlD" customClass="BorderTextField">
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Landmark, Instruction to Associate(optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bas-v7-OlD" customClass="BorderTextField">
                                                                         <rect key="frame" x="0.0" y="314" width="359" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="LX8-uX-G3j"/>

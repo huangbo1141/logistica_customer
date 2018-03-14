@@ -1734,6 +1734,42 @@ NSMutableArray* menu_topList;
     
     return x > pX;
 }
++(NSString*)getValidPhoneNumber:(NSString*)param Output:(int)output Prefix:(NSString*)prefix Length:(int)length{
+    int total = [prefix length] + length;
+    if ([prefix length] >=2 && [prefix hasPrefix:@"+"]) {
+        if (output == 0) {
+            // return length(10) digit phone number without prefix (+91)
+            if ([param length] == total && [param hasPrefix:prefix]) {
+                NSString* tmp = [param substringFromIndex:[prefix length]];
+                return tmp;
+            }
+            
+            if ([param length] == length && ![param contains:@"+"]) {
+                return param;
+            }
+            
+            if ([param length] == total-1 && ![param contains:@"+"]) {
+                NSString* tmp = [param substringFromIndex:[prefix length]-1];
+                return tmp;
+            }
+        }
+        if (output == 1) {
+            // return phone number with +91
+            if ([param length] == length && ![param contains:@"+"]) {
+                NSString* tmp = [prefix stringByAppendingPathComponent:param];
+                return tmp;
+            }
+            if ([param length] == total && [param hasPrefix:prefix]) {
+                return param;
+            }
+            if ([param length] == total-1 && ![param contains:@"+"]) {
+                NSString* tmp = [@"+" stringByAppendingPathComponent:param];
+                return tmp;
+            }
+        }
+    }
+    return param;
+}
 //+(UIImage*)customImageForMap:(NSString*)role PolyData:(TblPolygon*)polygon{
 //    NSString* image = "0"
 //    int spellsize = 8;

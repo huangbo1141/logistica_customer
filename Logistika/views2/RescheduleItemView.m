@@ -208,11 +208,11 @@
             }
             
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"MM-dd-yyyy hh:mm a"];
+            [dateFormat setDateFormat:@"dd-MM-yyyy hh:mm a"];
             NSString *prettyVersion = [dateFormat stringFromDate:myDate];
             _txtNewDate.text = prettyVersion;
             
-            [dateFormat setDateFormat:@"MM-dd-yyyy"];
+            [dateFormat setDateFormat:@"dd-MM-yyyy"];
             prettyVersion = [dateFormat stringFromDate:myDate];
             self.dateModel.date = prettyVersion;
             

@@ -93,7 +93,7 @@ bool isPaymentCompleted = false;
         EnvVar *env = [CGlobal sharedId].env;
         
         NSString *email = @"";
-        NSString *phone = g_addressModel.sourcePhonoe;
+        NSString *phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
         
         if (env.mode == c_GUEST) {
             email = g_guestEmail;

@@ -293,7 +293,7 @@
         _txtPickCity.text = g_addressModel.sourceCity;
         _txtPickState.text = g_addressModel.sourceState;
         _txtPickPincode.text = g_addressModel.sourcePinCode;
-        _txtPickPhone.text = [NSString stringWithFormat:@"%@%@", @"+91",[g_addressModel.sourcePhonoe stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        _txtPickPhone.text = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:1 Prefix:@"+91" Length:10];
         _txtPickLandMark.text = g_addressModel.sourceLandMark;
         _txtPickInstruction.text = g_addressModel.sourceInstruction;
         _txtPickArea.text = g_addressModel.sourceArea;
@@ -304,7 +304,7 @@
         _txtDesCity.text = g_addressModel.desCity;
         _txtDesState.text = g_addressModel.desState;
         _txtDesPincode.text = g_addressModel.desPinCode;
-        _txtDesPhone.text =  [NSString stringWithFormat:@"%@%@", @"+91",[g_addressModel.desPhone stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        _txtDesPhone.text =  [CGlobal getValidPhoneNumber:g_addressModel.desPhone Output:1 Prefix:@"+91" Length:10];
         _txtDesLandMark.text = g_addressModel.desLandMark;
         _txtDesInstruction.text = g_addressModel.desInstruction;
         _txtDesArea.text = g_addressModel.desArea;
@@ -758,7 +758,7 @@
     NSString* mPickCity = _txtPickCity.text;
     NSString* mPickState = _txtPickState.text;
     NSString* mPickPincode = _txtPickPincode.text;
-    NSString* mPickPhone = [_txtPickPhone getValidString];
+    NSString* mPickPhone = [_txtPickPhone getValidString:1];
     NSString* mPickLandMark = _txtPickLandMark.text;
     NSString* mPickInstruction = _txtPickInstruction.text;
     NSString* mPickArea = _txtPickArea.text;
@@ -768,7 +768,7 @@
     NSString* mDesCity = _txtDesCity.text;
     NSString* mDesState = _txtDesState.text;
     NSString* mDesPincode = _txtDesPincode.text;
-    NSString* mDesPhone = [_txtDesPhone getValidString];
+    NSString* mDesPhone = [_txtDesPhone getValidString:1];
     NSString* mDesLandMark = _txtDesLandMark.text;
     NSString* mDesInstruction = _txtDesInstruction.text;
     NSString* mDesName = _txtDesName.text;

@@ -45,11 +45,26 @@
     
     [_btnCall addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
     
+    [_btnSubmit addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
+    
     _btnSignIn.tag = 200;
     _btnSignUp.tag = 201;
     _btnGuest.tag = 202;
     _btnTracking.tag = 203;
     _btnCall.tag = 204;
+    _btnSubmit.tag = 205;
+    
+    NSArray* fields = @[self.txtPhoneNumber];
+    CGRect screenRect = [UIScreen mainScreen].bounds;
+    CGRect frame = CGRectMake(0, 0, screenRect.size.width-60, 30);
+    for (int i=0; i<fields.count; i++) {
+        if ([fields[i] isKindOfClass:[BorderTextField class]]) {
+            BorderTextField*field = fields[i];
+            [field addBotomLayer:frame];
+            field.validateMode = 2;
+            field.validateLength = 10;
+        }
+    }
     
     self.segment.tintColor = COLOR_PRIMARY;
     
@@ -75,6 +90,25 @@
     }
     
     g_location_cnt = g_location_cnt + 1;
+    self.txtPhoneNumber.hidden = true;
+    self.btnSubmit.hidden = true;
+    self.txtPhoneNumber.placeholder = @"Phone Number";
+    self.txtPhoneNumber.text = @"+91";
+    self.txtPhoneNumber.validateMode = 2;
+    self.lblReceiverPhone.text = @"Phone Number";
+    self.lblReceiverPhone.textColor = [UIColor darkGrayColor];
+    self.lblReceiverPhone.hidden = true;
+    
+    
+    [self.txtPhoneNumber addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self updateHintText];
+    
+    
+    NSAttributedString* attr_str = self.txtPhoneNumber.attributedPlaceholder;
+//    id value = [attr_str valueForKeyPath:NSForegroundColorAttributeName];
+//    [attr_str setValue:value forKeyPath:NSForegroundColorAttributeName];
+    
+//    [attr_str setValue:[UIColor blackColor] forKeyPath:NSForegroundColorAttributeName];
 //    dispatch_async(dispatch_get_main_queue(), ^{
 ////        cityView.imgView.backgroundColor = [UIColor redColor];
 ////        cityView.imgView.image = [UIImage imageNamed:@"background.png"];
@@ -111,22 +145,10 @@
         case 202:
         {
             // guest
-            EnvVar*env = [CGlobal sharedId].env;
-            env.lastLogin = 0;
-            g_mode = c_GUEST;
-            env.mode = c_GUEST;
-            env.user_id = @"0";
-            env.corporate_user_id = @"0";
-            
-            // LoginProcess
-            UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
-            PersonalMainViewController*vc = [ms instantiateViewControllerWithIdentifier:@"PersonalMainViewController"] ;
-            MyNavViewController* nav = [[MyNavViewController alloc] initWithRootViewController:vc];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                delegate.window.rootViewController = nav;
-            });
+            self.txtPhoneNumber.hidden = false;
+            self.btnSubmit.hidden = false;
+            [self.txtPhoneNumber becomeFirstResponder];
+            self.lblReceiverPhone.hidden = false;
             break;
         }
         case 203:
@@ -163,9 +185,98 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:12125551212"]];
             break;
         }
+        case 205:
+        {
+            NSString* placeholder = self.txtPhoneNumber.placeholder;
+            if ([placeholder isEqualToString:@"Phone Number"]) {
+                if ([self.txtPhoneNumber isValid]) {
+                    [self sendPhone:self.txtPhoneNumber.text];
+                }else{
+                    [CGlobal AlertMessage:@"Input Correct Phone Number" Title:nil];
+                    return;
+                }
+            }else if ([placeholder isEqualToString:@"Otp Code"]) {
+                if ([self.txtPhoneNumber.text length]>0) {
+                    [self verification:self.phone Otp:self.txtPhoneNumber.text];
+                    return;
+                }
+            }
+            break;
+        }
         default:
             break;
     }
+}
+-(void)sendPhone:(NSString*)phone{
+    NSMutableDictionary* data =[[NSMutableDictionary alloc] init];
+    data[@"phone"] = phone;
+    NetworkParser* manager = [NetworkParser sharedManager];
+    [CGlobal showIndicator:self];
+    [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"getOtpGuest" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+        if (error == nil) {
+            if (dict!=nil && dict[@"result"] != nil) {
+                //
+                int ret = [dict[@"result"] intValue] ;
+                if (ret == 200) {
+                    self.phone = phone;
+                    self.txtPhoneNumber.text = @"";
+                    self.txtPhoneNumber.validateMode = 0;
+                    self.txtPhoneNumber.placeholder = @"Otp Code";
+                    
+                }
+            }
+        }else{
+            [CGlobal AlertMessage:@"Error" Title:nil];
+            NSLog(@"Error");
+        }
+        [CGlobal stopIndicator:self];
+    } method:@"POST"];
+}
+-(void)verification:(NSString*)phone Otp:(NSString*)otp{
+    NSMutableDictionary* data =[[NSMutableDictionary alloc] init];
+    data[@"phone"] = phone;
+    data[@"otp"] = otp;
+    NetworkParser* manager = [NetworkParser sharedManager];
+    [CGlobal showIndicator:self];
+    [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"otpValidation" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+        if (error == nil) {
+            if (dict!=nil && dict[@"result"] != nil) {
+                //
+                int ret = [dict[@"result"] intValue] ;
+                if (ret == 200) {
+                    // success
+                    self.txtPhoneNumber.placeholder = @"Phone Number";
+                    self.txtPhoneNumber.validateMode = 2;
+                    self.txtPhoneNumber.hidden = true;
+                    self.lblReceiverPhone.hidden = true;
+                    self.btnSubmit.hidden = true;
+                    [self goGuest];
+                }
+            }
+        }else{
+            [CGlobal AlertMessage:@"Error" Title:nil];
+            NSLog(@"Error");
+        }
+        [CGlobal stopIndicator:self];
+    } method:@"POST"];
+}
+-(void)goGuest{
+    EnvVar*env = [CGlobal sharedId].env;
+    env.lastLogin = 0;
+    g_mode = c_GUEST;
+    env.mode = c_GUEST;
+    env.user_id = @"0";
+    env.corporate_user_id = @"0";
+    
+    // LoginProcess
+    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
+    PersonalMainViewController*vc = [ms instantiateViewControllerWithIdentifier:@"PersonalMainViewController"] ;
+    MyNavViewController* nav = [[MyNavViewController alloc] initWithRootViewController:vc];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        delegate.window.rootViewController = nav;
+    });
 }
 -(void)tracking_corporate:(NSString*)number{
     
@@ -241,12 +352,41 @@
     NSInteger index = seg.selectedSegmentIndex;
     if (index == 0) {
         _btnGuest.hidden = false;
-        
+        self.txtPhoneNumber.hidden = true;
+        self.lblReceiverPhone.hidden = true;
+        self.btnSubmit.hidden = true;
+        self.txtPhoneNumber.placeholder = @"Phone Number";
+        self.txtPhoneNumber.validateMode = 2;
+        self.txtPhoneNumber.text = @"+91";
     }else{
         _btnGuest.hidden = true;
+        self.txtPhoneNumber.hidden = true;
+        self.lblReceiverPhone.hidden = true;
+        self.btnSubmit.hidden = true;
     }
     
     self.view.drawerView.mode = index;
+}
+#pragma -mark textFields
+-(void)textFieldDidChange:(UITextField*)textField{
+    if (textField == self.txtPhoneNumber) {
+        [self updateHintText];
+    }
+}
+-(void)updateHintText{
+    if ([self.txtPhoneNumber.placeholder isEqualToString:@"Phone Number"]) {
+        if (self.txtPhoneNumber.text.length>3) {
+            self.lblReceiverPhone.hidden = true;
+        }else{
+            self.lblReceiverPhone.hidden = false;
+        }
+    }else{
+        self.lblReceiverPhone.hidden = true;
+    }
+    
+    if (self.txtPhoneNumber.hidden == true) {
+        self.lblReceiverPhone.hidden = true;
+    }
 }
 -(void)onLeftItemTouched:(UIBarButtonItem*)sender{
     if (self.view.drawerLayout!=nil) {

@@ -40,6 +40,7 @@
 @property (weak, nonatomic) IBOutlet BorderTextField *txtPassword;
 @property (weak, nonatomic) IBOutlet BorderTextField *txtRePassword;
 @property (weak, nonatomic) IBOutlet BorderTextField *txtAnswer;
+@property (strong, nonatomic) IBOutlet BorderTextField *txtOtpCode;
 
 @property (weak, nonatomic) IBOutlet UISwitch *swPolicy;
 
@@ -57,6 +58,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnTerms;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollParent;
 
-
+@property (weak, nonatomic) IBOutlet UILabel *lblReceiverPhone;
 
 @end

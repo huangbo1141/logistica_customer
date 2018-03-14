@@ -79,7 +79,7 @@
     
     NSDate* myDate = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"MM-dd-yyyy"];
+    [dateFormat setDateFormat:@"dd-MM-yyyy"];
     NSString *prettyVersion = [dateFormat stringFromDate:myDate];
     _txtDate.text = prettyVersion;
     
@@ -223,7 +223,7 @@
             }
             
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"MM-dd-yyyy"];
+            [dateFormat setDateFormat:@"dd-MM-yyyy"];
             NSString *prettyVersion = [dateFormat stringFromDate:myDate];
             _txtDate.text = prettyVersion;
             

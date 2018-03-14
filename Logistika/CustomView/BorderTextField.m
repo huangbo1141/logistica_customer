@@ -8,6 +8,8 @@
 
 #import "BorderTextField.h"
 #import "CGlobal.h"
+
+#define ACCEPTABLE_CHARECTERS @"0123456789."
 @implementation BorderTextField
 
 /*
@@ -119,7 +121,7 @@
             
     }
 }
--(NSString*)getValidString{
+-(NSString*)getValidString:(int)output{
     switch (self.validateMode) {
         case 2:
         {
@@ -130,6 +132,11 @@
                 }
                 tmp = [tmp stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             }
+            if(output == 1){
+                // return phone include +91
+                return self.text;
+            }
+            // return phone exclude +91
             return tmp;
         }
         default:{
@@ -163,7 +170,11 @@
                     return NO;
                 }
             }
-            break;
+            NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARECTERS] invertedSet];
+            
+            NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+            
+            return [string isEqualToString:filtered];
         }
         default:{
             break;

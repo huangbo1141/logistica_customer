@@ -262,5 +262,5 @@ typedef void (^ImagePickerCallback)(UIImage* image);
 +(NSComparisonResult)compareWithToday:(NSDate*)input DateStr:(NSString*)datestr mode:(int)mode;
 +(NSString*)getTruck:(NSString*)truck;
 +(BOOL)isPointInPolygon:(CLLocationCoordinate2D) tap ArrayList:(NSMutableArray*)vertices;
-
++(NSString*)getValidPhoneNumber:(NSString*)param Output:(int)output Prefix:(NSString*)prefix Length:(int)length;
 @end

@@ -51,24 +51,28 @@
     self.selrow = 0;
     self.lblPicker1.text = g_securityList[0];
     
-    MyTextDelegate* textDelegate = [[MyTextDelegate alloc] init];
-    textDelegate.mode = 1;
-    textDelegate.length = 10;
-    self.txtPhoneNumber.delegate = textDelegate;
-    self.textDelegate = textDelegate;
+//    MyTextDelegate* textDelegate = [[MyTextDelegate alloc] init];
+//    textDelegate.mode = 1;
+//    textDelegate.length = 10;
+//    self.txtPhoneNumber.delegate = textDelegate;
+//    self.textDelegate = textDelegate;
     
     
     NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
 //    g_areaData = [[LoginResponse alloc] init];
     
     
-    NSArray* fields = @[self.txtFirstName,self.txtLastName,self.txtPhoneNumber,self.txtAddress,self.txtState,self.txtLandMark,self.txtEmail,self.txtPassword,self.txtRePassword,self.txtAnswer,self.txtArea,self.txtCity,self.txtPin];
+    NSArray* fields = @[self.txtFirstName,self.txtLastName,self.txtPhoneNumber,self.txtAddress,self.txtState,self.txtLandMark,self.txtEmail,self.txtPassword,self.txtRePassword,self.txtAnswer,self.txtArea,self.txtCity,self.txtPin,self.txtOtpCode];
     CGRect screenRect = [UIScreen mainScreen].bounds;
     CGRect frame = CGRectMake(0, 0, screenRect.size.width-40, 30);
     for (int i=0; i<fields.count; i++) {
         if ([fields[i] isKindOfClass:[BorderTextField class]]) {
             BorderTextField*field = fields[i];
             [field addBotomLayer:frame];
+            if (field == self.txtPhoneNumber) {
+                field.validateMode = 2;
+                field.validateLength = 10;
+            }
         }else if([fields[i] isKindOfClass:[CAAutoFillTextField class]]){
             CAAutoFillTextField* ca = fields[i];
             [ca.txtField addBotomLayer:frame];
@@ -76,6 +80,28 @@
         }
     }
     [self.txtPin setKeyboardType:UIKeyboardTypeNumberPad];
+    
+    
+    self.txtPhoneNumber.text = @"+91";
+    self.txtPhoneNumber.placeholder = @"Phone Number";
+    self.txtOtpCode.placeholder = @"Otp Code";
+    self.lblReceiverPhone.text = @"Phone Number";
+    [self.txtOtpCode setKeyboardType:UIKeyboardTypeNumberPad];
+    self.txtOtpCode.hidden = true;
+    
+    NSAttributedString* attr_str = self.txtEmail.attributedPlaceholder;
+    [attr_str enumerateAttributesInRange:NSMakeRange(0, [attr_str length])
+                                 options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired
+                              usingBlock:^(NSDictionary *attributes, NSRange range, BOOL *stop) {
+                                  UIColor *fgColor = [attributes objectForKey:NSForegroundColorAttributeName];
+                                  self.lblReceiverPhone.textColor = fgColor;
+                              }];
+    
+    
+    [self.txtPhoneNumber addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self updateHintText];
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -136,6 +162,7 @@
     self.isChange = true;
 }
 -(NSMutableDictionary*)checkInput{
+    
     NSString* mFirst = _txtFirstName.text;
     NSString* mLast = _txtLastName.text;
     NSString* mPhone = _txtPhoneNumber.text;
@@ -256,64 +283,134 @@
         }
         case 200:
         {
-            NSMutableDictionary* data = [self checkInput];
-            if (data != nil) {
-                NetworkParser* manager = [NetworkParser sharedManager];
-                [CGlobal showIndicator:self];
-                [manager ontemplateGeneralRequest2:data BasePath:BASE_URL Path:@"register" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
-                    if (error == nil) {
-                        // succ
-                        NSString* ret;
-                        if ([dict[@"result"] isKindOfClass:[NSNumber class]]) {
-                            ret = [dict[@"result"] stringValue];
-                        }else{
-                            ret = dict[@"result"];
-                        }
-                        if ([ret isEqualToString:@"400"]) {
-                            //
-                            [CGlobal AlertMessage:@"Username already exists" Title:nil];
-                            [CGlobal stopIndicator:self];
-                            return;
-                        }
-                        
-                        [CGlobal AlertMessage:@"Profile successfully created" Title:nil];
-                        
-                        TblUser* user = [[TblUser alloc] initWithDictionary:dict];
-                        [user saveResponse:_segIndex Password:_txtPassword.text];
-                        
-                        if (_segIndex == 0) {
-                            UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
-                            PersonalMainViewController*vc = [ms instantiateViewControllerWithIdentifier:@"PersonalMainViewController"] ;
-                            MyNavViewController* nav = [[MyNavViewController alloc] initWithRootViewController:vc];
-                            
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                                delegate.window.rootViewController = nav;
-                            });
-                        }else{
-                            UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Cor" bundle:nil];
-                            PersonalMainViewController*vc = [ms instantiateViewControllerWithIdentifier:@"CorMainViewController"] ;
-                            MyNavViewController* nav = [[MyNavViewController alloc] initWithRootViewController:vc];
-                            
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                                delegate.window.rootViewController = nav;
-                            });
-                        }
-                        
-                    }else{
-                        // error
-                        [CGlobal AlertMessage:@"Register Fail" Title:nil];
-                    }
-                    
-                    [CGlobal stopIndicator:self];
-                } method:@"POST"];
+            if (self.txtOtpCode.hidden == false) {
+                if ([self.txtOtpCode.text  length]>0) {
+                    // verify txtoptcode
+                    [self verification:self.txtPhoneNumber.text Otp:self.txtOtpCode.text];
+                    return;
+                }else{
+                    [CGlobal AlertMessage:@"Input Opt Code" Title:nil];
+                    [self.txtOtpCode becomeFirstResponder];
+                    return;
+                }
+            }else{
+                if ([self.txtPhoneNumber isValid]) {
+                    [self sendPhone:self.txtPhoneNumber.text];
+                    return;
+                }else{
+                    [CGlobal AlertMessage:@"Input Correct Phone Number" Title:nil];
+                    [self.txtPhoneNumber becomeFirstResponder];
+                    return;
+                }
             }
             break;
         }
             
         default:
             break;
+    }
+}
+-(void)sendPhone:(NSString*)phone{
+    NSMutableDictionary* data =[[NSMutableDictionary alloc] init];
+    data[@"phone"] = phone;
+    NetworkParser* manager = [NetworkParser sharedManager];
+    [CGlobal showIndicator:self];
+    [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"getOtpGuest" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+        if (error == nil) {
+            if (dict!=nil && dict[@"result"] != nil) {
+                //
+                int ret = [dict[@"result"] intValue] ;
+                if (ret == 200) {
+                    self.txtOtpCode.hidden = false;
+                    self.txtOtpCode.text = @"";
+                    [self.txtOtpCode becomeFirstResponder];
+                    
+                }
+            }
+        }else{
+            [CGlobal AlertMessage:@"Error" Title:nil];
+            NSLog(@"Error");
+        }
+        [CGlobal stopIndicator:self];
+    } method:@"POST"];
+}
+-(void)verification:(NSString*)phone Otp:(NSString*)otp{
+    NSMutableDictionary* data =[[NSMutableDictionary alloc] init];
+    data[@"phone"] = phone;
+    data[@"otp"] = otp;
+    NetworkParser* manager = [NetworkParser sharedManager];
+    [CGlobal showIndicator:self];
+    [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"otpValidation" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+        [CGlobal stopIndicator:self];
+        if (error == nil) {
+            if (dict!=nil && dict[@"result"] != nil) {
+                //
+                int ret = [dict[@"result"] intValue] ;
+                if (ret == 200) {
+                    // success
+                    [self goSignup];
+                }
+            }
+        }else{
+            [CGlobal AlertMessage:@"Incorrect Opt Code" Title:nil];
+            NSLog(@"Error");
+        }
+        
+    } method:@"POST"];
+}
+-(void)goSignup{
+    NSMutableDictionary* data = [self checkInput];
+    if (data != nil) {
+        NetworkParser* manager = [NetworkParser sharedManager];
+        [CGlobal showIndicator:self];
+        [manager ontemplateGeneralRequest2:data BasePath:BASE_URL Path:@"register" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+            if (error == nil) {
+                // succ
+                NSString* ret;
+                if ([dict[@"result"] isKindOfClass:[NSNumber class]]) {
+                    ret = [dict[@"result"] stringValue];
+                }else{
+                    ret = dict[@"result"];
+                }
+                if ([ret isEqualToString:@"400"]) {
+                    //
+                    [CGlobal AlertMessage:@"Username already exists" Title:nil];
+                    [CGlobal stopIndicator:self];
+                    return;
+                }
+                
+                [CGlobal AlertMessage:@"Profile successfully created" Title:nil];
+                
+                TblUser* user = [[TblUser alloc] initWithDictionary:dict];
+                [user saveResponse:_segIndex Password:_txtPassword.text];
+                
+                if (_segIndex == 0) {
+                    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
+                    PersonalMainViewController*vc = [ms instantiateViewControllerWithIdentifier:@"PersonalMainViewController"] ;
+                    MyNavViewController* nav = [[MyNavViewController alloc] initWithRootViewController:vc];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                        delegate.window.rootViewController = nav;
+                    });
+                }else{
+                    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Cor" bundle:nil];
+                    PersonalMainViewController*vc = [ms instantiateViewControllerWithIdentifier:@"CorMainViewController"] ;
+                    MyNavViewController* nav = [[MyNavViewController alloc] initWithRootViewController:vc];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                        delegate.window.rootViewController = nav;
+                    });
+                }
+                
+            }else{
+                // error
+                [CGlobal AlertMessage:@"Register Fail" Title:nil];
+            }
+            
+            [CGlobal stopIndicator:self];
+        } method:@"POST"];
     }
 }
 - (void)didReceiveMemoryWarning {
@@ -450,5 +547,17 @@
 
 - (BOOL) CAAutoTextFillWantsToEdit:(CAAutoFillTextField *) textField {
     return YES;
+}
+-(void)textFieldDidChange:(UITextField*)textField{
+    if (textField == self.txtPhoneNumber ) {
+        [self updateHintText];
+    }
+}
+-(void)updateHintText{
+    if (self.txtPhoneNumber.text.length>3) {
+        self.lblReceiverPhone.hidden = true;
+    }else{
+        self.lblReceiverPhone.hidden = false;
+    }
 }
 @end

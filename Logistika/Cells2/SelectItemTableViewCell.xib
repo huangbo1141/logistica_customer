@@ -213,7 +213,7 @@
                                     <constraint firstAttribute="height" constant="30" id="3CQ-r3-ocC"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="combobox_down.png" translatesAutoresizingMaskIntoConstraints="NO" id="rYT-QJ-JlE">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="combobox_down.png" translatesAutoresizingMaskIntoConstraints="NO" id="rYT-QJ-JlE">
                                 <rect key="frame" x="208" y="39" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="LiJ-ET-siM"/>

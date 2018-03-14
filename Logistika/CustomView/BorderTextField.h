@@ -18,6 +18,6 @@
 
 -(void)addBotomLayer:(CGRect)param;
 -(BOOL)isValid;
--(NSString*)getValidString;
+-(NSString*)getValidString:(int)output;
 -(void)checkString;
 @end

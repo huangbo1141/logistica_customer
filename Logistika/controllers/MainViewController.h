@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MenuViewController.h"
 #import "MyPopupDialog.h"
+#import "BorderTextField.h"
 
 @interface MainViewController : MenuViewController<ViewDialogDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
@@ -17,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnGuest;
 @property (weak, nonatomic) IBOutlet UIButton *btnCall;
 @property (weak, nonatomic) IBOutlet UIButton *btnTracking;
+@property (strong, nonatomic) IBOutlet BorderTextField *txtPhoneNumber;
+@property (strong, nonatomic) IBOutlet UIButton *btnSubmit;
+@property (copy, nonatomic) NSString* phone;
 
+@property (strong, nonatomic) IBOutlet UILabel* lblReceiverPhone;
 
 @end
