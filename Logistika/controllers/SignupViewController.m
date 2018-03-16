@@ -289,7 +289,7 @@
                     [self verification:self.txtPhoneNumber.text Otp:self.txtOtpCode.text];
                     return;
                 }else{
-                    [CGlobal AlertMessage:@"Input Opt Code" Title:nil];
+                    [CGlobal AlertMessage:@"Please enter valid OTP" Title:nil];
                     [self.txtOtpCode becomeFirstResponder];
                     return;
                 }
@@ -298,7 +298,7 @@
                     [self sendPhone:self.txtPhoneNumber.text];
                     return;
                 }else{
-                    [CGlobal AlertMessage:@"Input Correct Phone Number" Title:nil];
+                    [CGlobal AlertMessage:@"Please enter a valid phone number" Title:nil];
                     [self.txtPhoneNumber becomeFirstResponder];
                     return;
                 }
@@ -328,7 +328,7 @@
                 }
             }
         }else{
-            [CGlobal AlertMessage:@"Error" Title:nil];
+            [CGlobal AlertMessage:@"Please enter valid OTP" Title:nil];
             NSLog(@"Error");
         }
         [CGlobal stopIndicator:self];

@@ -192,7 +192,7 @@
                 if ([self.txtPhoneNumber isValid]) {
                     [self sendPhone:self.txtPhoneNumber.text];
                 }else{
-                    [CGlobal AlertMessage:@"Input Correct Phone Number" Title:nil];
+                    [CGlobal AlertMessage:@"Please enter a valid phone number" Title:nil];
                     return;
                 }
             }else if ([placeholder isEqualToString:@"Otp Code"]) {
@@ -254,7 +254,7 @@
                 }
             }
         }else{
-            [CGlobal AlertMessage:@"Error" Title:nil];
+            [CGlobal AlertMessage:@"Please enter valid OTP" Title:nil];
             NSLog(@"Error");
         }
         [CGlobal stopIndicator:self];
