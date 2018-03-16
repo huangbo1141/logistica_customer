@@ -165,7 +165,7 @@
     
     NSString* mFirst = _txtFirstName.text;
     NSString* mLast = _txtLastName.text;
-    NSString* mPhone = _txtPhoneNumber.text;
+    NSString* mPhone = [CGlobal getValidPhoneNumber:_txtPhoneNumber.text Output:1 Prefix:@"+91" Length:10];
     NSString* mAddress1 = _txtAddress.text;
     //    NSString* mAddress2 = _txtad.text;
     NSString* mCity = _txtCity.text;
@@ -348,19 +348,19 @@
                 int ret = [dict[@"result"] intValue] ;
                 if (ret == 200) {
                     // success
-                    [self goSignup];
+                    [self goSignup:otp];
+                    return;
                 }
             }
-        }else{
-            [CGlobal AlertMessage:@"Incorrect Opt Code" Title:nil];
-            NSLog(@"Error");
         }
-        
+        [CGlobal AlertMessage:@"Incorrect Opt Code" Title:nil];
+        NSLog(@"Error");
     } method:@"POST"];
 }
--(void)goSignup{
+-(void)goSignup:(NSString*)otp{
     NSMutableDictionary* data = [self checkInput];
     if (data != nil) {
+        data[@"otp"] = otp;
         NetworkParser* manager = [NetworkParser sharedManager];
         [CGlobal showIndicator:self];
         [manager ontemplateGeneralRequest2:data BasePath:BASE_URL Path:@"register" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
@@ -375,6 +375,11 @@
                 if ([ret isEqualToString:@"400"]) {
                     //
                     [CGlobal AlertMessage:@"Username already exists" Title:nil];
+                    [CGlobal stopIndicator:self];
+                    return;
+                }else if ([ret isEqualToString:@"600"]) {
+                    //
+//                    [CGlobal AlertMessage:@"Error" Title:nil];
                     [CGlobal stopIndicator:self];
                     return;
                 }

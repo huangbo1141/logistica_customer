@@ -1767,6 +1767,23 @@ NSMutableArray* menu_topList;
                 return tmp;
             }
         }
+        if (output == 2) {
+            // return phone number with +91 and withoug +
+            if ([param length] == length && ![param contains:@"+"]) {
+                NSString* tmp = [prefix stringByAppendingPathComponent:param];
+                tmp = [tmp substringFromIndex:1];
+                return tmp;
+            }
+            if ([param length] == total && [param hasPrefix:prefix]) {
+                NSString* tmp = [param substringFromIndex:1];
+                return tmp;
+            }
+            if ([param length] == total-1 && ![param contains:@"+"]) {
+                NSString* tmp = [@"+" stringByAppendingPathComponent:param];
+                tmp = [tmp substringFromIndex:1];
+                return tmp;
+            }
+        }
     }
     return param;
 }
