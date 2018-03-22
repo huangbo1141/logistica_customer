@@ -53,7 +53,7 @@
     }
     self.view.backgroundColor = COLOR_SECONDARY_PRIMARY;
     self.lblLabel.textColor = COLOR_PRIMARY;
-    
+    self.btnStart.hidden = true;
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGPoint offset = scrollView.contentOffset;
@@ -65,7 +65,9 @@
     if (pageIndex>=0 && pageIndex<3) {
         _pageIndicator.currentPage = pageIndex;    
     }
-    
+    if (_pageIndicator.currentPage == 2) {
+        _btnStart.hidden = false;
+    }
 }
 + (NSArray*)getRGBAsFromImage:(UIImage*)image atX:(int)x andY:(int)y count:(int)count
 {

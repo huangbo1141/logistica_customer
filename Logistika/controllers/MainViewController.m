@@ -23,6 +23,7 @@
 #import "MyPopupDialog.h"
 #import "CityModel.h"
 #import "UIView+Property.h"
+#import "TermViewController.h"
 
 @interface MainViewController ()
 @end
@@ -105,6 +106,7 @@
     
     
     NSAttributedString* attr_str = self.txtPhoneNumber.attributedPlaceholder;
+    self.viewTerm.hidden = true;
 //    id value = [attr_str valueForKeyPath:NSForegroundColorAttributeName];
 //    [attr_str setValue:value forKeyPath:NSForegroundColorAttributeName];
     
@@ -114,6 +116,9 @@
 ////        cityView.imgView.image = [UIImage imageNamed:@"background.png"];
 //    });
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = true;
 }
 -(void)clickView:(UIView*)sender{
     int tag = (int)sender.tag;
@@ -149,6 +154,7 @@
             self.btnSubmit.hidden = false;
             [self.txtPhoneNumber becomeFirstResponder];
             self.lblReceiverPhone.hidden = false;
+            self.viewTerm.hidden = false;
             break;
         }
         case 203:
@@ -192,7 +198,7 @@
                 if ([self.txtPhoneNumber isValid]) {
                     [self sendPhone:self.txtPhoneNumber.text];
                 }else{
-                    [CGlobal AlertMessage:@"Input Correct Phone Number" Title:nil];
+                    [CGlobal AlertMessage:@"Please enter a valid phone number" Title:nil];
                     return;
                 }
             }else if ([placeholder isEqualToString:@"Otp Code"]) {
@@ -251,12 +257,12 @@
                     self.lblReceiverPhone.hidden = true;
                     self.btnSubmit.hidden = true;
                     [self goGuest];
+                    return;
                 }
             }
-        }else{
-            [CGlobal AlertMessage:@"Error" Title:nil];
-            NSLog(@"Error");
         }
+        [CGlobal AlertMessage:@"Please enter valid OTP" Title:nil];
+        NSLog(@"Error");
         [CGlobal stopIndicator:self];
     } method:@"POST"];
 }
@@ -358,11 +364,13 @@
         self.txtPhoneNumber.placeholder = @"Phone Number";
         self.txtPhoneNumber.validateMode = 2;
         self.txtPhoneNumber.text = @"+91";
+        self.viewTerm.hidden = true;
     }else{
         _btnGuest.hidden = true;
         self.txtPhoneNumber.hidden = true;
         self.lblReceiverPhone.hidden = true;
         self.btnSubmit.hidden = true;
+        self.viewTerm.hidden = true;
     }
     
     self.view.drawerView.mode = index;
@@ -429,5 +437,15 @@
         MyPopupDialog * dlg = (MyPopupDialog*)view.xo;
         [dlg dismissPopup];
     }
+}
+- (IBAction)clickTerm:(id)sender {
+    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
+    TermViewController*vc = [ms instantiateViewControllerWithIdentifier:@"TermViewController"] ;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.navigationController.navigationBar.hidden = false;
+        [self.navigationController pushViewController:vc animated:true];
+    });
+    
 }
 @end

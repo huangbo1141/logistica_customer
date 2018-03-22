@@ -98,16 +98,26 @@
                 [self centerPointProcess];
             });
         }else{
-            GMSMutablePath* path = [GMSMutablePath path];
-            for (int i=0; i<g_cityBounds.count; i++) {
-                NSValue *value = g_cityBounds[i];
-                CGPoint point = [value CGPointValue];
-                [path addCoordinate:CLLocationCoordinate2DMake(point.x, point.y)];
-                
-            }
-            GMSCoordinateBounds* bound = [[GMSCoordinateBounds alloc] initWithPath:path];
             
-            [self.mapView animateWithCameraUpdate:[GMSCameraUpdate fitBounds:bound withPadding:10]];
+            
+            // check if current user in bound
+            if ([CGlobal isPointInPolygon:self.userPosition ArrayList:g_cityBounds]) {
+                // inside
+                self.mapView.camera = [[GMSCameraPosition alloc] initWithTarget:self.userPosition zoom:gms_camera_zoom bearing:0 viewingAngle:0];
+            }else{
+                // not inside
+                GMSMutablePath* path = [GMSMutablePath path];
+                for (int i=0; i<g_cityBounds.count; i++) {
+                    NSValue *value = g_cityBounds[i];
+                    CGPoint point = [value CGPointValue];
+                    [path addCoordinate:CLLocationCoordinate2DMake(point.x, point.y)];
+                    
+                }
+                GMSCoordinateBounds* bound = [[GMSCoordinateBounds alloc] initWithPath:path];
+                [self.mapView animateWithCameraUpdate:[GMSCameraUpdate fitBounds:bound withPadding:10]];
+            }
+            
+            
             double delayInSeconds = 3.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){

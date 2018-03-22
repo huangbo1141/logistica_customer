@@ -17,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UIView *view3;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageIndicator;
 @property (weak, nonatomic) IBOutlet FontLabel *lblLabel;
+@property (strong, nonatomic) IBOutlet UIButton *btnStart;
 
 @end

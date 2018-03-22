@@ -171,6 +171,7 @@
     
     self.txtPickAddress.backgroundColor = [UIColor clearColor];
     self.txtDesAddress.backgroundColor = [UIColor clearColor];
+    self.viewQuote.backgroundColor = [UIColor clearColor];
 }
 -(void)hideAddressFields{
     _txtPickArea.hidden = true;

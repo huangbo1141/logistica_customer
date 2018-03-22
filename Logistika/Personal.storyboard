@@ -3646,7 +3646,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="30" id="TWM-hN-qif"/>
                                                                                 </constraints>
-                                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                             </textField>

@@ -289,7 +289,7 @@
                     [self verification:self.txtPhoneNumber.text Otp:self.txtOtpCode.text];
                     return;
                 }else{
-                    [CGlobal AlertMessage:@"Input Opt Code" Title:nil];
+                    [CGlobal AlertMessage:@"Please enter valid OTP" Title:nil];
                     [self.txtOtpCode becomeFirstResponder];
                     return;
                 }
@@ -298,7 +298,7 @@
                     [self sendPhone:self.txtPhoneNumber.text];
                     return;
                 }else{
-                    [CGlobal AlertMessage:@"Input Correct Phone Number" Title:nil];
+                    [CGlobal AlertMessage:@"Please enter a valid phone number" Title:nil];
                     [self.txtPhoneNumber becomeFirstResponder];
                     return;
                 }
@@ -321,6 +321,8 @@
                 //
                 int ret = [dict[@"result"] intValue] ;
                 if (ret == 200) {
+                    self.txtPhoneNumber.userInteractionEnabled = false;
+                    self.txtPhoneNumber.textColor = [UIColor lightGrayColor];
                     self.txtOtpCode.hidden = false;
                     self.txtOtpCode.text = @"";
                     [self.txtOtpCode becomeFirstResponder];
@@ -328,7 +330,7 @@
                 }
             }
         }else{
-            [CGlobal AlertMessage:@"Error" Title:nil];
+            [CGlobal AlertMessage:@"Please enter a valid phone number" Title:nil];
             NSLog(@"Error");
         }
         [CGlobal stopIndicator:self];
@@ -353,7 +355,7 @@
                 }
             }
         }
-        [CGlobal AlertMessage:@"Incorrect Opt Code" Title:nil];
+        [CGlobal AlertMessage:@"Please enter valid OTP" Title:nil];
         NSLog(@"Error");
     } method:@"POST"];
 }
@@ -380,6 +382,9 @@
                 }else if ([ret isEqualToString:@"600"]) {
                     //
 //                    [CGlobal AlertMessage:@"Error" Title:nil];
+                    [CGlobal stopIndicator:self];
+                    return;
+                }else if(![ret isEqualToString:@"200"]){
                     [CGlobal stopIndicator:self];
                     return;
                 }

@@ -23,5 +23,6 @@
 @property (copy, nonatomic) NSString* phone;
 
 @property (strong, nonatomic) IBOutlet UILabel* lblReceiverPhone;
+@property (strong, nonatomic) IBOutlet UIView *viewTerm;
 
 @end
