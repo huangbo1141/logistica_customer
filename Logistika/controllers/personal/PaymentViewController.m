@@ -185,10 +185,16 @@ bool isPaymentCompleted = false;
     NSMutableDictionary* params = [[NSMutableDictionary alloc] init];
     params[@"id"] = env.order_id;
     
+    NSString*duration = @"";
     if (g_mode == c_PERSONAL) {
         params[@"user_id"] = env.user_id;
     }else if(g_mode == c_GUEST){
         params[@"user_id"] = @"0";
+    }
+    if (g_mode == c_GUEST) {
+        duration = eamil_guest;
+    }else{
+        duration = g_addressModel.duration;
     }
     params[@"date"] = g_dateModel.date;
     params[@"time"] = g_dateModel.time;
@@ -204,12 +210,13 @@ bool isPaymentCompleted = false;
     params[@"device_type"] = [CGlobal getDeviceName];
     
     
+    
     NSDictionary*jsonMap = @{@"s_address":g_addressModel.sourceAddress
                              ,@"s_area":g_addressModel.sourceArea
                              ,@"s_city":g_addressModel.sourceCity
                              ,@"s_state":g_addressModel.sourceState
                              ,@"s_pincode":g_addressModel.sourcePinCode
-                             ,@"s_phone":[NSString stringWithFormat:@"%@:%@",g_addressModel.sourceName,g_addressModel.sourcePhonoe]
+                             ,@"s_phone":[NSString stringWithFormat:@"%@:%@",g_addressModel.sourcePhonoe,g_addressModel.sourceName]
                              ,@"s_landmark":g_addressModel.sourceLandMark
                              ,@"s_instruction":g_addressModel.sourceInstruction
                              ,@"s_lat":[[NSNumber numberWithDouble:g_addressModel.sourceLat] stringValue]
@@ -225,7 +232,7 @@ bool isPaymentCompleted = false;
                              ,@"d_lng":[[NSNumber numberWithDouble:g_addressModel.desLng] stringValue]
                              
                              
-                             ,@"duration":g_addressModel.duration
+                             ,@"duration":duration
                              ,@"distance":g_addressModel.distance
                              ,@"device_id":[CGlobal getDeviceID]
                              ,@"d_phone":g_addressModel.desPhone
@@ -389,7 +396,7 @@ bool isPaymentCompleted = false;
                              ,@"s_city":g_addressModel.sourceCity
                              ,@"s_state":g_addressModel.sourceState
                              ,@"s_pincode":g_addressModel.sourcePinCode
-                             ,@"s_phone":[NSString stringWithFormat:@"%@:%@",g_addressModel.sourceName,g_addressModel.sourcePhonoe]
+                             ,@"s_phone":[NSString stringWithFormat:@"%@:%@",g_addressModel.sourcePhonoe,g_addressModel.sourceName]
                              ,@"s_landmark":g_addressModel.sourceLandMark
                              ,@"s_instruction":g_addressModel.sourceInstruction
                              ,@"s_lat":[[NSNumber numberWithDouble:g_addressModel.sourceLat] stringValue]

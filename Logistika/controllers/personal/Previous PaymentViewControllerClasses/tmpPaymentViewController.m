@@ -405,7 +405,7 @@
                              ,@"s_city":g_addressModel.sourceCity
                              ,@"s_state":g_addressModel.sourceState
                              ,@"s_pincode":g_addressModel.sourcePinCode
-                             ,@"s_phone":[NSString stringWithFormat:@"%@:%@",g_addressModel.sourceName,g_addressModel.sourcePhonoe]
+                             ,@"s_phone":[NSString stringWithFormat:@"%@:%@",g_addressModel.sourcePhonoe,g_addressModel.sourceName]
                              ,@"s_landmark":g_addressModel.sourceLandMark
                              ,@"s_instruction":g_addressModel.sourceInstruction
                              ,@"s_lat":[[NSNumber numberWithDouble:g_addressModel.sourceLat] stringValue]
@@ -585,7 +585,7 @@
                              ,@"s_city":g_addressModel.sourceCity
                              ,@"s_state":g_addressModel.sourceState
                              ,@"s_pincode":g_addressModel.sourcePinCode
-                             ,@"s_phone":[NSString stringWithFormat:@"%@:%@",g_addressModel.sourceName,g_addressModel.sourcePhonoe]
+                             ,@"s_phone":[NSString stringWithFormat:@"%@:%@",g_addressModel.sourcePhonoe,g_addressModel.sourceName]
                              ,@"s_landmark":g_addressModel.sourceLandMark
                              ,@"s_instruction":g_addressModel.sourceInstruction
                              ,@"s_lat":[[NSNumber numberWithDouble:g_addressModel.sourceLat] stringValue]

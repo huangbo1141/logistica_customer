@@ -45,8 +45,8 @@
             if(self.sourcePhonoe!=nil){
                 NSArray* components = [self.sourcePhonoe componentsSeparatedByString:@":"];
                 if (components.count == 2) {
-                    self.sourcePhonoe = components[1];
-                    self.sourceName = components[0];
+                    self.sourcePhonoe = components[0];
+                    self.sourceName = components[1];
                 }else if(components.count == 1){
                     self.sourcePhonoe = components[0];
                 }else {
