@@ -271,6 +271,19 @@
 }
 - (IBAction)clickContinue:(id)sender {
     
+    UIDatePicker* picker = self.txtTime.inputView;
+    NSDate* myDate = picker.date;
+    if (self.tempDate == nil) {
+        self.tempDate = [NSDate date];
+    }
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString *datestr = [dateFormat stringFromDate: self.tempDate];
+    
+    if ([CGlobal compareWithToday:myDate DateStr:datestr mode:1] == NSOrderedDescending) {
+        [CGlobal AlertMessage:@"Pickup time should not be in the past" Title:nil];
+        return;
+    }
     
     EnvVar* env = [CGlobal sharedId].env;
     if (env.mode != c_CORPERATION || env.quote ) {

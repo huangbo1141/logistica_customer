@@ -31,7 +31,7 @@
     [self firstProcess:0 Data:self.data VC:self];
     [self setModelData:self.data VC:self];
     
-    self.view.backgroundColor = COLOR_SECONDARY_THIRD;
+    self.view.backgroundColor = [UIColor whiteColor];
     [self hideAddressFields];
 }
 -(void)hideAddressFields{
@@ -293,7 +293,7 @@
         
         [cell setData:inputData];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = COLOR_SECONDARY_THIRD;
+        cell.backgroundColor = [UIColor whiteColor];
         return cell;
     }else if(self.orderModel.product_type == g_ITEM_OPTION){
         ReviewItemTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -301,7 +301,7 @@
         [cell initMe:self.orderModel.itemModels[indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.aDelegate = self;
-        cell.backgroundColor = COLOR_SECONDARY_THIRD;
+        cell.backgroundColor = [UIColor whiteColor];
         return cell;
     }else{
         ReviewPackageTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -309,7 +309,7 @@
         [cell initMe:self.orderModel.itemModels[indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.aDelegate = self;
-        cell.backgroundColor = COLOR_SECONDARY_THIRD;
+        cell.backgroundColor = [UIColor whiteColor];
         return cell;
     }
 }

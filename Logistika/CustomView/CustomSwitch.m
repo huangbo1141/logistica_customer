@@ -40,10 +40,18 @@
         }
         default:
         {
-            //    self.swPackage.tintColor = COLOR_PRIMARY;
-            //    self.swPackage.backgroundColor = [UIColor redColor];
+//            self.tintColor = COLOR_SECONDARY_THIRD;
+//            self.backgroundColor = [UIColor redColor];
+//            self.onTintColor = [UIColor greenColor]; //[UIColor yellowColor];
+//            self.thumbTintColor = COLOR_PRIMARY;
+            
+//            self.tintColor = [UIColor greenColor];
+            self.backgroundColor = [UIColor greenColor];
             self.onTintColor = [UIColor whiteColor]; //[UIColor yellowColor];
             self.thumbTintColor = COLOR_PRIMARY;
+            
+            self.layer.masksToBounds = true;
+            self.layer.cornerRadius = self.bounds.size.height/2;
             break;
         }
     }

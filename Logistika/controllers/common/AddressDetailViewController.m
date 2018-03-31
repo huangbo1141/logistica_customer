@@ -366,6 +366,14 @@
     _txtDesState.userInteractionEnabled = false;
     _txtDesPincode.userInteractionEnabled = false;
     
+    _txtPickAddress.userInteractionEnabled = false;
+    _txtDesAddress.userInteractionEnabled = false;
+    
+    _txtPickAddress.textColor = [UIColor grayColor];
+    _txtDesAddress.textColor = [UIColor grayColor];
+    [_txtPickAddress setEditable:false];
+    [_txtDesAddress setEditable:false];
+    
     //self.borderview1.backgroundColor = [UIColor clearColor];
     //self.borderview2.backgroundColor = [UIColor clearColor];
     

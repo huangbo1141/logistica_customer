@@ -35,6 +35,19 @@
 }
 -(void)setBackMode:(NSInteger)backMode{
     switch (backMode) {
+        case 8:{
+            // head part yellow background
+            UIView* shadowView = self;
+            shadowView.backgroundColor= COLOR_SECONDARY_THIRD;
+            [shadowView.layer setCornerRadius:0.0f];
+            [shadowView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+            [shadowView.layer setBorderWidth:0.0f];
+            [shadowView.layer setShadowColor:[UIColor colorWithRed:225.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1.0].CGColor];
+            [shadowView.layer setShadowOpacity:1.0];
+            [shadowView.layer setShadowRadius:5.0];
+            [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 2.0f)];
+            break;
+        }
         case 7:{
             // d3d3d3
             UIColor* clr = [CGlobal colorWithHexString:@"d3d3d3" Alpha:1.0f];

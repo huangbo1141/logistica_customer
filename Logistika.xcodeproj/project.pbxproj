@@ -10,6 +10,8 @@
 		1031BFBD2032CFC500A05D46 /* ic_action_done_38.png in Resources */ = {isa = PBXBuildFile; fileRef = 1031BFBC2032CFC400A05D46 /* ic_action_done_38.png */; };
 		10374A5A1FC2CE40000A96EF /* ReturnDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10374A591FC2CE40000A96EF /* ReturnDelegate.m */; };
 		108782E1204FE94F00362428 /* CustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 108782E0204FE94F00362428 /* CustomSwitch.m */; };
+		10E90519206E455300CDAD7D /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E90518206E455300CDAD7D /* CustomScrollView.m */; };
+		10E9051C206E472F00CDAD7D /* CustomTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E9051B206E472F00CDAD7D /* CustomTableView.m */; };
 		332DCF9F5B40D6520CFC78D2 /* Pods_Logistika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9732719F97A85E4E083CA4 /* Pods_Logistika.framework */; };
 		4D01CBF9203C020B000A4521 /* swipe2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D01CBF5203C0207000A4521 /* swipe2.png */; };
 		4D01CBFA203C020B000A4521 /* swipe5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D01CBF6203C0208000A4521 /* swipe5.png */; };
@@ -321,6 +323,10 @@
 		10374A591FC2CE40000A96EF /* ReturnDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReturnDelegate.m; sourceTree = "<group>"; };
 		108782DF204FE94F00362428 /* CustomSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSwitch.h; sourceTree = "<group>"; };
 		108782E0204FE94F00362428 /* CustomSwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSwitch.m; sourceTree = "<group>"; };
+		10E90517206E455300CDAD7D /* CustomScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
+		10E90518206E455300CDAD7D /* CustomScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
+		10E9051A206E472F00CDAD7D /* CustomTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableView.h; sourceTree = "<group>"; };
+		10E9051B206E472F00CDAD7D /* CustomTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableView.m; sourceTree = "<group>"; };
 		1B4B97F286C71ECF3523F453 /* Pods-Logistika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logistika.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Logistika/Pods-Logistika.debug.xcconfig"; sourceTree = "<group>"; };
 		4D01CBF5203C0207000A4521 /* swipe2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swipe2.png; sourceTree = "<group>"; };
 		4D01CBF6203C0208000A4521 /* swipe5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swipe5.png; sourceTree = "<group>"; };
@@ -950,6 +956,10 @@
 				4D863CE61EFB7B1B000B06E5 /* BorderTextView.m */,
 				108782DF204FE94F00362428 /* CustomSwitch.h */,
 				108782E0204FE94F00362428 /* CustomSwitch.m */,
+				10E90517206E455300CDAD7D /* CustomScrollView.h */,
+				10E90518206E455300CDAD7D /* CustomScrollView.m */,
+				10E9051A206E472F00CDAD7D /* CustomTableView.h */,
+				10E9051B206E472F00CDAD7D /* CustomTableView.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -2081,6 +2091,7 @@
 				4D126C861EA5AA4500C69B89 /* Predictions.m in Sources */,
 				10374A5A1FC2CE40000A96EF /* ReturnDelegate.m in Sources */,
 				4D8CAB611EA8B272001BCF17 /* ELCConsole.m in Sources */,
+				10E9051C206E472F00CDAD7D /* CustomTableView.m in Sources */,
 				4D126C7F1EA5AA4500C69B89 /* ComboDropTableViewCell.m in Sources */,
 				4D8CAB3B1EA86CE0001BCF17 /* NSDictionary+BVJSONString.m in Sources */,
 				4DFEAC4E1F3AA5DF004A832B /* OrderTableViewCell.m in Sources */,
@@ -2164,6 +2175,7 @@
 				4D126C821EA5AA4500C69B89 /* WNAActivityIndicator.m in Sources */,
 				4D126C8B1EA5AA4500C69B89 /* GooglePlace.m in Sources */,
 				4D8CAB5D1EA8B272001BCF17 /* ELCAlbumPickerController.m in Sources */,
+				10E90519206E455300CDAD7D /* CustomScrollView.m in Sources */,
 				4D126C611EA5AA4500C69B89 /* TextFieldWhitePlaceholder.m in Sources */,
 				4D3D99021EC4508D00D600B9 /* BasicViewController.m in Sources */,
 				4D31EECC1EB0501400D21CBF /* SelectItemTableViewCell.m in Sources */,

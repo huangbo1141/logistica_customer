@@ -40,15 +40,28 @@
     [alert show];
     
     if (self.navigationController!= nil) {
-        UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(0, 0, 20, 20);
-        [btn addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-        UIImage* image = [UIImage imageNamed:@"ic_action_done_38.png"];
+//        UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        btn.frame = CGRectMake(0, 0, 20, 20);
+//        [btn addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
+//        btn.tag = 100;
+        
+//        UIImage* image = [UIImage imageNamed:@"ic_action_done_38.png"];
 //        [btn setImage:image forState:UIControlStateNormal];
-        [btn setTitle:@"Upload" forState:UIControlStateNormal];
+//        btn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+//        btn.titleLabel.text = @"Uppload";
+//        NSMutableAttributedString* titleString = [[NSMutableAttributedString alloc] initWithString:@"Upload"];
+//        [titleString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17] range:NSMakeRange(0, [titleString length])];
+//        [titleString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [titleString length])];
+//        [btn setAttributedTitle:titleString forState:UIControlStateNormal];
+        
+        //[btn setTitle:@"Upload" forState:UIControlStateNormal];
 
-        UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:btn];
-        btn.tag = 100;
+//        UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        
+        UIBarButtonItem*item = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(clickView:)];
+        [item setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18.0f weight:UIFontWeightHeavy],NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+        item.tag = 100;
+        
         self.navigationItem.rightBarButtonItems = @[item];
       
 //        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_done.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(clickView:)];

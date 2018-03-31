@@ -297,7 +297,7 @@
         
         UINib* nib = [UINib nibWithNibName:@"ReviewItemTableViewCell" bundle:nil];
         [self.tableView_items registerNib:nib forCellReuseIdentifier:@"cell"];
-        self.cellHeight = 40;
+        self.cellHeight = 50;
         self.tableView_items.delegate = self;
         self.tableView_items.dataSource = self;
     }else if(model.orderModel.product_type == g_PACKAGE_OPTION){

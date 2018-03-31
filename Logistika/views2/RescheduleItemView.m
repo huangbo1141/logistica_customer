@@ -98,6 +98,15 @@
             return;
         }
         default:{
+            
+            UIDatePicker*picker = self.txtNewDate.inputView;
+            NSDate* myDate = picker.date;
+            
+            if ([CGlobal compareWithToday:myDate DateStr:nil mode:2] == NSOrderedDescending) {
+                [CGlobal AlertMessage:@"Pickup Date should not be in the past" Title:nil];
+                return;
+            }
+            
             NSString* val = self.txtNewDate.text;
             if (val!=nil && [val length] > 0) {
                 [CGlobal showIndicator:self.vc];

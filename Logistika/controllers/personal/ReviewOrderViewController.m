@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.scrollView.backgroundColor = COLOR_SECONDARY_THIRD;
+    self.scrollView.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self initView];
@@ -277,7 +277,7 @@
         
         [cell setFontSizeForReviewOrder:16.0f];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = COLOR_SECONDARY_THIRD;
+        cell.backgroundColor = [UIColor whiteColor];
         
         return cell;
     }else if(g_ORDER_TYPE == g_ITEM_OPTION){
@@ -287,7 +287,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setFontSizeForReviewOrder:16.0f];
         cell.aDelegate = self;
-        cell.backgroundColor = COLOR_SECONDARY_THIRD;
+        cell.backgroundColor = [UIColor whiteColor];
         return cell;
     }else{
         ReviewPackageTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -296,7 +296,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //        [cell setFontSizeForReviewOrder:16.0f];
         cell.aDelegate = self;
-        cell.backgroundColor = COLOR_SECONDARY_THIRD;
+        cell.backgroundColor = [UIColor whiteColor];
         return cell;
     }
 }

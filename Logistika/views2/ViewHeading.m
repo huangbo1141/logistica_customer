@@ -7,6 +7,9 @@
 //
 
 #import "ViewHeading.h"
+#import "CGlobal.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @implementation ViewHeading
 
@@ -21,4 +24,28 @@
     _constraint_Height.constant = 30;
     _constraint_Leading.constant = 20;
 }
+
+-(void)setTitleTheme:(NSInteger)titleTheme{
+    switch (titleTheme) {
+        case 2:
+            
+            break;
+        case 1:
+            
+            if (_lblTitle!=nil) {
+                _lblTitle.font = [UIFont systemFontOfSize:_lblTitle.font.pointSize weight:UIFontWeightHeavy];;
+                _lblTitle.textColor = COLOR_PRIMARY;
+            }
+            
+            
+            [self setBackMode:8];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
 @end
+
+

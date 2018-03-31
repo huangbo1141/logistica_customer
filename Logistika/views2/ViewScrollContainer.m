@@ -19,10 +19,19 @@
 */
 -(void)firstProcess{
     self.views = [[NSMutableArray alloc] init];
+    self.bouncesZoom = false;
+    self.alwaysBounceVertical = false;
+    self.alwaysBounceHorizontal = false;
+    self.bounces = false;
 }
 -(void)addOneView:(UIView*)view{
     [self.stackView addArrangedSubview:view];
     [self.views addObject:view];
+    
+    self.bouncesZoom = false;
+    self.alwaysBounceVertical = false;
+    self.alwaysBounceHorizontal = false;
+    self.bounces = false;
 }
 -(void)setCellSpace:(CGFloat)space{
     

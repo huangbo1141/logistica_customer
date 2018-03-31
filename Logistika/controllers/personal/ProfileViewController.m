@@ -36,7 +36,8 @@
     [_btnCreate addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
     _btnCreate.tag = 200;
     //
-    self.scrollParent.backgroundColor = COLOR_SECONDARY_THIRD;
+    self.scrollParent.backgroundColor = [UIColor whiteColor];
+    
     
     [_btnCreate setTitle:@"Save Changes" forState:UIControlStateNormal];
     _btnCreate.tag = 201;
@@ -174,6 +175,9 @@
     for (UITextField*text in controls) {
         [text addTarget:self action:@selector(textChange:) forControlEvents:UIControlEventEditingChanged];
     }
+    
+    self.txtPhoneNumber.userInteractionEnabled = false;
+    self.txtPhoneNumber.textColor = [UIColor grayColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

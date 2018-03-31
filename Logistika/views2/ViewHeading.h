@@ -9,6 +9,7 @@
 #import "ColoredView.h"
 #import "ColoredLabel.h"
 
+
 @interface ViewHeading : ColoredView
 
 @property (nonatomic,weak) IBOutlet ColoredLabel* lblTitle;
@@ -16,4 +17,6 @@
 @property (nonatomic,weak) IBOutlet NSLayoutConstraint* constraint_Leading;
 
 @property (nonatomic) IBInspectable NSInteger headMode;
+
+@property (nonatomic) IBInspectable NSInteger titleTheme;
 @end
