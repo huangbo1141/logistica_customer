@@ -34,6 +34,7 @@ NSString* FORGOT = @"/Forgot/";
 NSString* ZIP_LOCATION = @"http://maps.googleapis.com/maps/api/geocode/json";
 NSString* PHOTO_URL = @"/uploads/";
 NSString* symbol_dollar;
+NSString* support_phone = @"tel:9372863299";
 //NSString* g_baseUrl = @"https://travpholer.com/adminuser";
 BOOL g_lock = false;
 BOOL g_isii = true;

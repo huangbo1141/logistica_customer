@@ -25,7 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self loadData];
-    self.view.backgroundColor = COLOR_SECONDARY_THIRD;
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.viewRoot.backgroundColor = COLOR_SECONDARY_THIRD;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

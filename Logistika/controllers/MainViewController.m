@@ -188,7 +188,7 @@
         case 204:
         {
             // call
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:12125551212"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:support_phone]];
             break;
         }
         case 205:

@@ -208,7 +208,7 @@
     
     self.index = index;
     
-    
+    [self showEstmiatedDate];
 }
 -(void)timeChanged:(UIDatePicker*)picker{
     int tag = (int)picker.tag;
@@ -230,6 +230,8 @@
             g_dateModel.date = prettyVersion;
             
             self.tempDate = myDate;
+            
+            [self showEstmiatedDate];
             break;
         }
         case 201:{
@@ -252,6 +254,8 @@
             _txtTime.text = prettyVersion;
             
             g_dateModel.time = prettyVersion;
+            
+            [self showEstmiatedDate];
             break;
         }
             
@@ -384,6 +388,72 @@
             AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
             [delegate goHome:self];
         }
+    }
+}
+-(void) showEstmiatedDate
+{
+    if (self.index<0 || [self.txtTime.text length] ==0 || [self.txtDate.text length] == 0) {
+        return;
+    }
+    //hh:mm a
+    NSString* hour_str = [_txtTime.text substringFrom:0 to:2];
+    NSString* min_str = [_txtTime.text substringFrom:3 to:5];
+    NSString* am_str = [[_txtTime.text substringFrom:6 to:8] lowercaseString];
+    
+    int currentTime = [hour_str intValue];
+    int selectedMinute = [min_str intValue];
+    if ([am_str isEqualToString:@"pm"]) {
+        currentTime = currentTime + 12;
+    }
+    
+    int differentTime = 0;
+    switch (self.index)
+    {
+        case 0: differentTime = 8; break;
+        case 1: differentTime = 16; break;
+        case 2: differentTime = 24; break;
+            
+    }
+    int i = 0;
+    if(currentTime >= 19 )
+    {
+        i = 1;
+        currentTime = 6;
+        
+    }else if(currentTime < 6)
+    {
+        currentTime = 6;
+        
+    }
+    while (currentTime + differentTime > 19)
+    {
+        differentTime = currentTime + differentTime - 19 -1;
+        if(differentTime == 0 && selectedMinute == 0){
+            currentTime = 20;
+            break;
+        }else{
+            currentTime = 6;
+        }
+        i++;
+    }
+    if(i == 0)
+    {
+//        txtEstimated.setText(TimeHelper.getDate(year, selectedMonth, selectedDate) + " " + TimeHelper.getTime(currentTime + differentTime, selectedMinute)); //getString(R.string.estimated_time) + " " +
+        self.lblEstimatedPickup.text = [NSString stringWithFormat:@"%@ %02d:%02d %@",_txtDate.text,currentTime+differentTime,selectedMinute,currentTime+differentTime<12?@"AM":@"PM"];
+    }else
+    {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"dd-MM-yyyy"];
+        
+        NSDate* date = [dateFormat dateFromString:self.txtDate.text];
+        date = [date dateByAddingTimeInterval:24*60*60*i];
+        
+        self.lblEstimatedPickup.text = [NSString stringWithFormat:@"%@ %02d:%02d %@",[dateFormat stringFromDate:date],6+differentTime,selectedMinute,6+differentTime<12?@"AM":@"PM"];
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(year, selectedMonth, selectedDate + i );
+//        txtEstimated.setText(TimeHelper.getDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)) + " " + TimeHelper.getTime(6 + differentTime, selectedMinute));
+//        //getString(R.string.estimated_time) + " " +
+        
     }
 }
 /*

@@ -26,6 +26,9 @@
             self.alwaysBounceVertical = false;
             self.alwaysBounceHorizontal = false;
             self.bounces = false;
+            
+            self.allowsSelection = false;
+            self.separatorStyle = UITableViewCellSeparatorStyleNone;
             break;
         }
     }

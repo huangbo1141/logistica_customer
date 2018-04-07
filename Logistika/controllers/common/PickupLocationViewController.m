@@ -57,6 +57,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.mapView.myLocationEnabled = true;
+    self.mapView.settings.myLocationButton = true;
+//    self.mapView.settings.zoomGestures = true;
+    
     self.topbar_lbl_chooselocation.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightHeavy];
     self.topBar.backgroundColor = COLOR_PRIMARY;
     self.view.backgroundColor = COLOR_PRIMARY;
@@ -136,6 +140,21 @@
         [self updatePage];
     }else{
         [self dismissViewControllerAnimated:true completion:nil];
+    }
+}
+- (IBAction)tapZoomButton:(UIView*)sender {
+    int tag = sender.tag;
+    if (tag == 1) {
+        float zoom = self.mapView.camera.zoom;
+        zoom = zoom + 0.5;
+        [self.mapView animateToZoom:zoom];
+    }else if(tag == 2){
+        float zoom = self.mapView.camera.zoom;
+        zoom = zoom - 0.5;
+        if (zoom>0) {
+            [self.mapView animateToZoom:zoom];
+        }
+        
     }
 }
 

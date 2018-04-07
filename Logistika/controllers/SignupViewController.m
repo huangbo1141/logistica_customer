@@ -295,7 +295,7 @@
                 }
             }else{
                 if ([self.txtPhoneNumber isValid]) {
-                    [self sendPhone:self.txtPhoneNumber.text];
+                    [self checkPhoneRecord:self.txtPhoneNumber.text];
                     return;
                 }else{
                     [CGlobal AlertMessage:@"Please enter a valid phone number" Title:nil];
@@ -309,6 +309,28 @@
         default:
             break;
     }
+}
+-(void)checkPhoneRecord:(NSString*)phone{
+    NSMutableDictionary* data =[[NSMutableDictionary alloc] init];
+    data[@"phone"] = phone;
+    NetworkParser* manager = [NetworkParser sharedManager];
+    [CGlobal showIndicator:self];
+    [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"getOtpSignup" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+        [CGlobal stopIndicator:self];
+        if (error == nil) {
+            if (dict!=nil && dict[@"result"] != nil) {
+                //
+                int ret = [dict[@"result"] intValue] ;
+                if (ret == 200) {
+                    [self sendPhone:phone];
+                    return;
+                }
+            }
+        }
+        [CGlobal AlertMessage:@"Phone Number is already registered" Title:nil];
+        NSLog(@"Error");
+        
+    } method:@"POST"];
 }
 -(void)sendPhone:(NSString*)phone{
     NSMutableDictionary* data =[[NSMutableDictionary alloc] init];

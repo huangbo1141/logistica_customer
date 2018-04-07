@@ -293,6 +293,7 @@
     switch (tag) {
         
         case 201:{
+            _isChange = true;
             NSMutableDictionary* data = [self checkInput];
             if (data != nil && _isChange) {
                 EnvVar* env = [CGlobal sharedId].env;

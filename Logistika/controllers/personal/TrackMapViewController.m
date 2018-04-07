@@ -45,6 +45,9 @@
     _lblName.text = self.orderResponse.orderTrackModel.first_name;
     _lblPhone.text =    self.orderResponse.orderTrackModel.phone;
     
+    self.mapView.myLocationEnabled = true;
+    self.mapView.settings.myLocationButton = true;
+    
 //    _pointLists = [[NSMutableArray alloc] init];
     if ([self.orderResponse.orderTrackModel.pickup length]>0 && [self.orderResponse.orderTrackModel.location length]>0) {
         NSArray* str_pickup =  [self.orderResponse.orderTrackModel.pickup componentsSeparatedByString:@","];
@@ -126,6 +129,10 @@
         
     });
 }
+- (IBAction)tapCall:(id)sender {
+    NSString*phone = [NSString stringWithFormat:@"tel:%@",self.lblPhone.text];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phone]];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -135,6 +142,21 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = false;
     self.title = @"Track";
+}
+- (IBAction)tapZoomButton:(UIView*)sender {
+    int tag = sender.tag;
+    if (tag == 1) {
+        float zoom = self.mapView.camera.zoom;
+        zoom = zoom + 0.5;
+        [self.mapView animateToZoom:zoom];
+    }else if(tag == 2){
+        float zoom = self.mapView.camera.zoom;
+        zoom = zoom - 0.5;
+        if (zoom>0) {
+            [self.mapView animateToZoom:zoom];
+        }
+        
+    }
 }
 -(void)getGpsFromPinCode:(NSString*)pincode Number:(int)number{
     NSMutableDictionary* data = [[NSMutableDictionary alloc] init];

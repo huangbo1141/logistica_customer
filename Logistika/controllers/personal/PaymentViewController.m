@@ -39,6 +39,16 @@ bool isPaymentCompleted = false;
     
     self.view.backgroundColor = COLOR_SECONDARY_THIRD;
     // Do any additional setup after loading the view.
+    
+    EnvVar *env = [CGlobal sharedId].env;
+    NSString *phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
+    
+    if (env.mode == c_GUEST) {
+        phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
+    } else {
+        phone = [CGlobal getValidPhoneNumber:env.phone Output:0 Prefix:@"+91" Length:10];
+    }
+    NSLog(@"phone = %@",phone);
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -97,8 +107,10 @@ bool isPaymentCompleted = false;
         
         if (env.mode == c_GUEST) {
             email = g_guestEmail;
+            phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
         } else {
             email = env.email;
+            phone = [CGlobal getValidPhoneNumber:env.phone Output:0 Prefix:@"+91" Length:10];
         }
         
         /// Procced for Payment

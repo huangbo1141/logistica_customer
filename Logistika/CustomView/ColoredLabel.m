@@ -35,6 +35,10 @@
 }
 -(void)setBackMode:(NSInteger)backMode{
     switch (backMode) {
+        case 6:{
+            self.font = [UIFont boldSystemFontOfSize:17.0];
+            break;
+        }
         case 5:{
 //            self.font = [UIFont systemFontOfSize:17.0f weight:UIFontWeightHeavy];;
             self.font = [UIFont boldSystemFontOfSize:17.0];

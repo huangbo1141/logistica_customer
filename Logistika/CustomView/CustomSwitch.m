@@ -46,8 +46,8 @@
 //            self.thumbTintColor = COLOR_PRIMARY;
             
 //            self.tintColor = [UIColor greenColor];
-            self.backgroundColor = [UIColor greenColor];
-            self.onTintColor = [UIColor whiteColor]; //[UIColor yellowColor];
+            self.backgroundColor = [UIColor whiteColor];
+//            self.onTintColor = [UIColor greenColor]; //[UIColor yellowColor];
             self.thumbTintColor = COLOR_PRIMARY;
             
             self.layer.masksToBounds = true;

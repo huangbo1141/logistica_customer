@@ -43,6 +43,7 @@ extern  NSString* FORGOT ;
 extern  NSString* ZIP_LOCATION ;
 extern  NSString* PHOTO_URL ;
 extern  NSString*   symbol_dollar;
+extern  NSString*   support_phone;
 
 extern BOOL g_isii;
 extern int g_location_cnt;

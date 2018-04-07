@@ -87,6 +87,15 @@
     NSLog(@"test %@",content);
     
     self.txtBrief.placeholder = @"Briefly explain what we are delivering for you";
+    NSAttributedString* attr_str = self.txtName.attributedPlaceholder;
+    [attr_str enumerateAttributesInRange:NSMakeRange(0, [attr_str length])
+                                 options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired
+                              usingBlock:^(NSDictionary *attributes, NSRange range, BOOL *stop) {
+                                  UIColor *fgColor = [attributes objectForKey:NSForegroundColorAttributeName];
+                                  self.txtBrief.placeholderColor = fgColor;
+                                  NSLog(@"attributed done");
+                              }];
+    
 //    self.txtBrief.layer.borderWidth = 1;
 //    self.txtBrief.layer.borderColor = [UIColor blackColor].CGColor;
 //    self.txtBrief.layer.masksToBounds = true;
@@ -176,7 +185,7 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 - (IBAction)doCall:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:12125551212"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:support_phone]];
 }
 -(void)tracking:(NSString*)number{
     

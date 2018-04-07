@@ -1792,6 +1792,23 @@
                                             <constraint firstAttribute="width" constant="300" id="0Bj-Ps-wA6"/>
                                         </constraints>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6I-VB-uUO">
+                                        <rect key="frame" x="20" y="458" width="235.5" height="18"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated Pickup &amp; Delivery by " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gE8-Ms-aNm">
+                                                <rect key="frame" x="0.0" y="0.0" width="231.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfY-V9-tYL">
+                                                <rect key="frame" x="231.5" y="0.0" width="4" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1800,8 +1817,10 @@
                                     <constraint firstItem="uxh-Gj-vAb" firstAttribute="top" secondItem="TDV-sb-9HX" secondAttribute="top" constant="100" id="5VU-Ci-em2"/>
                                     <constraint firstItem="Jj2-k2-XD6" firstAttribute="top" secondItem="0Ew-vN-rE2" secondAttribute="top" id="7eO-aJ-9di"/>
                                     <constraint firstItem="FNn-Wb-giZ" firstAttribute="top" secondItem="Q9g-Y1-zED" secondAttribute="top" id="9T6-rv-Y1Z"/>
+                                    <constraint firstItem="f6I-VB-uUO" firstAttribute="top" secondItem="wV6-R4-DzY" secondAttribute="bottom" constant="47" id="DGe-Cl-dBq"/>
                                     <constraint firstItem="awp-ZC-rJd" firstAttribute="top" secondItem="25e-kw-Hpu" secondAttribute="bottom" constant="17.5" id="E6z-kf-RTx"/>
                                     <constraint firstItem="7Nv-GD-OoZ" firstAttribute="leading" secondItem="TDV-sb-9HX" secondAttribute="leading" id="FI4-5h-gEX"/>
+                                    <constraint firstItem="f6I-VB-uUO" firstAttribute="leading" secondItem="TDV-sb-9HX" secondAttribute="leading" constant="20" id="HNE-HK-em9"/>
                                     <constraint firstAttribute="trailing" secondItem="7Nv-GD-OoZ" secondAttribute="trailing" id="Mlc-yu-taA"/>
                                     <constraint firstItem="25e-kw-Hpu" firstAttribute="top" secondItem="uxh-Gj-vAb" secondAttribute="bottom" constant="100" id="PGe-fF-u9A"/>
                                     <constraint firstItem="7xJ-KV-xbd" firstAttribute="bottom" secondItem="axg-r0-8l6" secondAttribute="bottom" id="Ph6-OD-zo6"/>
@@ -1850,6 +1869,7 @@
                         <outlet property="btnReview" destination="s8W-k7-NVi" id="Qzf-4W-lVD"/>
                         <outlet property="const_EMAIL_TOP" destination="pwb-kl-cEm" id="dVU-bF-KR4"/>
                         <outlet property="const_MAIN_TOP" destination="5VU-Ci-em2" id="9Fl-D5-Rf8"/>
+                        <outlet property="lblEstimatedPickup" destination="KfY-V9-tYL" id="9xO-jy-qZp"/>
                         <outlet property="lblPrice1_1" destination="Rvl-Hn-gfa" id="kaY-jf-if5"/>
                         <outlet property="lblPrice1_2" destination="clK-55-04c" id="kQs-Tt-gGI"/>
                         <outlet property="lblPrice1_3" destination="K10-zo-qG0" id="13L-g7-pLg"/>
@@ -2305,8 +2325,8 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                         <integer key="value" value="0"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                        <integer key="value" value="1"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                        <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -2568,8 +2588,8 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                 <integer key="value" value="0"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                <integer key="value" value="1"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                <integer key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -2682,8 +2702,8 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                 <integer key="value" value="0"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                <integer key="value" value="1"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                <integer key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -2796,8 +2816,8 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                 <integer key="value" value="0"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                <integer key="value" value="1"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                <integer key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -2857,8 +2877,8 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                 <integer key="value" value="0"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                <integer key="value" value="1"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                <integer key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -2918,8 +2938,8 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                 <integer key="value" value="0"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                <integer key="value" value="1"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                <integer key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -3359,8 +3379,8 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                         <integer key="value" value="0"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                        <integer key="value" value="1"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                        <integer key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
@@ -3609,8 +3629,8 @@
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                                 <integer key="value" value="0"/>
                                                                                             </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                                <integer key="value" value="1"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                                <integer key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
@@ -3723,8 +3743,8 @@
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                                 <integer key="value" value="0"/>
                                                                                             </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                                <integer key="value" value="1"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                                <integer key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
@@ -3837,8 +3857,8 @@
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                                 <integer key="value" value="0"/>
                                                                                             </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                                <integer key="value" value="1"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                                <integer key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
@@ -3898,8 +3918,8 @@
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                                 <integer key="value" value="0"/>
                                                                                             </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                                <integer key="value" value="1"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                                <integer key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
@@ -3959,8 +3979,8 @@
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                                 <integer key="value" value="0"/>
                                                                                             </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                                <integer key="value" value="1"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                                <integer key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
@@ -4455,7 +4475,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9h-5s-StK">
-                                        <rect key="frame" x="123" y="17" width="128.5" height="21"/>
+                                        <rect key="frame" x="123" y="17.5" width="128.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -4498,6 +4518,59 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Sn4-eo-anZ">
+                                        <rect key="frame" x="323" y="392" width="40" height="100"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAO-f7-Gel">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hh0-qe-l1J">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <state key="normal" title="+">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapZoomButton:" destination="Fgu-JE-RrF" eventType="touchUpInside" id="zfm-bY-6W4"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="4kb-gO-TNz"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Hh0-qe-l1J" secondAttribute="bottom" id="ENl-6g-9D6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Hh0-qe-l1J" secondAttribute="trailing" id="crE-eY-WmE"/>
+                                                    <constraint firstItem="Hh0-qe-l1J" firstAttribute="top" secondItem="qAO-f7-Gel" secondAttribute="top" id="mFT-Vg-LIy"/>
+                                                    <constraint firstItem="Hh0-qe-l1J" firstAttribute="leading" secondItem="qAO-f7-Gel" secondAttribute="leading" id="t0w-x2-Jc5"/>
+                                                    <constraint firstAttribute="height" constant="40" id="z2X-dk-P46"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-YL-b1g">
+                                                <rect key="frame" x="0.0" y="60" width="40" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnT-Ox-bSq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <state key="normal" title="-">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapZoomButton:" destination="Fgu-JE-RrF" eventType="touchUpInside" id="hhj-WI-I58"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="lnT-Ox-bSq" firstAttribute="top" secondItem="Pqg-YL-b1g" secondAttribute="top" id="1JN-oN-9cb"/>
+                                                    <constraint firstAttribute="height" constant="40" id="40Q-9e-3QJ"/>
+                                                    <constraint firstAttribute="width" constant="40" id="5b5-23-uu8"/>
+                                                    <constraint firstItem="lnT-Ox-bSq" firstAttribute="leading" secondItem="Pqg-YL-b1g" secondAttribute="leading" id="CVS-HF-Hig"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lnT-Ox-bSq" secondAttribute="bottom" id="Erp-wZ-EAv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lnT-Ox-bSq" secondAttribute="trailing" id="cHd-3V-gWB"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_icon_map_marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="pwH-Yc-gNm">
                                         <rect key="frame" x="169" y="278" width="36" height="36"/>
                                         <constraints>
@@ -4531,7 +4604,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Sn4-eo-anZ" secondAttribute="bottom" constant="100" id="65a-Y8-Wrw"/>
                                     <constraint firstAttribute="bottom" secondItem="Gf3-Sv-eK8" secondAttribute="bottom" constant="20" id="Bbf-RQ-p26"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sn4-eo-anZ" secondAttribute="trailing" constant="12" id="Hzi-Vh-z48"/>
                                     <constraint firstItem="zbs-Gs-sUb" firstAttribute="top" secondItem="nWd-DL-oOD" secondAttribute="top" id="NRt-1D-psd"/>
                                     <constraint firstItem="pwH-Yc-gNm" firstAttribute="centerX" secondItem="zbs-Gs-sUb" secondAttribute="centerX" id="V57-IZ-1s0"/>
                                     <constraint firstItem="Gf3-Sv-eK8" firstAttribute="centerX" secondItem="nWd-DL-oOD" secondAttribute="centerX" id="ZFf-Lx-W3z"/>

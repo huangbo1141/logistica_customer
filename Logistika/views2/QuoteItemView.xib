@@ -130,7 +130,7 @@
                                     </subviews>
                                 </stackView>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKs-7q-aZH">
-                                    <rect key="frame" x="0.0" y="679" width="330" height="813"/>
+                                    <rect key="frame" x="0.0" y="609" width="330" height="813"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AhD-wt-Kod">
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="813"/>
@@ -325,8 +325,8 @@
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                             <integer key="value" value="0"/>
                                                                         </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                            <integer key="value" value="1"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                            <integer key="value" value="5"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
@@ -434,8 +434,8 @@
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                             <integer key="value" value="0"/>
                                                                         </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                            <integer key="value" value="1"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                            <integer key="value" value="5"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
@@ -546,8 +546,8 @@
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                     <integer key="value" value="0"/>
                                                                                 </userDefinedRuntimeAttribute>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                    <integer key="value" value="1"/>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                    <integer key="value" value="5"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                             <connections>
@@ -625,8 +625,8 @@
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="headMode">
                                                                                     <integer key="value" value="0"/>
                                                                                 </userDefinedRuntimeAttribute>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="titleTheme">
-                                                                                    <integer key="value" value="1"/>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="backMode">
+                                                                                    <integer key="value" value="5"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                             <connections>
@@ -685,13 +685,13 @@
                                 </view>
                             </subviews>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWK-VV-rJJ">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWK-VV-rJJ">
                             <rect key="frame" x="0.0" y="64" width="338" height="649"/>
                             <connections>
                                 <action selector="clickArrow:" destination="2KD-Jj-cwH" eventType="touchUpInside" id="9tg-hS-gyr"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPq-Dz-wcK">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPq-Dz-wcK">
                             <rect key="frame" x="90" y="713" width="248" height="30"/>
                             <connections>
                                 <action selector="clickArrow:" destination="2KD-Jj-cwH" eventType="touchUpInside" id="nG7-1o-GJ1"/>

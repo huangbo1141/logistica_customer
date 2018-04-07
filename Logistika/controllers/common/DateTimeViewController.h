@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet BorderView *viewPrice1;
 @property (weak, nonatomic) IBOutlet BorderView *viewPrice2;
 @property (weak, nonatomic) IBOutlet BorderView *viewPrice3;
+@property (weak, nonatomic) IBOutlet UILabel *lblEstimatedPickup;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblPrice1_1;
 @property (weak, nonatomic) IBOutlet UILabel *lblPrice1_2;

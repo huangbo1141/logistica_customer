@@ -61,7 +61,12 @@
     }
     
     
+//    self.segControl.tintColor = COLOR_PRIMARY;
     self.segControl.tintColor = COLOR_PRIMARY;
+    
+    self.segControl.layer.cornerRadius = 4;
+    self.segControl.layer.masksToBounds = true;
+    self.segControl.layer.backgroundColor = [UIColor whiteColor].CGColor;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
