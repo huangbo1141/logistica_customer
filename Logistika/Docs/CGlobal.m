@@ -13,6 +13,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import "UIView+Property.h"
 #import "TblTruck.h"
+#import "ReviewItemTableViewCell.h"
+#import "ReviewPackageTableViewCell.h"
+#import "ReviewCameraTableViewCell.h"
 
 UIColor*   COLOR_TOOLBAR_TEXT;
 UIColor*   COLOR_TOOLBAR_BACK;
@@ -1787,6 +1790,31 @@ NSMutableArray* menu_topList;
         }
     }
     return param;
+}
++(CGFloat)tableView1:(UITableView *)tableView1 tableView2:(UITableView *)tableView2 tableView3:(UITableView *)tableView3 heightForRowAtIndexPath:(NSIndexPath *)indexPath DefaultHeight:(CGFloat)cellHeight Data:(OrderModel*)orderModel OrderType:(int)orderType  Padding:(CGFloat)padding Width:(CGFloat)width{
+    
+    if (orderType == g_CAMERA_OPTION) {
+        return cellHeight;
+    }else if(orderType == g_ITEM_OPTION){
+        ReviewItemTableViewCell* cell = [tableView2 dequeueReusableCellWithIdentifier:@"cell"];
+        [cell initMe:orderModel.itemModels[indexPath.row]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setFontSizeForReviewOrder:17.0f];
+        
+        CGFloat height = [cell getHeight:padding Width:width];
+        
+        return height;
+    }else{
+        ReviewPackageTableViewCell* cell = [tableView3 dequeueReusableCellWithIdentifier:@"cell"];
+        
+        [cell initMe:orderModel.itemModels[indexPath.row]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setFontSizeForReviewOrder:17.0f];
+        
+        CGFloat height = [cell getHeight:padding Width:width];
+        
+        return height;
+    }
 }
 //+(UIImage*)customImageForMap:(NSString*)role PolyData:(TblPolygon*)polygon{
 //    NSString* image = "0"

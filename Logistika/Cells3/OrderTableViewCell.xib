@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbu-LW-D3Z" customClass="OrderItemView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbm-hk-d9C" customClass="ColoredView">
-                                <rect key="frame" x="4" y="8" width="312" height="86"/>
+                                <rect key="frame" x="4" y="8" width="312" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R8z-oo-8Yj">
-                                        <rect key="frame" x="4" y="0.0" width="304" height="86"/>
+                                        <rect key="frame" x="4" y="0.0" width="304" height="90"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-Kz-gnP">
                                                 <rect key="frame" x="0.0" y="0.0" width="304" height="18"/>
@@ -105,7 +105,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8qY-x2-FAg">
-                                                <rect key="frame" x="0.0" y="68" width="304" height="18"/>
+                                                <rect key="frame" x="0.0" y="72" width="304" height="18"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fi1-W5-zLO">
                                                         <rect key="frame" x="0.0" y="0.0" width="51.5" height="18"/>
@@ -128,7 +128,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgM-VP-pL2">
-                                                <rect key="frame" x="0.0" y="-80" width="304" height="585"/>
+                                                <rect key="frame" x="0.0" y="-150" width="304" height="585"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tN-Cb-H5w">
                                                         <rect key="frame" x="0.0" y="0.0" width="304" height="40"/>
@@ -803,14 +803,14 @@
                                             <action selector="clickArrow:" destination="fbu-LW-D3Z" eventType="touchUpInside" id="wX3-1j-dRP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGA-ZR-j3Y">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGA-ZR-j3Y">
                                         <rect key="frame" x="90" y="30" width="222" height="30"/>
                                         <connections>
                                             <action selector="clickArrow:" destination="fbu-LW-D3Z" eventType="touchUpInside" id="T2H-0T-CjU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfb-ta-2oM">
-                                        <rect key="frame" x="0.0" y="60" width="312" height="26"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfb-ta-2oM">
+                                        <rect key="frame" x="0.0" y="60" width="312" height="30"/>
                                         <connections>
                                             <action selector="clickArrow:" destination="fbu-LW-D3Z" eventType="touchUpInside" id="qQO-M6-eBS"/>
                                         </connections>
@@ -848,7 +848,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9E-bS-Phi">
-                                <rect key="frame" x="264" y="-77" width="50" height="50"/>
+                                <rect key="frame" x="264" y="-147" width="50" height="50"/>
                                 <connections>
                                     <action selector="clickPos:" destination="fbu-LW-D3Z" eventType="touchUpInside" id="ymg-Ua-eYH"/>
                                 </connections>

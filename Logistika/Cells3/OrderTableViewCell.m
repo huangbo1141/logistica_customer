@@ -31,7 +31,7 @@
         if (model.cellSizeCalculated == false) {
             [self.orderItemView setModelData:model VC:self.vc];
         }else{
-            [self.orderItemView setModelData:self.model VC:self.vc];
+            [self.orderItemView setModelData:model VC:self.vc];
         }
         
         

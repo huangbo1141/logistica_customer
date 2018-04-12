@@ -34,7 +34,35 @@
     for (int i=0; i<fields.count; i++) {
         BorderTextField*field = fields[i];
         //        [field addBotomLayer:frame];
+        if (field == self.txtPhone) {
+            field.validateMode = 2;
+            field.validateLength = 10;
+        }
         field.backMode = 1;
+    }
+    self.txtPhone.text = @"+91";
+    NSAttributedString* attr_str = self.txtAnswer.attributedPlaceholder;
+    [attr_str enumerateAttributesInRange:NSMakeRange(0, [attr_str length])
+                                 options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired
+                              usingBlock:^(NSDictionary *attributes, NSRange range, BOOL *stop) {
+                                  UIColor *fgColor = [attributes objectForKey:NSForegroundColorAttributeName];
+                                  self.lblReceiverPhone.textColor = fgColor;
+                              }];
+    
+    
+    [self.txtPhone addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self updateHintText];
+}
+-(void)textFieldDidChange:(UITextField*)textField{
+    if (textField == self.txtPhone ) {
+        [self updateHintText];
+    }
+}
+-(void)updateHintText{
+    if (self.txtPhone.text.length>3) {
+        self.lblReceiverPhone.hidden = true;
+    }else{
+        self.lblReceiverPhone.hidden = false;
     }
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -50,7 +78,7 @@
     if (tag == 200) {
         if ([self checkInput1]) {
             EnvVar* env = [CGlobal sharedId].env;
-            NSString*mName = _txtPhone.text;
+            NSString*mName = [CGlobal getValidPhoneNumber:_txtPhone.text Output:1 Prefix:@"+91" Length:10];
             
             
             NSMutableDictionary* params = [[NSMutableDictionary alloc] init];

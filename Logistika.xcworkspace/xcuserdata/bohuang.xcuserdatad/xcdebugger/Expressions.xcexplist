@@ -3,13 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[PaymentViewController order]:PaymentViewController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[DoneViewController viewDidLoad]:DoneViewController.m">
+         contextName = "-[CameraOrderViewController clickContinue:]:CameraOrderViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "curPaymentWay">
+               value = "g_cameraOrderModel.itemModels[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PaymentViewController done:]:PaymentViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_serviceModel.price">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,12 +27,54 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[PaymentViewController viewWillAppear:]:PaymentViewController.m">
+         contextName = "-[PaymentViewController order]:PaymentViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "curPaymentWay">
+               value = "g_cameraOrderModel.itemModels[0]">
+            </PersistentString>
+            <PersistentString
+               value = "temp.count">
+            </PersistentString>
+            <PersistentString
+               value = "g_packageOrderModel.itemModels[0]">
+            </PersistentString>
+            <PersistentString
+               value = "params[@&quot;products&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "images.count">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__37-[TrackMapViewController viewDidLoad]_block_invoke_2:TrackMapViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.packageLocaion">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RescheduleItemView toggleShow:]:RescheduleItemView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.tableView">
+            </PersistentString>
+            <PersistentString
+               value = "self.data.viewContentHidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__30-[PaymentViewController order]_block_invoke:PaymentViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "params">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RescheduleItemView tableView:cellForRowAtIndexPath:]:RescheduleItemView.m">
       </ContextState>
       <ContextState
          contextName = "-[OrderItemCorView showCarriers]:OrderItemCorView.m">
@@ -38,15 +85,58 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[InfoView2 getHeight]:InfoView2.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.totalHeight">
+            </PersistentString>
+            <PersistentString
+               value = "scRect.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DoneViewController viewDidLoad]:DoneViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "curPaymentWay">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PaymentViewController viewWillAppear:]:PaymentViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "curPaymentWay">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[OrderItemView setModelData:VC:]:OrderItemView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "model.orderModel.product_type">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RescheduleViewController tableView:heightForRowAtIndexPath:]:RescheduleViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "model.viewContentHidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ReviewCameraTableViewCell setData:]:ReviewCameraTableViewCell.m">
+      </ContextState>
+      <ContextState
          contextName = "__58-[PickupLocationViewController getLocationFromCoordinate:]_block_invoke:PickupLocationViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[PaymentViewController done:]:PaymentViewController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -257,6 +257,14 @@
                 view.lblArea.text = g_addressModel.desArea;
                 view.lblCity.text = g_addressModel.desCity;
             }
+            
+            CGRect frame = view.frame;
+            CGRect scRect = [[UIScreen mainScreen] bounds];
+            scRect.size.width = MIN(scRect.size.width -32,320);
+            
+            CGRect newFrame = CGRectMake(frame.origin.x, frame.origin.y, scRect.size.width, [view getHeight]);
+            view.frame = newFrame;
+            
             return view;
         }else{
             InfoView2* view = array[1];
@@ -280,7 +288,10 @@
                 
                 [view setData:@{@"vc":self}];
                 CGRect frame = view.frame;
-                CGRect newFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, [view getHeight]);
+                CGRect scRect = [[UIScreen mainScreen] bounds];
+                scRect.size.width = MIN(scRect.size.width -32,320);
+                
+                CGRect newFrame = CGRectMake(frame.origin.x, frame.origin.y, scRect.size.width, [view getHeight]);
                 view.frame = newFrame;
                 
                 return view;

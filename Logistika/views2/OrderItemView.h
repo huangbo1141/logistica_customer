@@ -79,6 +79,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnPos;
 
+@property (nonatomic,strong) NSMutableDictionary* height_dict;
+@property (nonatomic,assign) CGFloat totalHeight;
+
 @end
 
 

@@ -211,6 +211,19 @@
         _lblDestLandMark.text = model.addressModel.desLandMark;
         _lblDestInst.text = model.addressModel.desInstruction;
         _lblDestName.text = model.addressModel.desName;
+        
+        NSString* sin = [g_addressModel.sourceInstruction stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if ([sin length]>0) {
+            _lblPickInst.text = g_addressModel.sourceInstruction;
+        }else{
+            _lblPickInst.hidden = true;
+        }
+        sin = [g_addressModel.desInstruction stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if ([sin length]>0) {
+            _lblDestInst.text = g_addressModel.desInstruction;
+        }else{
+            _lblDestInst.hidden = true;
+        }
     }
 //    _lblDestPhone.hidden = true;
     

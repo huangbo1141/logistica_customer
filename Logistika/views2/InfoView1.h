@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblAddress;
 @property (weak, nonatomic) IBOutlet UILabel *lblArea;
 @property (weak, nonatomic) IBOutlet UILabel *lblCity;
+
+@property (weak, nonatomic) IBOutlet UIStackView *stackRoot;
+-(CGFloat)getHeight;
 @end

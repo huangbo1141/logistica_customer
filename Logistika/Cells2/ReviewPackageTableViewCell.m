@@ -31,6 +31,22 @@
     
     self.data = model;
 }
+-(CGFloat)getHeight:(CGFloat)padding Width:(CGFloat)width{
+    CGRect scRect = [[UIScreen mainScreen] bounds];
+    if (width>0) {
+        scRect.size.width = width;
+        scRect.size.height = 20;
+    }else{
+        scRect.size.width = scRect.size.width -padding;
+        scRect.size.height = 20;
+    }
+    
+    
+    CGSize size = [self.stackRoot systemLayoutSizeFittingSize:scRect.size withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityDefaultLow];
+    //        NSLog(@"widthwidth %f height %f",size.width,size.height);
+    
+    return size.height;
+}
 -(void)setFontSizeForReviewOrder:(CGFloat)fontsize{
     UIFont* font = [UIFont systemFontOfSize:fontsize];
     [self.lblQuantity setFont:font];

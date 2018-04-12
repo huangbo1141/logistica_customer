@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 
-@interface CancelPickViewController : MenuViewController
+@interface CancelPickViewController : MenuViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *viewRoot;
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 @end

@@ -18,6 +18,6 @@
     return self;
 }
 -(void)initDefault{
-    self.time_in = @"In 8 hours";
+    self.time_in = @"In 4 hours";
 }
 @end

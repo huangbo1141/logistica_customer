@@ -86,4 +86,7 @@
 }
 -(void)initMe:(ItemModel*)model{
 }
+-(CGFloat)getHeight:(CGFloat)padding Width:(CGFloat)width{
+    return 40;
+}
 @end

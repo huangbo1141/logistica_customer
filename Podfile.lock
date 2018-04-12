@@ -1,44 +1,42 @@
 PODS:
-  - AFNetworking (3.1.0):
-    - AFNetworking/NSURLSession (= 3.1.0)
-    - AFNetworking/Reachability (= 3.1.0)
-    - AFNetworking/Security (= 3.1.0)
-    - AFNetworking/Serialization (= 3.1.0)
-    - AFNetworking/UIKit (= 3.1.0)
-  - AFNetworking/NSURLSession (3.1.0):
+  - AFNetworking (3.2.0):
+    - AFNetworking/NSURLSession (= 3.2.0)
+    - AFNetworking/Reachability (= 3.2.0)
+    - AFNetworking/Security (= 3.2.0)
+    - AFNetworking/Serialization (= 3.2.0)
+    - AFNetworking/UIKit (= 3.2.0)
+  - AFNetworking/NSURLSession (3.2.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.1.0)
-  - AFNetworking/Security (3.1.0)
-  - AFNetworking/Serialization (3.1.0)
-  - AFNetworking/UIKit (3.1.0):
+  - AFNetworking/Reachability (3.2.0)
+  - AFNetworking/Security (3.2.0)
+  - AFNetworking/Serialization (3.2.0)
+  - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
-  - CitrusGraphics (1.1.3):
-    - Kingfisher
-  - GoogleMaps (2.5.0):
-    - GoogleMaps/Maps (= 2.5.0)
-  - GoogleMaps/Base (2.5.0)
-  - GoogleMaps/Maps (2.5.0):
+  - CitrusGraphics (2.1.0)
+  - GoogleMaps (2.6.0):
+    - GoogleMaps/Maps (= 2.6.0)
+  - GoogleMaps/Base (2.6.0)
+  - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
-  - GooglePlacePicker (2.5.0):
-    - GoogleMaps (= 2.5.0)
-    - GooglePlaces (= 2.5.0)
-  - GooglePlaces (2.5.0):
-    - GoogleMaps/Base (= 2.5.0)
-  - IQKeyboardManager (5.0.6)
-  - Kingfisher (4.2.0)
-  - MarqueeLabel (3.1.3):
-    - MarqueeLabel/ObjC (= 3.1.3)
-  - MarqueeLabel/ObjC (3.1.3)
-  - PayUmoney_CoreSDK (3.0)
-  - PayUmoney_PnP (2.0):
+  - GooglePlacePicker (2.6.0):
+    - GoogleMaps (= 2.6.0)
+    - GooglePlaces (= 2.6.0)
+  - GooglePlaces (2.6.0):
+    - GoogleMaps/Base (= 2.6.0)
+  - IQKeyboardManager (5.0.8)
+  - MarqueeLabel (3.1.4):
+    - MarqueeLabel/ObjC (= 3.1.4)
+  - MarqueeLabel/ObjC (3.1.4)
+  - PayUmoney_CoreSDK (3.2)
+  - PayUmoney_PnP (2.2):
     - CitrusGraphics
     - PayUmoney_CoreSDK
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - Stripe (11.5.0)
+  - Stripe (12.1.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -52,18 +50,17 @@ DEPENDENCIES:
   - Stripe
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  CitrusGraphics: f649eb800a443c98af8dcb5544f244bfe472e30e
-  GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
-  GooglePlacePicker: 1573e644ab54564d95c2643edc0f29091609e966
-  GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
-  IQKeyboardManager: 077b7f691dfa9d69db9cff66f2bed68ebfc02d9b
-  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
-  MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
-  PayUmoney_CoreSDK: 66341cb1f259708bc45cda0c4f1016a970c1d227
-  PayUmoney_PnP: 97598a262b25024950eb2a72df48fc6151429ea2
+  AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  CitrusGraphics: 21ca86e16760e4226d48f6e2bfbf0d40d5f8c285
+  GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
+  GooglePlacePicker: e4488625effb006f59de49e14b7a603e463e4261
+  GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
+  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
+  MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
+  PayUmoney_CoreSDK: cfb8fca58220ce424a37b9d83400efbc411b1d25
+  PayUmoney_PnP: 0aaec816e992fd6b67d34514204f4bc5b0c14388
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  Stripe: 10761682d20dc491c52287393c800db056c9748d
+  Stripe: 3230cdf8a8b0c04902e45e86f222fb82a926239c
 
 PODFILE CHECKSUM: b628f55a6a7710a274c2e31997adbc43042f5987
 

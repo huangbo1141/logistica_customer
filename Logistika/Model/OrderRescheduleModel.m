@@ -61,5 +61,11 @@
     self.serviceModel = [[ServiceModel alloc] initWithDictionary:nil];
     self.dateModel = [[DateModel alloc] initWithDictionary:nil];
     self.orderModel = [[OrderModel alloc] initWithDictionary:nil];
+    
+    self.viewContentHidden = true;
+    self.cellSizeCalculated = false;
+    
+    self.cellSize = CGSizeMake(0, 250);
+    self.cellSize_small = CGSizeMake(0, 250);
 }
 @end

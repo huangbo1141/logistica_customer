@@ -297,10 +297,11 @@
         model = self.data_2[indexPath.row];
     }
     if (model.viewContentHidden) {
-        
+        NSLog(@"orderhistory %d",100);
         return 100.0f;
     }
     CGSize size = model.cellSize;
+    NSLog(@"orderhistory %d",size.height+30);
     return size.height + 30;
     
 }

@@ -25,4 +25,5 @@
 -(void)initMe:(ItemModel*)model;
 -(void)setData:(NSMutableDictionary *)data;
 -(void)setFontSizeForReviewOrder:(CGFloat)fontsize;
+-(CGFloat)getHeight:(CGFloat)padding Width:(CGFloat)width;
 @end

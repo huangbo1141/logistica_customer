@@ -64,30 +64,32 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvNoti:) name:GLOBALNOTIFICATION_ADDRESSPICKUP object:nil];
     
     if(g_isii){
+        _txtPickName.text = @"sender";
         _txtPickAddress.text = @"pickadd";
 //        _txtPickAddress1
         _txtPickCity.text = @"pickcity";
         _txtPickState.text = @"pickstate";
         _txtPickPincode.text = @"110041";
-        _txtPickPhone.text = @"123432";
+        _txtPickPhone.text = @"9340258895";
         _txtPickLandMark.text = @"landpick";
         _txtPickInstruction.text = @"pickinst";
         
+        _txtDesName.text = @"receiver";
         _txtDesCity.text = @"city";
         _txtDesPhone.text = @"112233";
         _txtDesState.text = @"state";
         _txtDesAddress.text = @"address3";
-        _txtDesPincode.text = @"110016";
+        _txtDesPincode.text = @"1111111111";
         _txtDesLandMark.text = @"landmark";
         _txtDesInstruction.text = @"sss";
         _txtPickInstruction.text = @"aaww";
         _txtDesName.text = @"name";
         
-        self.addressModel.sourceLat = [@"41.822099999999999" doubleValue];
-        self.addressModel.sourceLng = [@"123.4665" doubleValue];
-        
-        self.addressModel.desLat = [@"41.7721" doubleValue];
-        self.addressModel.desLng = [@"123.3770" doubleValue];
+//        self.addressModel.sourceLat = [@"41.822099999999999" doubleValue];
+//        self.addressModel.sourceLng = [@"123.4665" doubleValue];
+//
+//        self.addressModel.desLat = [@"41.7721" doubleValue];
+//        self.addressModel.desLng = [@"123.3770" doubleValue];
     }
     
     if (env.lastLogin == 0) {
@@ -172,6 +174,12 @@
     self.txtPickAddress.backgroundColor = [UIColor clearColor];
     self.txtDesAddress.backgroundColor = [UIColor clearColor];
     self.viewQuote.backgroundColor = [UIColor clearColor];
+    
+    if(g_isii){
+        
+        _txtPickPhone.text =  @"+919340258895";
+        _txtDesPincode.text = @"+911111111111";
+    }
 }
 -(void)hideAddressFields{
     _txtPickArea.hidden = true;

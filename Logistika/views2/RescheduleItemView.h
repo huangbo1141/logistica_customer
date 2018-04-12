@@ -59,7 +59,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblOrderNumber;
 
 -(void)setModelData:(OrderRescheduleModel*)model VC:(UIViewController*)vc;
--(void)firstProcess:(int)mode;
+-(void)firstProcess:(int)mode Data:(OrderRescheduleModel*)model VC:(UIViewController*)vc;
 @property (assign, nonatomic) int mode;
 @property (assign, nonatomic) CGFloat cellHeight;
 @property (strong, nonatomic) OrderModel* orderModel;
@@ -71,6 +71,11 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgDrop;
 
+@property (nonatomic,strong) NSMutableDictionary* height_dict;
+@property (nonatomic,assign) CGFloat totalHeight;
+
+@property (weak, nonatomic) IBOutlet UIStackView *stackRoot;
+@property (assign, nonatomic) BOOL modelSet;
 @end
 
 

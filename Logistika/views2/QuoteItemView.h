@@ -77,4 +77,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgDrop;
 @property (weak, nonatomic) IBOutlet UIView *viewSeperator;
 
+@property (nonatomic,strong) NSMutableDictionary* height_dict;
+@property (nonatomic,assign) CGFloat totalHeight;
+
 @end

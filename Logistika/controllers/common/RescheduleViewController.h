@@ -8,8 +8,9 @@
 
 #import "MenuViewController.h"
 
-@interface RescheduleViewController : MenuViewController
+@interface RescheduleViewController : MenuViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *viewRoot;
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end

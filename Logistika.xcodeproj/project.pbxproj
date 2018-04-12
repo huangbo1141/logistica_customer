@@ -116,6 +116,8 @@
 		4D1BC9521EB88C66008E39C4 /* BorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BC9511EB88C66008E39C4 /* BorderLabel.m */; };
 		4D1BF6A51F6D160B00A7C387 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BF6A41F6D160B00A7C387 /* beep.wav */; };
 		4D1E99341EB4A0F200F04C06 /* ConfirmBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1E99331EB4A0F200F04C06 /* ConfirmBarViewController.m */; };
+		4D28794F207D11550041C463 /* RescheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D28794D207D11550041C463 /* RescheduleTableViewCell.m */; };
+		4D287950207D11550041C463 /* RescheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D28794E207D11550041C463 /* RescheduleTableViewCell.xib */; };
 		4D2B728A1EE7001C00122AFE /* TermViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B72891EE7001C00122AFE /* TermViewController.m */; };
 		4D2B728D1EE705E100122AFE /* TblArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B728C1EE705E100122AFE /* TblArea.m */; };
 		4D2B72911EE70CC500122AFE /* AreaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B728F1EE70CC500122AFE /* AreaTableViewCell.m */; };
@@ -501,6 +503,9 @@
 		4D1E992F1EB4A0CE00F04C06 /* Logistika-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Logistika-Bridging-Header.h"; sourceTree = "<group>"; };
 		4D1E99321EB4A0F200F04C06 /* ConfirmBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmBarViewController.h; sourceTree = "<group>"; };
 		4D1E99331EB4A0F200F04C06 /* ConfirmBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBarViewController.m; sourceTree = "<group>"; };
+		4D28794C207D11550041C463 /* RescheduleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RescheduleTableViewCell.h; sourceTree = "<group>"; };
+		4D28794D207D11550041C463 /* RescheduleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RescheduleTableViewCell.m; sourceTree = "<group>"; };
+		4D28794E207D11550041C463 /* RescheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RescheduleTableViewCell.xib; sourceTree = "<group>"; };
 		4D2B72881EE7001C00122AFE /* TermViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermViewController.h; sourceTree = "<group>"; };
 		4D2B72891EE7001C00122AFE /* TermViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermViewController.m; sourceTree = "<group>"; };
 		4D2B728B1EE705E100122AFE /* TblArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TblArea.h; sourceTree = "<group>"; };
@@ -1684,6 +1689,9 @@
 				4DD572311F756B6E00EC7924 /* CitySelectTableViewCell.h */,
 				4DD572321F756B6E00EC7924 /* CitySelectTableViewCell.m */,
 				4DD572331F756B6E00EC7924 /* CitySelectTableViewCell.xib */,
+				4D28794C207D11550041C463 /* RescheduleTableViewCell.h */,
+				4D28794D207D11550041C463 /* RescheduleTableViewCell.m */,
+				4D28794E207D11550041C463 /* RescheduleTableViewCell.xib */,
 			);
 			path = Cells3;
 			sourceTree = "<group>";
@@ -1824,6 +1832,7 @@
 				4DF07B1B1F79019000D56D16 /* capture.png in Resources */,
 				4D126CBC1EA5ABC700C69B89 /* resched.png in Resources */,
 				4D126CDB1EA711A600C69B89 /* ic_menu.png in Resources */,
+				4D287950207D11550041C463 /* RescheduleTableViewCell.xib in Resources */,
 				4DA31B6F1EB0A3BE006A4AFD /* ub_creditcard_discover.png in Resources */,
 				4D126CB91EA5ABC700C69B89 /* logo.png in Resources */,
 				4D126CAD1EA5ABC700C69B89 /* car.png in Resources */,
@@ -1948,7 +1957,6 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${PODS_ROOT}/CitrusGraphics/Framework/graphics-sdk/CitrusGraphics.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${PODS_ROOT}/PayUmoney_CoreSDK/CoreSDK/PayUMoneyCoreSDK.framework",
 				"${PODS_ROOT}/PayUmoney_PnP/PlugNPlay/PlugNPlay.framework",
@@ -1960,7 +1968,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CitrusGraphics.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PayUMoneyCoreSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlugNPlay.framework",
@@ -2099,6 +2106,7 @@
 				4D8CAB301EA7BF62001BCF17 /* NSData+CommonCrypto.m in Sources */,
 				4D8CAAE41EA74953001BCF17 /* SignupViewController.m in Sources */,
 				4D126C881EA5AA4500C69B89 /* BaseModel.m in Sources */,
+				4D28794F207D11550041C463 /* RescheduleTableViewCell.m in Sources */,
 				4D8CAB441EA8AEAE001BCF17 /* PhotoUploadViewController.m in Sources */,
 				4DD572341F756B6E00EC7924 /* CitySelectTableViewCell.m in Sources */,
 				4D1BC9521EB88C66008E39C4 /* BorderLabel.m in Sources */,
@@ -2323,7 +2331,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: venu talluri (GXT7QU7DM9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: venu talluri (GXT7QU7DM9)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -2341,7 +2348,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Logistika/controllers/cor/Logistika-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2352,7 +2359,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: venu talluri (GXT7QU7DM9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: venu talluri (GXT7QU7DM9)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -2369,7 +2375,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "logistika customer adhoc bohuang";
 				SWIFT_OBJC_BRIDGING_HEADER = "Logistika/controllers/cor/Logistika-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

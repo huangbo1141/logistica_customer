@@ -87,6 +87,7 @@
             for (int i=0; i<self.cells.count; i++) {
                 SelectImageCell* cell = self.cells[i];
                 ItemModel *item = [[ItemModel alloc] init];
+                [item firstPackage];
                 item.title = @"";
                 item.image = cell.filePath;
                 item.quantity = c_quantity[0];
@@ -263,6 +264,7 @@
 {
     if (self.cells.count<self.limit) {
         if (self.theImage!=nil) {
+            [CGlobal showIndicator:self];
             //NSArray* cells = @[_imgCell1,_imgCell2,_imgCell3];
             SelectImageCell* cell  = (SelectImageCell*)[[NSBundle mainBundle] loadNibNamed:@"SelectImageCell" owner:self options:nil][0];
             cell.aDelegate = self;
@@ -276,12 +278,15 @@
             NSData* data = UIImagePNGRepresentation(self.theImage);
             [data writeToFile:filePath atomically:YES];
             
-            
-            
             [cell setStyleWithData:@{@"image":self.theImage,@"path":filePath} Mode:1];
-            
-            [self.stackImageCells addArrangedSubview:cell];
-            [self.cells addObject:cell];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                
+                [self.stackImageCells addArrangedSubview:cell];
+                [self.cells addObject:cell];
+                
+                [CGlobal stopIndicator:self];
+            });
             
             if (_audioPlayer) {
                 [_audioPlayer play];

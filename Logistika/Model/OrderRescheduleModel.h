@@ -25,6 +25,11 @@
 @property (nonatomic,strong) DateModel* dateModel;
 @property (nonatomic,strong) OrderModel* orderModel;
 
+@property (nonatomic,assign) BOOL viewContentHidden;
+@property (nonatomic,assign) BOOL cellSizeCalculated;
+@property (nonatomic,assign) CGSize cellSize;
+@property (nonatomic,assign) CGSize cellSize_small;
+
 //@property (nonatomic,assign) BOOL isShowing;
 //@property (nonatomic,assign) CGFloat cellHeight;
 //@property (nonatomic,assign) CGFloat entireHeight;

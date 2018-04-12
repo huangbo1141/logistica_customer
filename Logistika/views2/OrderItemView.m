@@ -177,6 +177,19 @@
         _lblDestLandMark.text = model.addressModel.desLandMark;
         _lblDestInst.text = model.addressModel.desInstruction;
         _lblDestName.text = model.addressModel.desName;
+        
+        NSString* sin = [g_addressModel.sourceInstruction stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if ([sin length]>0) {
+            _lblPickInst.text = g_addressModel.sourceInstruction;
+        }else{
+            _lblPickInst.hidden = true;
+        }
+        sin = [g_addressModel.desInstruction stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if ([sin length]>0) {
+            _lblDestInst.text = g_addressModel.desInstruction;
+        }else{
+            _lblDestInst.hidden = true;
+        }
     }
 //    _lblDestPhone.hidden = true;
     
@@ -311,15 +324,15 @@
         self.tableView_items.delegate = self;
         self.tableView_items.dataSource = self;
     }
-    
+    [self calculateRowHeight:model];
     [self.tableView_items reloadData];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    CGFloat height = self.cellHeight * self.orderModel.itemModels.count;
-    self.constraint_TH.constant = height;
+    
+    self.constraint_TH.constant = self.totalHeight;
     [self.tableView_items setNeedsUpdateConstraints];
     [self.tableView_items layoutIfNeeded];
     return self.orderModel.itemModels.count;
@@ -361,9 +374,27 @@
     
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString* key = [NSString stringWithFormat:@"%d",indexPath.row];
+    if(self.height_dict[key]!=nil){
+        NSString* value = self.height_dict[key];
+        return [value floatValue];
+    }
     return self.cellHeight;
 }
 - (IBAction)clickArrow:(id)sender {
     [self toggleShow:sender];
+}
+-(void)calculateRowHeight:(OrderHisModel*)model{
+    self.height_dict = [[NSMutableDictionary alloc] init];
+    self.totalHeight = 0;
+    for (int i=0; i<self.orderModel.itemModels.count; i++) {
+        NSIndexPath*path = [NSIndexPath indexPathForRow:i inSection:0];
+        CGFloat height = [CGlobal tableView1:self.tableView_items tableView2:self.tableView_items tableView3:self.tableView_items heightForRowAtIndexPath:path DefaultHeight:self.cellHeight Data:self.orderModel OrderType:model.orderModel.product_type Padding:16 Width:0];
+
+        NSString*key = [NSString stringWithFormat:@"%d",i];
+        NSString*value = [NSString stringWithFormat:@"%f",height];
+        self.height_dict[key] = value;
+        self.totalHeight = self.totalHeight + height;
+    }
 }
 @end

@@ -63,6 +63,7 @@
             self.tableView.dataSource = self;
         }
         
+        [self calculateRowHeight];
         [self.tableView reloadData];
 
     }else{
@@ -73,21 +74,24 @@
     }
 }
 -(CGFloat)getHeight{
-    if (g_mode != c_CORPERATION) {
-        CGFloat height = self.cellHeight * self.orderModel.itemModels.count;
-        height = height + 50;
-        return height;
-        
-    }else{
-        return 100;
-    }
+    
+    CGRect scRect = [[UIScreen mainScreen] bounds];
+    scRect.size.width = MIN(scRect.size.width -32,320);
+    scRect.size.height = 20;
+    
+    CGSize size = [self.stackRoot systemLayoutSizeFittingSize:scRect.size withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityDefaultLow];
+    //        NSLog(@"widthwidth %f height %f",size.width,size.height);
+    
+    NSLog(@"height estimated %f",size.height);
+    
+    return size.height;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    CGFloat height = self.cellHeight * self.orderModel.itemModels.count;
-    self.constraint_TH.constant = height;
+    
+    self.constraint_TH.constant = self.totalHeight;
     [self.tableView setNeedsUpdateConstraints];
     [self.tableView layoutIfNeeded];
     return self.orderModel.itemModels.count;
@@ -124,6 +128,30 @@
     }
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString* key = [NSString stringWithFormat:@"%d",indexPath.row];
+    if(self.height_dict[key]!=nil){
+        NSString* value = self.height_dict[key];
+        return [value floatValue];
+    }
     return self.cellHeight;
+}
+-(void)calculateRowHeight{
+    self.height_dict = [[NSMutableDictionary alloc] init];
+    self.totalHeight = 0;
+    
+    CGRect scRect = [[UIScreen mainScreen] bounds];
+    scRect.size.width = MIN(scRect.size.width -32,320);
+    scRect.size.height = 20;
+    
+    for (int i=0; i<self.orderModel.itemModels.count; i++) {
+        NSIndexPath*path = [NSIndexPath indexPathForRow:i inSection:0];
+        CGFloat height = [CGlobal tableView1:self.tableView tableView2:self.tableView tableView3:self.tableView heightForRowAtIndexPath:path DefaultHeight:self.cellHeight Data:self.orderModel OrderType:g_mode  Padding:16 Width:scRect.size.width];
+        NSString*key = [NSString stringWithFormat:@"%d",i];
+        NSString*value = [NSString stringWithFormat:@"%f",height];
+        self.height_dict[key] = value;
+        self.totalHeight = self.totalHeight + height;
+    }
+    
+    self.constraint_TH.constant = self.totalHeight;
 }
 @end

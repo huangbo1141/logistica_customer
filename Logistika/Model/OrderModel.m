@@ -13,7 +13,12 @@
     self = [super init];
     if(self){
         [self initDefault];
-        [BaseModel parseResponse:self Dict:dict];
+        if (dict==nil) {
+            [BaseModel parseResponse:self Dict:dict];
+        }else{
+            [BaseModel parseResponse:self Dict:dict];
+        }
+        
     }
     return self;
 }

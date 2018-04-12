@@ -17,5 +17,17 @@
     // Drawing code
 }
 */
-
+-(CGFloat)getHeight{
+    
+    CGRect scRect = [[UIScreen mainScreen] bounds];
+    scRect.size.width = MIN(scRect.size.width -32,320);
+    scRect.size.height = 20;
+    
+    CGSize size = [self.stackRoot systemLayoutSizeFittingSize:scRect.size withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityDefaultLow];
+    //        NSLog(@"widthwidth %f height %f",size.width,size.height);
+    
+    NSLog(@"height estimated %f",size.height);
+    
+    return size.height;
+}
 @end

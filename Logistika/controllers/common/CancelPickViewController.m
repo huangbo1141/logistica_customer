@@ -15,6 +15,7 @@
 #import "ViewScrollContainer.h"
 #import "RescheduleItemView.h"
 #import "OrderRescheduleModel.h"
+#import "RescheduleTableViewCell.h"
 
 @interface CancelPickViewController ()
 @property(nonatomic,strong) OrderResponse*response;
@@ -28,6 +29,17 @@
     [self loadData];
     self.view.backgroundColor = [UIColor whiteColor];
     self.viewRoot.backgroundColor = COLOR_SECONDARY_THIRD;
+    
+    NSArray* tvs = @[self.tableview];
+    for (int i=0; i<tvs.count; i++) {
+        UITableView* tv = tvs[i];
+        UINib* nib1 = [UINib nibWithNibName:@"RescheduleTableViewCell" bundle:nil];
+        [tv registerNib:nib1 forCellReuseIdentifier:@"cell"];
+        tv.separatorStyle = UITableViewCellSelectionStyleNone;
+        tv.hidden = false;
+        tv.delegate = self;
+        tv.dataSource = self;
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -54,7 +66,7 @@
     for (int i=0; i<self.response.orders.count; i++) {
         OrderRescheduleModel*model = self.response.orders[i];
         RescheduleItemView* itemView = (ViewScrollContainer*)[[NSBundle mainBundle] loadNibNamed:@"RescheduleItemView" owner:self options:nil][0];
-        [itemView firstProcess:1];
+//        [itemView firstProcess:1];
         
         [scrollContainer addOneView:itemView];
         [itemView setModelData:model VC:self];
@@ -78,6 +90,7 @@
     NetworkParser* manager = [NetworkParser sharedManager];
     [CGlobal showIndicator:self];
     [manager ontemplateGeneralRequest2:params BasePath:BASE_URL_ORDER Path:@"get_orders" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+        [CGlobal stopIndicator:self];
         if (error == nil) {
             // succ
             if (dict[@"result" ]!=nil) {
@@ -87,14 +100,10 @@
                     // parse
                     OrderResponse* response = [[OrderResponse alloc] initWithDictionary:dict];
                     self.response = response;
+                    [self.tableview reloadData];
                     if (self.response.orders.count > 0) {
-                        [self addViews];
-                    }else{
-                        [CGlobal AlertMessage:@"No Orders" Title:nil];
+                        return;
                     }
-                    
-                    [CGlobal stopIndicator:self];
-                    return;
                 }
             }
             
@@ -103,7 +112,7 @@
             NSLog(@"Error");
         }
         
-        [CGlobal stopIndicator:self];
+        [CGlobal AlertMessage:@"No Orders" Title:nil];
     } method:@"POST"];
 }
 -(void)clearReschedule{
@@ -113,7 +122,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.response.orders.count;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    OrderRescheduleModel*model = self.response.orders[indexPath.row];
+    
+    if (model.viewContentHidden) {
+        
+        return 250.0f;
+    }
+    CGSize size = model.cellSize;
+    return size.height + 30;
+    
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    RescheduleTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    OrderRescheduleModel*model = self.response.orders[indexPath.row];
+    NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
+    data[@"indexPath"] = indexPath;
+    data[@"tableView"] = tableView;
+    data[@"model"] = model;
+    data[@"vc"] = self;
+    data[@"aDelegate"] = self;
+    [cell setData:data Mode:1];
+    
+    cell.backgroundColor = COLOR_SECONDARY_THIRD;
+    return cell;
+}
 /*
  #pragma mark - Navigation
  

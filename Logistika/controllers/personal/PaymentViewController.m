@@ -289,6 +289,8 @@ bool isPaymentCompleted = false;
         
         //upload image
         NSArray* temp = [NSArray arrayWithArray:productsArrays];
+        
+        params[@"products"] = [[[NSArray alloc] init] bv_jsonStringWithPrettyPrint:true];
         params[@"products"] = [temp bv_jsonStringWithPrettyPrint:true];
         
         NetworkParser* manager = [NetworkParser sharedManager];
@@ -296,6 +298,7 @@ bool isPaymentCompleted = false;
         NSString* url = [NSString stringWithFormat:@"%@%@%@",g_baseUrl,BASE_URL,@"order"];
         
         [manager uploadImage2:params Data:images Path:url withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+            NSMutableDictionary* preserveParams = params;
             if (error == nil) {
                 if (dict!=nil && dict[@"result"] != nil) {
                     //

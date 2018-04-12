@@ -409,9 +409,9 @@
     int differentTime = 0;
     switch (self.index)
     {
-        case 0: differentTime = 8; break;
-        case 1: differentTime = 16; break;
-        case 2: differentTime = 24; break;
+        case 0: differentTime = 4; break;
+        case 1: differentTime = 8; break;
+        case 2: differentTime = 12; break;
             
     }
     int i = 0;
