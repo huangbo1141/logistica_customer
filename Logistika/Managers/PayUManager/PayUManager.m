@@ -29,6 +29,7 @@ NSString *salt = @"7iMVtfFpIM";
     txnParam.firstname = firstName;
     txnParam.phone = mobile;
     
+//    amount = @"2.00";
     txnParam.amount = amount;
     txnParam.productInfo = productInfo;
     

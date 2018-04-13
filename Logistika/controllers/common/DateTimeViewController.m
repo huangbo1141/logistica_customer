@@ -16,7 +16,7 @@
 @interface DateTimeViewController ()
 @property (assign,nonatomic) int index;
 @property (assign,nonatomic) BOOL chooseService;
-@property (strong,nonatomic) NSDate* tempDate;
+
 
 @end
 
@@ -215,42 +215,54 @@
     switch (tag) {
         case 200:
         {
-            NSDate* myDate = picker.date;
+            NSDate* p_date = picker.date;
             
-            if ([CGlobal compareWithToday:myDate DateStr:nil mode:0] == NSOrderedDescending) {
-                [CGlobal AlertMessage:@"Pickup date should not be in the past" Title:nil];
+            NSDateFormatter *dateFormat_tmp = [[NSDateFormatter alloc] init];
+            [dateFormat_tmp setDateFormat:@"hh:mm a"];
+            NSDate* p_time = [dateFormat_tmp dateFromString:self.txtTime.text];
+            
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd"];
+            NSString *datestr = [dateFormat stringFromDate: p_date];
+            
+            if ([CGlobal compareWithToday:p_time DateStr:datestr mode:1] == NSOrderedDescending) {
+                [CGlobal AlertMessage:@"Pickup time should not be in the past" Title:nil];
                 return;
             }
             
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            
+            
+            dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"dd-MM-yyyy"];
-            NSString *prettyVersion = [dateFormat stringFromDate:myDate];
+            NSString *prettyVersion = [dateFormat stringFromDate:p_date];
             _txtDate.text = prettyVersion;
             
             g_dateModel.date = prettyVersion;
-            
-            self.tempDate = myDate;
             
             [self showEstmiatedDate];
             break;
         }
         case 201:{
-            NSDate* myDate = picker.date;
-            if (self.tempDate == nil) {
-                self.tempDate = [NSDate date];
-            }
+            NSDateFormatter *dateFormat_tmp = [[NSDateFormatter alloc] init];
+            [dateFormat_tmp setDateFormat:@"dd-MM-yyyy"];
+            NSDate* p_date = [dateFormat_tmp dateFromString:self.txtDate.text];
+            
+            UIDatePicker*txttime_picker = (UIDatePicker*)self.txtTime.inputView;
+            NSDate* p_time = txttime_picker.date;
+            
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"yyyy-MM-dd"];
-            NSString *datestr = [dateFormat stringFromDate: self.tempDate];
+            NSString *datestr = [dateFormat stringFromDate: p_date];
             
-            if ([CGlobal compareWithToday:myDate DateStr:datestr mode:1] == NSOrderedDescending) {
+            if ([CGlobal compareWithToday:p_time DateStr:datestr mode:1] == NSOrderedDescending) {
                 [CGlobal AlertMessage:@"Pickup time should not be in the past" Title:nil];
                 return;
             }
             
             dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"hh:mm a"];
-            NSString *prettyVersion = [dateFormat stringFromDate:myDate];
+            NSString *prettyVersion = [dateFormat stringFromDate:p_time];
             _txtTime.text = prettyVersion;
             
             g_dateModel.time = prettyVersion;
@@ -274,17 +286,19 @@
     eamil_guest = _txtEmailAddress.text;
 }
 - (IBAction)clickContinue:(id)sender {
+    NSDateFormatter *dateFormat_tmp = [[NSDateFormatter alloc] init];
+    [dateFormat_tmp setDateFormat:@"dd-MM-yyyy"];
+    NSDate* p_date = [dateFormat_tmp dateFromString:self.txtDate.text];
     
-    UIDatePicker* picker = self.txtTime.inputView;
-    NSDate* myDate = picker.date;
-    if (self.tempDate == nil) {
-        self.tempDate = [NSDate date];
-    }
+    [dateFormat_tmp setDateFormat:@"hh:mm a"];
+    NSDate* p_time = [dateFormat_tmp dateFromString:self.txtTime.text];
+    
+    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
-    NSString *datestr = [dateFormat stringFromDate: self.tempDate];
+    NSString *datestr = [dateFormat stringFromDate: p_date];
     
-    if ([CGlobal compareWithToday:myDate DateStr:datestr mode:1] == NSOrderedDescending) {
+    if ([CGlobal compareWithToday:p_time DateStr:datestr mode:1] == NSOrderedDescending) {
         [CGlobal AlertMessage:@"Pickup time should not be in the past" Title:nil];
         return;
     }
@@ -415,24 +429,34 @@
             
     }
     int i = 0;
-    if(currentTime >= 19 )
+    int office_start = 6;
+    int office_end = 20;
+    
+    if(currentTime >= office_end ){
+        min_str = @"00";
+        selectedMinute = 0;
+        i = 1;
+        currentTime = office_start;
+    }
+    else if(currentTime >= office_end-1 )
     {
         i = 1;
-        currentTime = 6;
+        currentTime = office_start;
         
-    }else if(currentTime < 6)
+    }else if(currentTime < office_start)
     {
-        currentTime = 6;
-        
+        currentTime = office_start;
+        selectedMinute = 0;
+        min_str = @"00";
     }
-    while (currentTime + differentTime > 19)
+    while (currentTime + differentTime > office_end-1)
     {
-        differentTime = currentTime + differentTime - 19 -1;
+        differentTime = currentTime + differentTime - (office_end-1) -1;
         if(differentTime == 0 && selectedMinute == 0){
-            currentTime = 20;
+            currentTime = office_end;
             break;
         }else{
-            currentTime = 6;
+            currentTime = office_start;
         }
         i++;
     }

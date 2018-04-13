@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.661466"
+            timestampString = "545238960.789342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-done:"
             landmarkType = "7">
          </BreakpointContent>
@@ -233,22 +233,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.662267"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-done:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/SignupViewController.m"
             timestampString = "544156003.072891"
             startingColumnNumber = "9223372036854775807"
@@ -282,7 +266,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/SignupViewController.m"
-                  timestampString = "545231442.886763"
+                  timestampString = "545302939.199705"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "318"
@@ -297,7 +281,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/SignupViewController.m"
-                  timestampString = "545231442.8905751"
+                  timestampString = "545302939.203503"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "318"
@@ -312,7 +296,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/SignupViewController.m"
-                  timestampString = "545231442.8944319"
+                  timestampString = "545302939.207158"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "318"
@@ -345,7 +329,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/SignupViewController.m"
-                  timestampString = "545231442.9056571"
+                  timestampString = "545302939.218021"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "340"
@@ -360,7 +344,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/SignupViewController.m"
-                  timestampString = "545231442.909528"
+                  timestampString = "545302939.221675"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "341"
@@ -375,7 +359,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/SignupViewController.m"
-                  timestampString = "545231442.913478"
+                  timestampString = "545302939.225365"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "340"
@@ -392,7 +376,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/DoneViewController.m"
-            timestampString = "545231442.417403"
+            timestampString = "545238960.789816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
@@ -424,7 +408,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/TrackMapViewController.m"
-            timestampString = "545231442.417684"
+            timestampString = "545238960.789935"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -440,7 +424,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/TrackMapViewController.m"
-            timestampString = "545231442.417817"
+            timestampString = "545238960.790002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -456,7 +440,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/TrackMapViewController.m"
-            timestampString = "545231442.418"
+            timestampString = "545238960.7900569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -472,7 +456,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/TrackMapViewController.m"
-            timestampString = "545231442.41811"
+            timestampString = "545238960.790159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -488,7 +472,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/TrackMapViewController.m"
-            timestampString = "545231442.418215"
+            timestampString = "545238960.7902139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -504,7 +488,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/common/OrderHistoryViewController.m"
-            timestampString = "545231442.418331"
+            timestampString = "545238960.790267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
@@ -536,7 +520,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/views2/OrderBaseView.m"
-                  timestampString = "545231442.969255"
+                  timestampString = "545302939.281749"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -551,7 +535,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/views2/OrderBaseView.m"
-                  timestampString = "545231442.973001"
+                  timestampString = "545302939.285578"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
@@ -566,7 +550,7 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/views2/OrderBaseView.m"
-                  timestampString = "545231442.977203"
+                  timestampString = "545302939.2893651"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -615,11 +599,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.663751"
+            timestampString = "545238960.790441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "-done:"
             landmarkType = "7">
          </BreakpointContent>
@@ -630,107 +614,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Logistika/Managers/PayUManager/PayUManager.m"
-            timestampString = "545162254.276764"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "+proceedForPayment:withAmount:email:mobile:firstName:AndProductInfo:isForNetbanking:withCompletionBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/Managers/PayUManager/PayUManager.m"
-            timestampString = "545162254.276819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "+proceedForPayment:withAmount:email:mobile:firstName:AndProductInfo:isForNetbanking:withCompletionBlock:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[PayUManager proceedForPayment:withAmount:email:mobile:firstName:AndProductInfo:isForNetbanking:withCompletionBlock:]"
-                  moduleName = "Logistika"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/Managers/PayUManager/PayUManager.m"
-                  timestampString = "545231443.0192961"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "1664">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__118+[PayUManager proceedForPayment:withAmount:email:mobile:firstName:AndProductInfo:isForNetbanking:withCompletionBlock:]_block_invoke"
-                  moduleName = "Logistika"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/Managers/PayUManager/PayUManager.m"
-                  timestampString = "545231443.0231611"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_"
-                  moduleName = "Logistika"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/Managers/PayUManager/PayUManager.m"
-                  timestampString = "545231443.027123"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/Managers/PayUManager/PayUManager.m"
-            timestampString = "545162254.27686"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "+proceedForPayment:withAmount:email:mobile:firstName:AndProductInfo:isForNetbanking:withCompletionBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.6641949"
+            timestampString = "545238960.790509"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "482"
-            endingLineNumber = "482"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
             landmarkName = "-update_order:"
             landmarkType = "7">
             <Locations>
@@ -742,11 +631,11 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.045809"
+                  timestampString = "545302939.327058"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "482"
-                  endingLineNumber = "482"
+                  startingLineNumber = "484"
+                  endingLineNumber = "484"
                   offsetFromSymbolStart = "6948">
                </Location>
                <Location
@@ -757,26 +646,26 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.0504301"
+                  timestampString = "545302939.330909"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "483"
-                  endingLineNumber = "483"
+                  startingLineNumber = "485"
+                  endingLineNumber = "485"
                   offsetFromSymbolStart = "80">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.437"
+                  symbolName = "__destroy_helper_block_.443"
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.053301"
+                  timestampString = "545302939.33428"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "482"
-                  endingLineNumber = "482"
+                  startingLineNumber = "484"
+                  endingLineNumber = "484"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
@@ -789,11 +678,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.664511"
+            timestampString = "545238960.790606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "481"
-            endingLineNumber = "481"
+            startingLineNumber = "483"
+            endingLineNumber = "483"
             landmarkName = "-update_order:"
             landmarkType = "7">
          </BreakpointContent>
@@ -805,11 +694,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.664832"
+            timestampString = "545238960.790648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
             landmarkName = "-order"
             landmarkType = "7">
             <Locations>
@@ -821,41 +710,41 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.18179"
+                  timestampString = "545302939.364042"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "360"
-                  endingLineNumber = "360"
+                  startingLineNumber = "362"
+                  endingLineNumber = "362"
                   offsetFromSymbolStart = "9092">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__30-[PaymentViewController order]_block_invoke.419"
+                  symbolName = "__30-[PaymentViewController order]_block_invoke.425"
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.188964"
+                  timestampString = "545302939.368459"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
                   offsetFromSymbolStart = "84">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.425"
+                  symbolName = "__destroy_helper_block_.431"
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.193477"
+                  timestampString = "545302939.371894"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "360"
-                  endingLineNumber = "360"
+                  startingLineNumber = "362"
+                  endingLineNumber = "362"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
@@ -868,11 +757,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.665148"
+            timestampString = "545238960.7907079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
             landmarkName = "-order"
             landmarkType = "7">
          </BreakpointContent>
@@ -884,11 +773,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.665447"
+            timestampString = "545238960.790753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
             landmarkName = "-order"
             landmarkType = "7">
             <Locations>
@@ -900,11 +789,11 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.218412"
+                  timestampString = "545302939.950987"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "300"
-                  endingLineNumber = "300"
+                  startingLineNumber = "302"
+                  endingLineNumber = "302"
                   offsetFromSymbolStart = "6564">
                </Location>
                <Location
@@ -915,26 +804,26 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.2229379"
+                  timestampString = "545302939.9579951"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "300"
-                  endingLineNumber = "300"
+                  startingLineNumber = "302"
+                  endingLineNumber = "302"
                   offsetFromSymbolStart = "28">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.406"
+                  symbolName = "__destroy_helper_block_.412"
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201804/sumanth%202/logistica_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "545231443.226779"
+                  timestampString = "545302939.964113"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "300"
-                  endingLineNumber = "300"
+                  startingLineNumber = "302"
+                  endingLineNumber = "302"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
@@ -947,11 +836,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.665743"
+            timestampString = "545238960.790815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "-order"
             landmarkType = "7">
          </BreakpointContent>
@@ -963,23 +852,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.666029"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "-order"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545200402.66625"
+            timestampString = "545238960.7908829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "328"
@@ -995,11 +868,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545217397.654723"
+            timestampString = "545238960.790921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "-order"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/personal/PaymentViewController.m"
+            timestampString = "545238960.790987"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-showOrderConfirm"
             landmarkType = "7">
          </BreakpointContent>
@@ -1011,11 +900,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545217455.729565"
+            timestampString = "545238960.791055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "-order"
             landmarkType = "7">
          </BreakpointContent>
@@ -1026,13 +915,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Logistika/Model/ItemModel.m"
-            timestampString = "545217541.664881"
+            filePath = "Logistika/views2/InfoView2.m"
+            timestampString = "545238960.791183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-firstPackage"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-calculateRowHeight"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1043,37 +932,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/views2/InfoView2.m"
-            timestampString = "545231442.420133"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/Docs/CGlobal.m"
-            timestampString = "545231442.421303"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1796"
-            endingLineNumber = "1796"
-            landmarkName = "+tableView1:tableView2:tableView3:heightForRowAtIndexPath:DefaultHeight:Data:OrderType:Padding:Width:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/views2/InfoView2.m"
-            timestampString = "545231442.421379"
+            timestampString = "545238960.791234"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -1089,7 +948,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/views2/InfoView2.m"
-            timestampString = "545231442.422173"
+            timestampString = "545238960.791308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
@@ -1105,7 +964,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Cells2/ReviewPackageTableViewCell.m"
-            timestampString = "545231442.422932"
+            timestampString = "545238960.791393"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -1121,7 +980,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Cells2/ReviewItemTableViewCell.m"
-            timestampString = "545231442.423002"
+            timestampString = "545304412.945511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -1137,12 +996,140 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/personal/PaymentViewController.m"
-            timestampString = "545232860.759397"
+            timestampString = "545238960.7920721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "-done:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/Managers/PayUManager/PayUManager.m"
+            timestampString = "545238960.792196"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "+proceedForPayment:withAmount:email:mobile:firstName:AndProductInfo:isForNetbanking:withCompletionBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/personal/PaymentViewController.m"
+            timestampString = "545238960.792299"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-done:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/Docs/CGlobal.m"
+            timestampString = "545304413.005047"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1682"
+            endingLineNumber = "1682"
+            landmarkName = "+compareWithToday:DateStr:mode:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/Docs/CGlobal.m"
+            timestampString = "545304413.007454"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1669"
+            endingLineNumber = "1669"
+            landmarkName = "+compareWithToday:DateStr:mode:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/Docs/CGlobal.m"
+            timestampString = "545304413.008661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1694"
+            endingLineNumber = "1694"
+            landmarkName = "+compareWithToday:DateStr:mode:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/common/DateTimeViewController.m"
+            timestampString = "545304413.010096"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
+            landmarkName = "-showEstmiatedDate"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/common/DateTimeViewController.m"
+            timestampString = "545304413.011919"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
+            landmarkName = "-showEstmiatedDate"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/common/DateTimeViewController.m"
+            timestampString = "545304413.012944"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "441"
+            endingLineNumber = "441"
+            landmarkName = "-showEstmiatedDate"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

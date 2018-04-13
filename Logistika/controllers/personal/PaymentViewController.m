@@ -114,6 +114,8 @@ bool isPaymentCompleted = false;
         }
         
         /// Procced for Payment
+        double price = [g_serviceModel.price doubleValue];
+        g_serviceModel.price = [NSString stringWithFormat:@"%.02f",price];
         
         [PayUManager proceedForPayment:self
                             withAmount:g_serviceModel.price

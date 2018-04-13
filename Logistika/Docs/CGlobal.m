@@ -1660,7 +1660,7 @@ NSMutableArray* menu_topList;
             
             NSDate*curDate = [NSDate date];
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"yyyy-MM-dd hh:mm"];
+            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm"];
             NSString *curStr = [dateFormat stringFromDate:curDate];
             
             //[dateFormat setDateFormat:@"hh:mm"];
@@ -1673,10 +1673,10 @@ NSMutableArray* menu_topList;
             // time
             NSDate*curDate = [NSDate date];
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"yyyy-MM-dd hh:mm"];
+            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm"];
             NSString *curStr = [dateFormat stringFromDate:curDate];
             
-            [dateFormat setDateFormat:@"hh:mm"];
+            [dateFormat setDateFormat:@"HH:mm"];
             NSString* inputStr = [NSString stringWithFormat:@"%@ %@",datestr,[dateFormat stringFromDate:input]];
             
             return [curStr compare:inputStr];

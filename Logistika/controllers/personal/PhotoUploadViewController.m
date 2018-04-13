@@ -72,6 +72,8 @@
     }
     
     self.segControl.tintColor = COLOR_PRIMARY;
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = false;
@@ -158,11 +160,14 @@
     
     self.captured = NO;
     
+    [CGlobal showIndicator:self];
     [CGlobal grantedPermissionCamera:^(BOOL ret) {
         if (ret) {
             // granted
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self startReading];
+                
+                [CGlobal stopIndicator:self];
             });
             
         }else{

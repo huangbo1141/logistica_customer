@@ -44,7 +44,7 @@
     CGSize size = [self.stackRoot systemLayoutSizeFittingSize:scRect.size withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityDefaultLow];
     //        NSLog(@"widthwidth %f height %f",size.width,size.height);
     
-    return size.height;
+    return size.height + 20;
 }
 -(void)setFontSizeForReviewOrder:(CGFloat)fontsize{
     UIFont* font = [UIFont systemFontOfSize:fontsize];
