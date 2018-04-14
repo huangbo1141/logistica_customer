@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dhx-pE-gd5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dhx-pE-gd5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1880,7 +1880,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEn-DD-MzW">
-                                        <rect key="frame" x="50" y="233.5" width="275" height="40"/>
+                                        <rect key="frame" x="50" y="119.5" width="275" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="fnK-54-1QV"/>
                                         </constraints>
@@ -1889,14 +1889,14 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_arrowdown.png" translatesAutoresizingMaskIntoConstraints="NO" id="dXX-hI-Pyv">
-                                        <rect key="frame" x="302" y="246.5" width="15" height="15"/>
+                                        <rect key="frame" x="302" y="132.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="HzC-jg-Cn1"/>
                                             <constraint firstAttribute="height" constant="15" id="fUZ-Dv-3V6"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 30 minutes to Cancel or Reschedule this order" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owC-E4-n5Q">
-                                        <rect key="frame" x="7.5" y="293.5" width="361.5" height="17"/>
+                                        <rect key="frame" x="7.5" y="179.5" width="361.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1912,7 +1912,7 @@
                                     <constraint firstItem="owC-E4-n5Q" firstAttribute="centerX" secondItem="pOx-L6-4YD" secondAttribute="centerX" id="XPV-RM-tB0"/>
                                     <constraint firstItem="33w-6X-eip" firstAttribute="top" secondItem="pOx-L6-4YD" secondAttribute="top" constant="49" id="fVS-pl-zWQ"/>
                                     <constraint firstItem="dXX-hI-Pyv" firstAttribute="trailing" secondItem="gEn-DD-MzW" secondAttribute="trailing" constant="-8" id="gVI-v5-7bb"/>
-                                    <constraint firstItem="gEn-DD-MzW" firstAttribute="centerY" secondItem="pOx-L6-4YD" secondAttribute="centerY" constant="-40" id="w4i-7u-gaO"/>
+                                    <constraint firstItem="gEn-DD-MzW" firstAttribute="top" secondItem="33w-6X-eip" secondAttribute="bottom" constant="50" id="hMY-XD-PbJ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="backMode">

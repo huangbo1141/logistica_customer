@@ -264,5 +264,5 @@ typedef void (^ImagePickerCallback)(UIImage* image);
 +(NSString*)getTruck:(NSString*)truck;
 +(BOOL)isPointInPolygon:(CLLocationCoordinate2D) tap ArrayList:(NSMutableArray*)vertices;
 +(NSString*)getValidPhoneNumber:(NSString*)param Output:(int)output Prefix:(NSString*)prefix Length:(int)length;
-+(CGFloat)tableView1:(UITableView *)tableView1 tableView2:(UITableView *)tableView2 tableView3:(UITableView *)tableView3 heightForRowAtIndexPath:(NSIndexPath *)indexPath DefaultHeight:(CGFloat)cellHeight Data:(OrderModel*)orderModel OrderType:(int)orderType Padding:(CGFloat)padding Width:(CGFloat)width;
++(CGFloat)tableView1:(UITableView *)tableView1 heightForRowAtIndexPath:(NSIndexPath *)indexPath DefaultHeight:(CGFloat)cellHeight Data:(OrderModel*)orderModel OrderType:(int)orderType Padding:(CGFloat)padding Width:(CGFloat)width;
 @end

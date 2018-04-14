@@ -425,7 +425,7 @@
     {
         case 0: differentTime = 4; break;
         case 1: differentTime = 8; break;
-        case 2: differentTime = 12; break;
+        case 2: differentTime = 16; break;
             
     }
     int i = 0;
@@ -443,6 +443,7 @@
         i = 1;
         currentTime = office_start;
         
+        differentTime = differentTime - 1;
     }else if(currentTime < office_start)
     {
         currentTime = office_start;

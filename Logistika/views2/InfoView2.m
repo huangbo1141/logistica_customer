@@ -35,7 +35,7 @@
             self.viewHeader_PACKAGE.hidden = true;
             
             UINib* nib = [UINib nibWithNibName:@"ReviewCameraTableViewCell" bundle:nil];
-            [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
+            [self.tableView registerNib:nib forCellReuseIdentifier:@"cell1"];
             self.cellHeight = 40;
             self.tableView.delegate = self;
             self.tableView.dataSource = self;
@@ -46,7 +46,7 @@
             self.viewHeader_PACKAGE.hidden = true;
             
             UINib* nib = [UINib nibWithNibName:@"ReviewItemTableViewCell" bundle:nil];
-            [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
+            [self.tableView registerNib:nib forCellReuseIdentifier:@"cell2"];
             self.cellHeight = 40;
             self.tableView.delegate = self;
             self.tableView.dataSource = self;
@@ -57,7 +57,7 @@
             self.viewHeader_PACKAGE.hidden = false;
             
             UINib* nib = [UINib nibWithNibName:@"ReviewPackageTableViewCell" bundle:nil];
-            [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
+            [self.tableView registerNib:nib forCellReuseIdentifier:@"cell3"];
             self.cellHeight = 40;
             self.tableView.delegate = self;
             self.tableView.dataSource = self;
@@ -98,7 +98,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.orderModel.product_type == g_CAMERA_OPTION) {
-        ReviewCameraTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        ReviewCameraTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
         
         NSMutableDictionary* inputData = [[NSMutableDictionary alloc] init];
         inputData[@"vc"] = self.vc;
@@ -112,14 +112,14 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else if(self.orderModel.product_type == g_ITEM_OPTION){
-        ReviewItemTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        ReviewItemTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell2" forIndexPath:indexPath];
         
         [cell initMe:self.orderModel.itemModels[indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.aDelegate = self;
         return cell;
     }else{
-        ReviewPackageTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        ReviewPackageTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell3" forIndexPath:indexPath];
         
         [cell initMe:self.orderModel.itemModels[indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -145,7 +145,7 @@
     
     for (int i=0; i<self.orderModel.itemModels.count; i++) {
         NSIndexPath*path = [NSIndexPath indexPathForRow:i inSection:0];
-        CGFloat height = [CGlobal tableView1:self.tableView tableView2:self.tableView tableView3:self.tableView heightForRowAtIndexPath:path DefaultHeight:self.cellHeight Data:self.orderModel OrderType:g_mode  Padding:16 Width:scRect.size.width];
+        CGFloat height = [CGlobal tableView1:self.tableView heightForRowAtIndexPath:path DefaultHeight:self.cellHeight Data:self.orderModel OrderType:g_mode  Padding:16 Width:scRect.size.width];
         NSString*key = [NSString stringWithFormat:@"%d",i];
         NSString*value = [NSString stringWithFormat:@"%f",height];
         self.height_dict[key] = value;

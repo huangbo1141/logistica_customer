@@ -38,7 +38,7 @@
     EnvVar*env = [CGlobal sharedId].env;
     env.lastLogin = -1;
     env.quote = true;
-    g_isii = true;
+    g_isii = false;
     g_location_cnt = 0;
 
     [GMSPlacesClient provideAPIKey:@"AIzaSyAPN34OpSc-JfgEi_bCO08qmd1GOTTmeF0"];

@@ -20,9 +20,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    CGFloat statusaHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     CGRect sc = [UIScreen mainScreen].bounds;
     CGFloat width = sc.size.width;
-    CGFloat height = sc.size.height - 120-96-20;
+    CGFloat height = sc.size.height - 120-96-statusaHeight-20;
+    if (statusaHeight == 20) {
+        // normal
+        height = sc.size.height - 120 - 96- 20;
+    }else{
+        height = sc.size.height - 120 - 96- 78;
+    }
     
     NSArray* views = @[_view1,_view2,_view3];
     for (int i=0; i<views.count; i++) {
@@ -45,6 +52,8 @@
     self.view1.backgroundColor = [UIColor clearColor];
     self.view2.backgroundColor = [UIColor clearColor];
     self.view3.backgroundColor = [UIColor clearColor];
+    
+//    self.scrollView.backgroundColor = [UIColor grayColor];
     
     UIImage* image = [UIImage imageNamed:@"swipe2.jpg"];
     NSArray* colors = [StatViewController getRGBAsFromImage:image atX:100 andY:100 count:5];

@@ -297,12 +297,18 @@
         model = self.data_2[indexPath.row];
     }
     if (model.viewContentHidden) {
-        NSLog(@"orderhistory %d",100);
+        NSLog(@"orderhistory %d column = %d",100,indexPath.row);
         return 100.0f;
     }
     CGSize size = model.cellSize;
-    NSLog(@"orderhistory %d",size.height+30);
-    return size.height + 30;
+    CGFloat height = size.height + 30;
+    
+    if (indexPath.row == 3) {
+        NSLog(@"ooooooooooooo %f column = %d",1162.0f, indexPath.row );
+        return 1162.0f;
+    }
+    NSLog(@"ooooooooooooo %f column = %d",height, indexPath.row );
+    return height;
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

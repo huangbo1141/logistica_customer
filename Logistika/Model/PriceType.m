@@ -28,6 +28,6 @@
     
     self.economy_name = @"Economy";
 //    self. economy_price;
-    self.economy_duraiton = @"In 12 hours";
+    self.economy_duraiton = @"In 16 hours";
 }
 @end
