@@ -145,7 +145,7 @@
     
     for (int i=0; i<self.orderModel.itemModels.count; i++) {
         NSIndexPath*path = [NSIndexPath indexPathForRow:i inSection:0];
-        CGFloat height = [CGlobal tableView1:self.tableView heightForRowAtIndexPath:path DefaultHeight:self.cellHeight Data:self.orderModel OrderType:g_mode  Padding:16 Width:scRect.size.width];
+        CGFloat height = [CGlobal tableView1:self.tableView heightForRowAtIndexPath:path DefaultHeight:self.cellHeight Data:self.orderModel OrderType:g_ORDER_TYPE  Padding:16 Width:scRect.size.width];
         NSString*key = [NSString stringWithFormat:@"%d",i];
         NSString*value = [NSString stringWithFormat:@"%f",height];
         self.height_dict[key] = value;

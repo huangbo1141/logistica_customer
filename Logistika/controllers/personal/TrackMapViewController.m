@@ -27,12 +27,13 @@
 @property (nonatomic,assign) CLLocationCoordinate2D pinSourcePosition;
 @property (nonatomic,assign) CLLocationCoordinate2D pinDestiniationPosition;
 
-@property (nonatomic,strong) GMSMarker* userMarker;
+@property (nonatomic,strong) GMSMarker* packageMarker;
 @property (nonatomic,strong) GMSMarker* sourceMarker;
 @property (nonatomic,strong) GMSMarker* destinationMarker;
 
 @property (nonatomic,strong) OrderModel* orderModel;
 
+@property (nonatomic,strong) NSTimer* trackTimer;
 @end
 
 @implementation TrackMapViewController
@@ -66,6 +67,7 @@
         } @catch (NSException *exception) {
             
         }
+        
     }
     
     NSString* path1 = [NSString stringWithFormat:@"%@%@%@%@",g_baseUrl,PHOTO_URL,@"employer/",self.orderResponse.orderTrackModel.picture];
@@ -94,7 +96,7 @@
             marker.icon = [CGlobal getImageForMap:@"box.png"];
             marker.map = self.mapView;
             
-            self.userMarker = marker;
+            self.packageMarker = marker;
             
         }
         
@@ -128,6 +130,88 @@
         }
         
     });
+    
+    //[self startTrackTimer];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [self startTrackTimer];
+    NSLog(@"viewDidAppear  startTrackTimer");
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [self stopTrackTimer];
+    NSLog(@"viewDidDisappear  stopTrackTimer");
+}
+-(void)stopTrackTimer{
+    if (self.trackTimer!=nil) {
+        [self.trackTimer invalidate];
+        self.trackTimer = nil;
+    }
+}
+-(void)startTrackTimer{
+    [self stopTrackTimer];
+    self.trackTimer = [NSTimer scheduledTimerWithTimeInterval:11 target:self selector:@selector(runnableTrack) userInfo:nil repeats:true];
+}
+-(void)updatePackageLocationData:(OrderResponse*) param{
+    if ([param.orderTrackModel.pickup length]>0 && [param.orderTrackModel.location length]>0) {
+        NSArray* str_pickup =  [self.orderResponse.orderTrackModel.pickup componentsSeparatedByString:@","];
+        NSArray* str_location = [self.orderResponse.orderTrackModel.location componentsSeparatedByString:@","];
+        
+        self.orderResponse.orderTrackModel.pickup   = param.orderTrackModel.pickup;
+        self.orderResponse.orderTrackModel.location = param.orderTrackModel.location;
+        
+        @try {
+            self.sourcePosition = CLLocationCoordinate2DMake([str_pickup[0] doubleValue], [str_pickup[1] doubleValue]);
+            self.sourcePosition_exists = @"1";
+        } @catch (NSException *exception) {
+            
+        }
+        
+        @try {
+            self.packageLocaion = CLLocationCoordinate2DMake([str_location[0] doubleValue], [str_location[1] doubleValue]);
+            self.packageLocaion_exists = @"1";
+            
+        } @catch (NSException *exception) {
+            
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.packageMarker.position = self.packageLocaion;
+            NSLog(@"packageLOCATION UPDATED lat=%f lng=%f",self.packageLocaion.latitude,self.packageLocaion.longitude);
+        });
+    }
+}
+-(void)runnableTrack{
+    NetworkParser* manager = [NetworkParser sharedManager];
+    NSMutableDictionary* params = [[NSMutableDictionary alloc] init];
+    params[@"order_id"] = self.orderResponse.orderTrackModel.order_id;
+    params[@"employer_id"] = self.orderResponse.orderTrackModel.employer_id;;
+    params[@"type"] = [NSNumber numberWithInt:g_mode];
+    
+    [manager ontemplateGeneralRequest2:params BasePath:@"" Path:@"/Track/order_track" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+        if (error == nil) {
+            if (dict!=nil && dict[@"result"] != nil) {
+                //
+                if([dict[@"result"] intValue] == 200){
+                    OrderResponse* response = [[OrderResponse alloc] initWithDictionary_track:dict];
+                    if (response.orderTrackModel!=nil) {
+                        response.orderTrackModel.type = @"200";
+                        [self updatePackageLocationData:response];
+                        
+                        return;
+                    }
+                }else if ([dict[@"result"] intValue] == 300){
+                    OrderResponse* response = [[OrderResponse alloc] initWithDictionary_track:dict];
+                    if (response.orderTrackModel!=nil) {
+                        response.orderTrackModel.type = @"300";
+                        
+                        [self updatePackageLocationData:response];
+                        return;
+                    }
+                }
+            }
+        }else{
+            NSLog(@"Error");
+        }
+    } method:@"POST"];
 }
 - (IBAction)tapCall:(id)sender {
     NSString*phone = [NSString stringWithFormat:@"tel:%@",self.lblPhone.text];
