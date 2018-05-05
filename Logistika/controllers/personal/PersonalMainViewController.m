@@ -11,6 +11,7 @@
 #import "PhotoUploadViewController.h"
 #import "SelectItemViewController.h"
 #import "SelectPackageViewController.h"
+#import "Logistika-Swift.h"
 
 @interface PersonalMainViewController ()
 
@@ -41,8 +42,16 @@
     env.quote = false;
 }
 - (IBAction)menu1:(id)sender {
+//    UIStoryboard *ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
+//    PhotoUploadViewController* vc = [ms instantiateViewControllerWithIdentifier:@"PhotoUploadViewController"];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        vc.limit =  g_limitCnt;
+//        g_ORDER_TYPE = g_CAMERA_OPTION;
+//        [self.navigationController pushViewController:vc animated:true];
+//    });
+    
     UIStoryboard *ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
-    PhotoUploadViewController* vc = [ms instantiateViewControllerWithIdentifier:@"PhotoUploadViewController"];
+    PhotoViewController* vc = [ms instantiateViewControllerWithIdentifier:@"PhotoViewController"];
     dispatch_async(dispatch_get_main_queue(), ^{
         vc.limit =  g_limitCnt;
         g_ORDER_TYPE = g_CAMERA_OPTION;
