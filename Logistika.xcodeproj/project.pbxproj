@@ -155,6 +155,7 @@
 		4D77F6281EAB00FF0081689D /* PickAddressProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D77F6271EAB00FF0081689D /* PickAddressProfileViewController.m */; };
 		4D77F62B1EAB43CE0081689D /* DateTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D77F62A1EAB43CE0081689D /* DateTimeViewController.m */; };
 		4D77F62E1EAB60000081689D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D77F6301EAB60000081689D /* Localizable.strings */; };
+		4D83772D209D9E750056778D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D83772C209D9E750056778D /* PhotoViewController.swift */; };
 		4D8450F21EF29ABA00496CF5 /* ViewHeading.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8450F11EF29ABA00496CF5 /* ViewHeading.m */; };
 		4D863CE41EFB69CF000B06E5 /* BorderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D863CE31EFB69CF000B06E5 /* BorderTextField.m */; };
 		4D863CE71EFB7B1B000B06E5 /* BorderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D863CE61EFB7B1B000B06E5 /* BorderTextView.m */; };
@@ -562,6 +563,7 @@
 		4D77F6291EAB43CE0081689D /* DateTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeViewController.h; sourceTree = "<group>"; };
 		4D77F62A1EAB43CE0081689D /* DateTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeViewController.m; sourceTree = "<group>"; };
 		4D77F62F1EAB60000081689D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4D83772C209D9E750056778D /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		4D8450F01EF29ABA00496CF5 /* ViewHeading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHeading.h; sourceTree = "<group>"; };
 		4D8450F11EF29ABA00496CF5 /* ViewHeading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHeading.m; sourceTree = "<group>"; };
 		4D863CE21EFB69CF000B06E5 /* BorderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderTextField.h; sourceTree = "<group>"; };
@@ -1436,6 +1438,7 @@
 				4D8CAAEA1EA76679001BCF17 /* PersonalMainViewController.m */,
 				4D8CAB421EA8AEAE001BCF17 /* PhotoUploadViewController.h */,
 				4D8CAB431EA8AEAE001BCF17 /* PhotoUploadViewController.m */,
+				4D83772C209D9E750056778D /* PhotoViewController.swift */,
 				4D7736B81EAA00030027F966 /* CameraOrderViewController.h */,
 				4D7736B91EAA00030027F966 /* CameraOrderViewController.m */,
 				4D31EEA51EAB9E0900D21CBF /* ProfileViewController.h */,
@@ -1802,7 +1805,7 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = GXT7QU7DM9;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -2193,6 +2196,7 @@
 				4D8CAAFE1EA7A149001BCF17 /* CarrierModel.m in Sources */,
 				4D94DB921EFA70C700BB0638 /* InfoView2.m in Sources */,
 				4D8CAB0D1EA7A252001BCF17 /* OrderHisModel.m in Sources */,
+				4D83772D209D9E750056778D /* PhotoViewController.swift in Sources */,
 				4D94DB951EFA78DB00BB0638 /* MyBaseView.m in Sources */,
 				4D126C711EA5AA4500C69B89 /* NSObject+TLYSwizzlingHelpers.m in Sources */,
 				4D126C701EA5AA4500C69B89 /* NSString+Common.m in Sources */,
@@ -2332,8 +2336,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: venu talluri (GXT7QU7DM9)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2345,8 +2349,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.logistika.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6f077028-6776-48c5-9e0a-f81ff8b07ddf";
+				PROVISIONING_PROFILE_SPECIFIER = "logistika customer adhoc bohuang";
 				SWIFT_OBJC_BRIDGING_HEADER = "Logistika/controllers/cor/Logistika-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2360,8 +2364,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: venu talluri (GXT7QU7DM9)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2373,8 +2377,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.logistika.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6f077028-6776-48c5-9e0a-f81ff8b07ddf";
+				PROVISIONING_PROFILE_SPECIFIER = "logistika customer adhoc bohuang";
 				SWIFT_OBJC_BRIDGING_HEADER = "Logistika/controllers/cor/Logistika-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
