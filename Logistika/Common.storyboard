@@ -1879,6 +1879,7 @@
                         <outlet property="btnReview" destination="s8W-k7-NVi" id="Qzf-4W-lVD"/>
                         <outlet property="const_EMAIL_TOP" destination="pwb-kl-cEm" id="dVU-bF-KR4"/>
                         <outlet property="const_MAIN_TOP" destination="5VU-Ci-em2" id="9Fl-D5-Rf8"/>
+                        <outlet property="lblEstimatedPickLabel" destination="gE8-Ms-aNm" id="tYF-Wg-jyH"/>
                         <outlet property="lblEstimatedPickup" destination="KfY-V9-tYL" id="9xO-jy-qZp"/>
                         <outlet property="lblPrice1_1" destination="Rvl-Hn-gfa" id="kaY-jf-if5"/>
                         <outlet property="lblPrice1_2" destination="clK-55-04c" id="kQs-Tt-gGI"/>

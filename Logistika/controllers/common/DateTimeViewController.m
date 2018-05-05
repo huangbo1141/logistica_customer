@@ -44,6 +44,9 @@
         self.const_MAIN_TOP.constant = 20;
         self.const_EMAIL_TOP.constant = -200;
     }
+    if (g_mode == c_CORPERATION) {
+        self.lblEstimatedPickLabel.hidden = true;
+    }
     
     // Do any additional setup after loading the view.
     UIDatePicker* date = [[UIDatePicker alloc] init];
@@ -132,14 +135,14 @@
 }
 
 -(void)addService{
-    NSString* pre = [NSString stringWithFormat:@"%@%.4f",symbol_dollar, [g_priceType.expeditied_price floatValue]];
+    NSString* pre = [NSString stringWithFormat:@"%@%.2f",symbol_dollar, [g_priceType.expeditied_price floatValue]];
     self.lblPrice1_2.text = pre;
     self.lblPrice1_3.text = g_priceType.expedited_duration;
     
-    self.lblPrice2_2.text = [NSString stringWithFormat:@"%@%.4f",symbol_dollar, [g_priceType.express_price floatValue]];
+    self.lblPrice2_2.text = [NSString stringWithFormat:@"%@%.2f",symbol_dollar, [g_priceType.express_price floatValue]];
     self.lblPrice2_3.text = g_priceType.express_duration;
     
-    self.lblPrice3_2.text = [NSString stringWithFormat:@"%@%.4f",symbol_dollar, [g_priceType.economy_price floatValue]];
+    self.lblPrice3_2.text = [NSString stringWithFormat:@"%@%.2f",symbol_dollar, [g_priceType.economy_price floatValue]];
     self.lblPrice3_3.text = g_priceType.economy_duraiton;
     
     if (g_serviceModel!=nil && g_serviceModel.name!=nil) {
@@ -343,6 +346,7 @@
     params[@"date"] = g_dateModel.date;
     params[@"time"] = g_dateModel.time;
     
+    
     NSDictionary*jsonMap = @{@"s_address":g_addressModel.sourceAddress
                              ,@"s_area":g_addressModel.sourceArea
                              ,@"s_city":g_addressModel.sourceCity
@@ -368,6 +372,9 @@
     
     NSArray*addressArray = @[jsonMap];
     params[@"orderaddress"] = [addressArray bv_jsonStringWithPrettyPrint:true];
+    
+    params[@"device_type"] = [CGlobal getDeviceName];
+    params[@"device_id"] = [CGlobal getDeviceID];
     
     NetworkParser* manager = [NetworkParser sharedManager];
     [CGlobal showIndicator:self];

@@ -147,6 +147,7 @@
         }
     }
     self.autoCompleteTableView.hidden = NO;
+    [self setViewParent:self.viewParent];
     [self.autoCompleteTableView reloadData];
     
     if (self.scrollParent!=nil) {
@@ -289,6 +290,8 @@
         double delayInSeconds = 1.0;
         self.scrollParent.scrollEnabled = true;
         self.autoCompleteTableView.scrollEnabled = false;
+        
+        [self.autoCompleteTableView removeFromSuperview];
     }
     self.txtField.bottomLine.borderColor = [UIColor lightGrayColor].CGColor;
     self.txtField.bottomLine.borderWidth = g_txtBorderWidth;

@@ -109,7 +109,14 @@ bool isPaymentCompleted = false;
             email = g_guestEmail;
             phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
         } else {
-            email = env.email;
+            if (env.mode == c_PERSONAL) {
+                email = env.email;
+            }else if (env.mode == c_CORPERATION) {
+                email = env.cor_email;
+            }else  {
+                return;
+            }
+            
             phone = [CGlobal getValidPhoneNumber:env.phone Output:0 Prefix:@"+91" Length:10];
         }
         

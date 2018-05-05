@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
-  - CitrusGraphics (2.1.0)
+  - CitrusGraphics (2.0.0)
   - GoogleMaps (2.6.0):
     - GoogleMaps/Maps (= 2.6.0)
   - GoogleMaps/Base (2.6.0)
@@ -25,18 +25,18 @@ PODS:
     - GooglePlaces (= 2.6.0)
   - GooglePlaces (2.6.0):
     - GoogleMaps/Base (= 2.6.0)
-  - IQKeyboardManager (5.0.8)
+  - IQKeyboardManager (5.0.7)
   - MarqueeLabel (3.1.4):
     - MarqueeLabel/ObjC (= 3.1.4)
   - MarqueeLabel/ObjC (3.1.4)
-  - PayUmoney_CoreSDK (3.2)
-  - PayUmoney_PnP (2.2):
+  - PayUmoney_CoreSDK (3.1)
+  - PayUmoney_PnP (2.1):
     - CitrusGraphics
     - PayUmoney_CoreSDK
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - Stripe (12.1.2)
+  - Stripe (12.1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -51,17 +51,17 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
-  CitrusGraphics: 21ca86e16760e4226d48f6e2bfbf0d40d5f8c285
+  CitrusGraphics: 99a20691ab62595796b26dcc64646c12abbd962c
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   GooglePlacePicker: e4488625effb006f59de49e14b7a603e463e4261
   GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
-  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
+  IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
-  PayUmoney_CoreSDK: cfb8fca58220ce424a37b9d83400efbc411b1d25
-  PayUmoney_PnP: 0aaec816e992fd6b67d34514204f4bc5b0c14388
+  PayUmoney_CoreSDK: 650af3bbe3b274819112c40ae9fe37a42b1c4525
+  PayUmoney_PnP: 3041f47f2df4e5a8b0d63d2f2f7e2d6bb04b62df
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  Stripe: 3230cdf8a8b0c04902e45e86f222fb82a926239c
+  Stripe: f8e8feff38ba5caf7b2568c64eab96b0440ecb95
 
 PODFILE CHECKSUM: b628f55a6a7710a274c2e31997adbc43042f5987
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

@@ -37,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *const_EMAIL_TOP;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *const_MAIN_TOP;
 @property (weak, nonatomic) IBOutlet BorderTextField *txtEmailAddress;
+@property (weak, nonatomic) IBOutlet UILabel *lblEstimatedPickLabel;
+
 @end
 
 
