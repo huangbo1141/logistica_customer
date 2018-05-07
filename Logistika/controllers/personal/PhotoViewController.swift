@@ -41,6 +41,8 @@ class PhotoViewController: UIViewController {
         super.viewWillAppear(animated)
         // Setup your camera here...
         
+        
+        
         session = AVCaptureSession()
         session!.sessionPreset = AVCaptureSessionPresetPhoto
         
@@ -79,7 +81,10 @@ class PhotoViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        videoPreviewLayer!.frame = self.calcRect()
+        if let videoPreviewLayer = self.videoPreviewLayer {
+            videoPreviewLayer!.frame = self.calcRect()
+        }
+        
     }
     
     func calcRect()->CGRect{
