@@ -608,10 +608,10 @@
                                 <rect key="frame" x="0.0" y="75" width="375" height="532"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lO-0k-lHH" customClass="ColoredView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="382.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="381.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kd7-Ma-jCL">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="382.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="381.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yF-eU-hOs">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -771,13 +771,6 @@
                                                             <constraint firstAttribute="trailing" secondItem="edA-pk-zKy" secondAttribute="trailing" constant="20" id="Rg7-0c-scO"/>
                                                             <constraint firstAttribute="bottom" secondItem="edA-pk-zKy" secondAttribute="bottom" constant="30" id="UPz-yW-kOp"/>
                                                             <constraint firstItem="edA-pk-zKy" firstAttribute="top" secondItem="SKi-hJ-8du" secondAttribute="top" id="cxh-Zd-3PX"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QxF-nv-64n">
-                                                        <rect key="frame" x="0.0" y="381.5" width="375" height="1"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="iJ0-y5-wLo"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -1162,7 +1155,7 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="backMode">
-                                                                        <integer key="value" value="1"/>
+                                                                        <integer key="value" value="2"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </tableView>
@@ -2364,7 +2357,7 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="backMode">
-                                                                        <integer key="value" value="1"/>
+                                                                        <integer key="value" value="2"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </tableView>

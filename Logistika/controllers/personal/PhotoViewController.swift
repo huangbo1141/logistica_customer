@@ -103,8 +103,8 @@ class PhotoViewController: UIViewController ,ELCImagePickerControllerDelegate,UI
             
             self.navigationItem.rightBarButtonItems = [item]
         }
-        
-        self.loadBeepSound()
+        self.segControl.tintColor = COLOR_PRIMARY;
+//        self.loadBeepSound()
     }
     
     @objc func clickView(view:UIView){
@@ -226,14 +226,15 @@ class PhotoViewController: UIViewController ,ELCImagePickerControllerDelegate,UI
                 videoPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
                 videoPreviewLayer!.connection?.videoOrientation = .portrait
                 viewPreview.layer.addSublayer(videoPreviewLayer!)
+                videoPreviewLayer!.frame = self.calcRect()
+                
                 session!.startRunning()
             }
         }
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        videoPreviewLayer!.frame = self.calcRect()
+        super.viewDidAppear(animated)        
     }
     
     func calcRect()->CGRect{

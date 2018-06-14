@@ -423,8 +423,20 @@
     
     int currentTime = [hour_str intValue];
     int selectedMinute = [min_str intValue];
+    int daydelta = 0;
     if ([am_str isEqualToString:@"pm"]) {
-        currentTime = currentTime + 12;
+        if (currentTime == 12) {
+            
+        }else{
+            currentTime = currentTime + 12;
+        }
+    }else if ([am_str isEqualToString:@"am"]) {
+        if (currentTime == 12) {
+            currentTime = currentTime + 12;
+            daydelta = -1;
+        }else{
+            
+        }
     }
     
     int differentTime = 0;
@@ -468,6 +480,8 @@
         }
         i++;
     }
+    
+    i = i + daydelta;
     if(i == 0)
     {
 //        txtEstimated.setText(TimeHelper.getDate(year, selectedMonth, selectedDate) + " " + TimeHelper.getTime(currentTime + differentTime, selectedMinute)); //getString(R.string.estimated_time) + " " +

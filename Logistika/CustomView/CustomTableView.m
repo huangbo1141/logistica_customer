@@ -31,6 +31,17 @@
             self.separatorStyle = UITableViewCellSeparatorStyleNone;
             break;
         }
+        case 2:{
+            // prevent scroll outsize of content size
+            // by un checking bounce
+            self.bouncesZoom = false;
+            self.alwaysBounceVertical = false;
+            self.alwaysBounceHorizontal = false;
+            self.bounces = false;
+            
+            self.allowsSelection = false;
+            break;
+        }
     }
 }
 @end
