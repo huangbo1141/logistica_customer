@@ -185,7 +185,22 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 - (IBAction)doCall:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:support_phone]];
+    NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
+    
+    data[@"employer_id"] = @"0";
+    
+    NetworkParser* manager = [NetworkParser sharedManager];
+    [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"get_Contact_Details" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+        @try {
+            NSArray* array = dict;
+            NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+        } @catch (NSException *exception) {
+            NSLog(@"catch");
+        }
+        
+    } method:@"POST"];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:support_phone]];
 }
 -(void)tracking:(NSString*)number{
     

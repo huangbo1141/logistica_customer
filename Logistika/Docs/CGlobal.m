@@ -29,7 +29,8 @@ UIColor*   COLOR_RESERVED;
 // http://pgollapudi-001-site1.atempurl.com
 
 
-NSString* g_baseUrl = @"http://logistika1-001-site3.ctempurl.com";
+NSString* g_baseUrl = @"https://mobileapi.hurryr.in";
+//NSString* g_baseUrl = @"http://logistika1-001-site3.ctempurl.com";
 //NSString* g_baseUrl = @"http://pgollapudi-001-site1.atempurl.com";
 //NSString* g_baseUrl = @"http://192.168.1.133/Delivery";
 NSString* BASE_URL = @"/WebService/";
