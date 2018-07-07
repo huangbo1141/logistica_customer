@@ -12,6 +12,7 @@
 
 
 @interface PreDefinedTableViewCell : UITableViewCell<UIPickerViewDataSource,UIPickerViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *cview;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtItem;
 @property (weak, nonatomic) IBOutlet UITextField *txtQuantity;

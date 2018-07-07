@@ -35,14 +35,37 @@
 }
 -(void)setBackMode:(NSInteger)backMode{
     switch (backMode) {
+        case 10:{
+            self.textColor = [CGlobal colorWithHexString:@"253e3e" Alpha:1.0f];
+            break;
+        }
+        case 9:{
+            self.textColor = [CGlobal colorWithHexString:@"626262" Alpha:1.0];
+//            self.textColor = [CGlobal colorWithHexString:@"5e5c5e" Alpha:1.0];
+            break;
+        }
+
+        case 8:{
+            self.textColor = [CGlobal colorWithHexString:@"626262" Alpha:1.0];
+//            self.textColor = [CGlobal colorWithHexString:@"5e5c5e" Alpha:1.0];
+            break;
+        }
+        case 7:{
+            // login page red like color
+            self.textColor = [CGlobal colorWithHexString:@"b57d7b" Alpha:1.0f];
+            break;
+        }
         case 6:{
+            self.textColor = [CGlobal colorWithHexString:@"253e3e" Alpha:1.0f];
             self.font = [UIFont boldSystemFontOfSize:17.0];
+//            self.textAlignment = UITextAlignmentLeft;
             break;
         }
         case 5:{
 //            self.font = [UIFont systemFontOfSize:17.0f weight:UIFontWeightHeavy];;
+            self.textColor = [CGlobal colorWithHexString:@"253e3e" Alpha:1.0f];
             self.font = [UIFont boldSystemFontOfSize:17.0];
-            self.textColor = COLOR_PRIMARY;
+            self.textAlignment = UITextAlignmentLeft;
             break;
         }
         case 4:{

@@ -13,6 +13,7 @@
 #import "MyPopupDialog.h"
 
 @interface CameraOrderTableViewCell : UITableViewCell<UIComboBoxDelegate,UIPickerViewDelegate,UIPickerViewDataSource,ViewDialogDelegate>
+@property (weak, nonatomic) IBOutlet UIView *cview;
 @property (weak, nonatomic) IBOutlet UIImageView *imgContent;
 @property (weak, nonatomic) IBOutlet UITextField *txtQuantity;
 @property (weak, nonatomic) IBOutlet UITextField *txtWeight;

@@ -14,6 +14,7 @@
 #import "ViewScrollContainer.h"
 #import "OrderItemView.h"
 #import "OrderTableViewCell.h"
+#import "RescheduleDateInput.h"
 
 @interface OrderHistoryViewController ()
 @property(nonatomic,strong) OrderResponse*response;
@@ -43,7 +44,18 @@
     self.stackAdded_0 = false;
     self.stackAdded_1 = false;
     self.stackAdded_2 = false;
-    self.curPage = 0;
+    if(self.param1 == 1){
+        double delayInSeconds = 3.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self.segControl setSelectedSegmentIndex:1];
+//            self.curPage = 1;
+        });
+        
+    }else{
+        self.curPage = 0;
+    }
+    
     self.data_0 = [[NSMutableArray alloc] init];
     self.data_1 = [[NSMutableArray alloc] init];
     self.data_2 = [[NSMutableArray alloc] init];
@@ -296,12 +308,18 @@
     }else{
         model = self.data_2[indexPath.row];
     }
+    CGFloat padding = 30.0f;
     if (model.viewContentHidden) {
+        CGFloat padding = 10.0f;
         NSLog(@"orderhistory %d column = %d",100,indexPath.row);
-        return 100.0f;
+        if([model.state intValue] == 1){
+            return 149.0f + padding;
+        }else{
+            return 109.0f + padding;
+        }
     }
     CGSize size = model.cellSize;
-    CGFloat height = size.height + 30;
+    CGFloat height = size.height + padding;
     
     if (indexPath.row == 3) {
         NSLog(@"ooooooooooooo %f column = %d",1162.0f, indexPath.row );
@@ -329,7 +347,7 @@
     data[@"aDelegate"] = self;
     [cell setData:data];
     
-    cell.backgroundColor = COLOR_SECONDARY_THIRD;
+    cell.orderItemView.backgroundColor = COLOR_RESERVED2;
     return cell;
 }
 -(void)didSubmit:(NSDictionary *)data View:(UIView *)view{
@@ -341,6 +359,8 @@
             });
         };
         
+    }else if ([view isKindOfClass:[RescheduleDateInput class]]) {
+        self.curPage = _curPage;
     }
 }
 /*

@@ -24,7 +24,7 @@
     self.view.backgroundColor = COLOR_SECONDARY_THIRD;
     _stack2.hidden = true;
     
-    [_btnSubmit setTitle:@"Continue" forState:UIControlStateNormal];
+    [_btnSubmit setTitle:@"CONTINUE" forState:UIControlStateNormal];
     
     _btnSubmit.tag = 200;
     
@@ -33,12 +33,12 @@
     CGRect frame = CGRectMake(0, 0, screenRect.size.width-40, 30);
     for (int i=0; i<fields.count; i++) {
         BorderTextField*field = fields[i];
-        //        [field addBotomLayer:frame];
+        [field addBotomLayer:frame];
         if (field == self.txtPhone) {
             field.validateMode = 2;
             field.validateLength = 10;
         }
-        field.backMode = 1;
+//        field.backMode = 1;
     }
     self.txtPhone.text = @"+91";
     NSAttributedString* attr_str = self.txtAnswer.attributedPlaceholder;
@@ -68,6 +68,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = @"Forgot User Name";
+    self.navigationController.navigationBar.hidden =false;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

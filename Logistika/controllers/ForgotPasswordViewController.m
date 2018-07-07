@@ -24,7 +24,7 @@
     _stack2.hidden = true;
     self.view.backgroundColor = COLOR_SECONDARY_THIRD;
     
-    [_btnSubmit setTitle:@"Continue" forState:UIControlStateNormal];
+    [_btnSubmit setTitle:@"CONTINUE" forState:UIControlStateNormal];
     _btnSubmit.tag = 200;
     
     NSArray* fields = @[self.txtUsername,self.txtPassword];
@@ -32,13 +32,14 @@
     CGRect frame = CGRectMake(0, 0, screenRect.size.width-40, 30);
     for (int i=0; i<fields.count; i++) {
         BorderTextField*field = fields[i];
-//        [field addBotomLayer:frame];
-        field.backMode = 1;
+        [field addBotomLayer:frame];
+//        field.backMode = 1;
     }
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = @"Forgot Password";
+    self.navigationController.navigationBar.hidden =false;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

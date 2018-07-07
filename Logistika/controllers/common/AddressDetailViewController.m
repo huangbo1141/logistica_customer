@@ -48,6 +48,11 @@
 //    self.txtDesLandMark.text = @"123";
     
     // END
+    if([self.type isEqualToString:@"exceed"]){
+        self.lblChooseSource.text = @"Enter the address of pickup business place";
+    }else{
+//        self.lblChooseSource.text = @"";
+    }
     
     self.view.backgroundColor = COLOR_SECONDARY_THIRD;
     self.viewScrollBelow.backgroundColor = COLOR_SECONDARY_THIRD;
@@ -76,7 +81,7 @@
         
         _txtDesName.text = @"receiver";
         _txtDesCity.text = @"city";
-        _txtDesPhone.text = @"112233";
+        _txtDesPhone.text = @"9999977777";
         _txtDesState.text = @"state";
         _txtDesAddress.text = @"address3";
         _txtDesPincode.text = @"1111111111";
@@ -661,10 +666,11 @@
                 if (dict!=nil && dict[@"result"] != nil) {
                     //
                     if([dict[@"result"] intValue] == 400){
-                        [CGlobal AlertMessage:@"Thank you. A quote will be sent to your registered email address in 30 minutes" Title:nil];
+                        [CGlobal AlertMessage:@"Thank you. A quote will be sent to your \n registered email address in 5 minutes. Alternatively you can check Quotes section in Menu." Title:nil];
                     }else if ([dict[@"result"] intValue] == 200){
                         NSString* order_id = dict[@"order_id"];
-                        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Thank you. A quote will be sent to your registered email address in 30 minutes" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                        NSString* mm = [[NSBundle mainBundle] localizedStringForKey:@"quote_message" value:@"" table:nil];
+                        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mm delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                         alert.tag = 200;
                         [alert show];
                     }
@@ -712,7 +718,8 @@
                     [CGlobal AlertMessage:@"Thank you. A quote will be sent to your registered email address in 30 minutes" Title:nil];
                 }else if ([dict[@"result"] intValue] == 200){
                     NSString* order_id = dict[@"order_id"];
-                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Thank you. A quote will be sent to your registered email address in 30 minutes" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                    NSString* mm = [[NSBundle mainBundle] localizedStringForKey:@"quote_message" value:@"" table:nil];
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mm delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                     alert.tag = 200;
                     [alert show];
                 }

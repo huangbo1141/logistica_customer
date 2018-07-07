@@ -10,6 +10,7 @@
 #import "OrderModel.h"
 #import "DateModel.h"
 #import "OrderHisModel.h"
+#import "MyPopupDialog.h"
 
 @interface OrderItemView : OrderBaseView<UITableViewDelegate,UITableViewDataSource>
 //@property (weak, nonatomic) IBOutlet UITextField *txtCurrentDate;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIStackView *stackRoot;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
+@property (weak, nonatomic) IBOutlet UILabel *lblStatus_lbl;
 
 @property (strong, nonatomic) UIDatePicker *datePicker;
 
@@ -57,7 +59,11 @@
 //@property (weak, nonatomic) IBOutlet UIView *viewNewDate;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTracking;
+@property (weak, nonatomic) IBOutlet UILabel *lblTracking_lbl;
 @property (weak, nonatomic) IBOutlet UILabel *lblOrderNumber;
+@property (weak, nonatomic) IBOutlet UILabel *lblOrderNumber_lbl;
+
+
 
 -(void)setModelData:(OrderHisModel*)model VC:(UIViewController*)vc;
 -(void)firstProcess:(int)mode Data:(OrderHisModel*)model VC:(UIViewController*)vc;
@@ -82,6 +88,15 @@
 @property (nonatomic,strong) NSMutableDictionary* height_dict;
 @property (nonatomic,assign) CGFloat totalHeight;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblStat1;
+@property (weak, nonatomic) IBOutlet UILabel *lblStat2;
+@property (weak, nonatomic) IBOutlet UILabel *lblStat3;
+
+@property (weak, nonatomic) IBOutlet UIView *viewSchedule;
+@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
+@property (weak, nonatomic) IBOutlet UIButton *btnReschedule;
+
+@property (strong, nonatomic) MyPopupDialog *dialog;
 @end
 
 

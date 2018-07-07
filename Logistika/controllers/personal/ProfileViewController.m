@@ -39,7 +39,7 @@
     self.scrollParent.backgroundColor = [UIColor whiteColor];
     
     
-    [_btnCreate setTitle:@"Save Changes" forState:UIControlStateNormal];
+    [_btnCreate setTitle:@"SAVE CHANGES" forState:UIControlStateNormal];
     _btnCreate.tag = 201;
     self.inputData = [NSNumber numberWithInteger:1];
     [self initData:self.inputData];
@@ -67,6 +67,9 @@
         }
     }
     [self.txtPin setKeyboardType:UIKeyboardTypeNumberPad];
+    
+    UIFont* font = self.testFont.font;
+    NSLog(@"%@",font.fontName);
 }
 - (IBAction)clickTerm:(id)sender {
     UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];

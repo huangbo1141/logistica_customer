@@ -10,19 +10,22 @@
 #import "MenuViewController.h"
 #import "MyPopupDialog.h"
 #import "BorderTextField.h"
+#import "FontLabel.h"
 
-@interface MainViewController : MenuViewController<ViewDialogDelegate>
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
+@interface MainViewController : UIViewController<ViewDialogDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *btnSignIn;
 @property (weak, nonatomic) IBOutlet UIButton *btnSignUp;
-@property (weak, nonatomic) IBOutlet UIButton *btnGuest;
-@property (weak, nonatomic) IBOutlet UIButton *btnCall;
-@property (weak, nonatomic) IBOutlet UIButton *btnTracking;
-@property (strong, nonatomic) IBOutlet BorderTextField *txtPhoneNumber;
-@property (strong, nonatomic) IBOutlet UIButton *btnSubmit;
-@property (copy, nonatomic) NSString* phone;
+@property (weak, nonatomic) IBOutlet UIButton *btnForgotUsername;
+@property (weak, nonatomic) IBOutlet UIButton *btnForgotPassword;
+@property (weak, nonatomic) IBOutlet BorderTextField *txtUsername;
+@property (weak, nonatomic) IBOutlet BorderTextField *txtPassword;
 
-@property (strong, nonatomic) IBOutlet UILabel* lblReceiverPhone;
-@property (strong, nonatomic) IBOutlet UIView *viewTerm;
+@property (weak, nonatomic) IBOutlet UIImageView *img_phone;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnCall;
+@property (copy, nonatomic) NSString* phone;
+@property (weak, nonatomic) IBOutlet FontLabel *lblLabel;
+@property (weak, nonatomic) IBOutlet FontLabel *lblTest;
 
 @end

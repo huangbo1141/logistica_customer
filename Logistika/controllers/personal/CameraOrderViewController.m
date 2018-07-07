@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.cellHeight = 112;
+    self.cellHeight = 122;
     self.scrollView.backgroundColor = COLOR_SECONDARY_THIRD;
     if (self.cameraOrderModel == nil) {
         self.cameraOrderModel = [[OrderModel alloc] initWithDictionary:nil];
@@ -53,12 +53,7 @@
             UIStoryboard *ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
             AddressDetailViewController* vc = [ms instantiateViewControllerWithIdentifier:@"AddressDetailViewController"];
             
-            int total = 0;
-            for (int i=0; i<self.cameraOrderModel.itemModels.count; i++) {
-                ItemModel* imodel = self.cameraOrderModel.itemModels[i];
-                total = total + imodel.weight_value;
-            }
-            
+            int total = 0;            
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (total>10) {
@@ -88,15 +83,6 @@
             }
         }else if ([dict[@"action"] isEqualToString:@"select"]) {
             int total = 0;
-            for (int i=0; i<self.cameraOrderModel.itemModels.count; i++) {
-                ItemModel* imodel = self.cameraOrderModel.itemModels[i];
-                total = total + imodel.weight_value;
-            }
-            if (total>10) {
-                self.viewExceed.hidden = false;
-            }else{
-                self.viewExceed.hidden = true;
-            }
         }
     }
 }
@@ -142,7 +128,9 @@
     [cell initMe:self.cameraOrderModel.itemModels[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.aDelegate = self;
-    cell.backgroundColor = COLOR_SECONDARY_THIRD;
+    
+    cell.backgroundColor = COLOR_SECONDARY_PRIMARY;
+    cell.cview.backgroundColor = COLOR_RESERVED;
     return cell;
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

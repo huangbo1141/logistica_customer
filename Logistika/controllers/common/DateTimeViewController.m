@@ -41,7 +41,7 @@
     if (g_mode == c_GUEST) {    //|| g_mode == c_CORPERATION
         
     }else{
-        self.const_MAIN_TOP.constant = 20;
+        self.const_MAIN_TOP.constant = 40;
         self.const_EMAIL_TOP.constant = -200;
     }
     if (g_mode == c_CORPERATION) {
@@ -92,6 +92,13 @@
     
     if (g_dateModel!=nil && g_dateModel.time!=nil) {
         _txtTime.text = g_dateModel.time;
+        
+//        if(g_dateModel.index>=0 && g_dateModel.index<=2){
+//            NSArray* array_b = @[self.viewPrice1_b,self.viewPrice2_b,self.viewPrice3_b];
+//            int index = g_dateModel.index;
+//            ColoredView* view = array_b[index];
+//            view.backgroundColor = COLOR_PRIMARY;
+//        }
     }else{
         if (g_dateModel == nil) {
             g_dateModel = [[DateModel alloc] initWithDictionary:nil];
@@ -105,6 +112,12 @@
             g_dateModel = [[DateModel alloc] initWithDictionary:nil];
         }
         g_dateModel.date = _txtDate.text;
+    }
+    
+    NSArray* array_b = @[self.viewPrice1_b,self.viewPrice2_b,self.viewPrice3_b];
+    for (int i=0; i< array_b.count; i++) {
+        ColoredView* view = array_b[i];
+        view.backgroundColor = [UIColor whiteColor];
     }
     
     EnvVar* env = [CGlobal sharedId].env;
@@ -123,6 +136,10 @@
     if (g_serviceModel == nil) {
         g_serviceModel = [[ServiceModel alloc] init];
     }
+    
+    
+    
+    
 }
 - (IBAction)clickView1:(id)sender {
     [self chooseService:0];
@@ -170,7 +187,7 @@
 }
 -(void)chooseService:(int)index{
     self.chooseService = true;
-    NSArray* array = @[self.viewPrice1,self.viewPrice2,self.viewPrice3];
+    NSArray* array_b = @[self.viewPrice1_b,self.viewPrice2_b,self.viewPrice3_b];
     
     NSArray* array1 = @[self.lblPrice1_1,self.lblPrice2_1,self.lblPrice3_1];
     NSArray* array2 = @[self.lblPrice1_2,self.lblPrice2_2,self.lblPrice3_2];
@@ -179,30 +196,30 @@
     
     for (int i=0; i< array1.count; i++) {
         UILabel* label = array1[i];
-        label.textColor = [UIColor blackColor];
+        label.textColor = COLOR_PRIMARY;
     }
     for (int i=0; i< array2.count; i++) {
         UILabel* label = array2[i];
-        label.textColor = [UIColor blackColor];
+        label.textColor = COLOR_PRIMARY;
     }
     for (int i=0; i< array3.count; i++) {
         UILabel* label = array3[i];
-        label.textColor = [UIColor blackColor];
+        label.textColor = COLOR_PRIMARY;
     }
     
-    for (int i=0; i< array.count; i++) {
-        UIView* view = array[i];
-        view.backgroundColor = [UIColor clearColor];
+    for (int i=0; i< array_b.count; i++) {
+        ColoredView* view = array_b[i];
+        view.backgroundColor = [UIColor whiteColor];
     }
-    UIView* view = array[index];
+    ColoredView* view = array_b[index];
     view.backgroundColor = COLOR_PRIMARY;
     
-    UILabel*label1 = array1[index];
-    UILabel*label2 = array2[index];
-    UILabel*label3 = array3[index];
-    label1.textColor = [UIColor whiteColor];
-    label2.textColor = [UIColor whiteColor];
-    label3.textColor = [UIColor whiteColor];
+//    UILabel*label1 = array1[index];
+//    UILabel*label2 = array2[index];
+//    UILabel*label3 = array3[index];
+//    label1.textColor = [UIColor whiteColor];
+//    label2.textColor = [UIColor whiteColor];
+//    label3.textColor = [UIColor whiteColor];
     
     g_serviceModel.name = ((UILabel*)array1[index]).text;
     g_serviceModel.price = [((UILabel*)array2[index]).text stringByReplacingOccurrencesOfString:symbol_dollar withString:@""];
@@ -210,6 +227,8 @@
     
     
     self.index = index;
+    
+    g_dateModel.index = index;
     
     [self showEstmiatedDate];
 }

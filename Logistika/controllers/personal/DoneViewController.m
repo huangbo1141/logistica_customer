@@ -20,6 +20,7 @@
 #import "NetworkParser.h"
 #import "RescheduleViewController.h"
 #import "CancelPickViewController.h"
+#import "OrderHistoryViewController.h"
 
 @interface DoneViewController ()<UIAlertViewDelegate>
 @property (nonatomic,strong) OrderModel* orderModel;
@@ -162,16 +163,26 @@
         case 200:
         {
             // reschedule
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to Reschedule" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-            alert.tag = 200;
-            [alert show];
+            UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
+            OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                vc.param1 = 1;
+                self.navigationController.navigationBar.hidden = true;
+                self.navigationController.viewControllers = @[vc];
+            });
             break;
         }
         case 201:{
             // cancel pickup
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to Cancel" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-            alert.tag = 201;
-            [alert show];
+            UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
+            OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                vc.param1 = 1;
+                self.navigationController.navigationBar.hidden = true;
+                self.navigationController.viewControllers = @[vc];
+            });
             
             
             break;
@@ -324,10 +335,19 @@
         {
             // Reschedule
             if (buttonIndex == 0) {
+//                UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
+//                RescheduleViewController*vc = [ms instantiateViewControllerWithIdentifier:@"RescheduleViewController"] ;
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self.navigationController setViewControllers:@[vc] animated:true];
+//                });
+                
                 UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
-                RescheduleViewController*vc = [ms instantiateViewControllerWithIdentifier:@"RescheduleViewController"] ;
+                OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.navigationController setViewControllers:@[vc] animated:true];
+                    vc.param1 = 1;
+                    self.navigationController.navigationBar.hidden = true;
+                    self.navigationController.viewControllers = @[vc];
                 });
             }
             break;
@@ -335,10 +355,11 @@
         case 201:{
             if (buttonIndex == 0) {
                 UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
-                CancelPickViewController*vc = [ms instantiateViewControllerWithIdentifier:@"CancelPickViewController"] ;
-                
+                OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.navigationController setViewControllers:@[vc] animated:true];
+                    vc.param1 = 1;
+                    self.navigationController.navigationBar.hidden = true;
+                    self.navigationController.viewControllers = @[vc];
                 });
             }
             break;

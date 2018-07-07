@@ -21,8 +21,17 @@
 }
 */
 -(void)setHeadMode:(NSInteger)headMode{
-    _constraint_Height.constant = 30;
-    _constraint_Leading.constant = 20;
+    switch (headMode) {
+        case 1:
+            _constraint_Height.constant = 30;
+            _constraint_Leading.constant = 20;
+            break;
+        default:
+            _constraint_Height.constant = 30;
+            _constraint_Leading.constant = 20;
+            break;
+    }
+    
 }
 
 -(void)setTitleTheme:(NSInteger)titleTheme{
@@ -32,13 +41,11 @@
             break;
         case 1:
             
-            if (_lblTitle!=nil) {
-                _lblTitle.font = [UIFont systemFontOfSize:_lblTitle.font.pointSize weight:UIFontWeightHeavy];;
-                _lblTitle.textColor = COLOR_PRIMARY;
-            }
+            self.backgroundColor = COLOR_RESERVED;
             
+            self.layer.cornerRadius = 8.0f;
+            self.layer.masksToBounds = true;
             
-            [self setBackMode:8];
             break;
             
         default:

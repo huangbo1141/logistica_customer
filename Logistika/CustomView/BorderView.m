@@ -33,6 +33,15 @@
     }
     return self;
 }
+-(void)setStatus:(NSInteger)status{
+    if(self.status == 1){
+        // clicked status
+        
+    }else{
+        // non clicked status
+        
+    }
+}
 -(void)setBackMode:(NSInteger)backMode{
     switch (backMode) {
         case 5:{

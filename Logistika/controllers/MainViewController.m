@@ -24,6 +24,9 @@
 #import "CityModel.h"
 #import "UIView+Property.h"
 #import "TermViewController.h"
+#import "ForgotPasswordViewController.h"
+#import "ForgotUserViewController.h"
+#import "AFNetworking.h"
 
 @interface MainViewController ()
 @end
@@ -34,42 +37,40 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [_segment addTarget:self action:@selector(onChange:) forControlEvents:UIControlEventValueChanged];
+    self.lblLabel.textColor = COLOR_PRIMARY;
+    UIFont*font = self.lblTest.font;
+    NSString* fontname = font.fontName;
+    NSLog(@"%@",fontname);
     
     [_btnSignIn addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     [_btnSignUp addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_btnGuest addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_btnTracking addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     [_btnCall addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_btnSubmit addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [_btnForgotPassword addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
+    [_btnForgotUsername addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
+
     _btnSignIn.tag = 200;
     _btnSignUp.tag = 201;
-    _btnGuest.tag = 202;
-    _btnTracking.tag = 203;
-    _btnCall.tag = 204;
-    _btnSubmit.tag = 205;
     
-    NSArray* fields = @[self.txtPhoneNumber];
+    
+    _btnCall.tag = 204;
+    _btnForgotPassword.tag = 301;
+    _btnForgotUsername.tag = 302;
+    
+    
+    self.img_phone.image = [CGlobal getColoredImageFromImage:self.img_phone.image Color:[UIColor blackColor]];
+    
+    NSArray* fields = @[self.txtUsername,self.txtPassword];
     CGRect screenRect = [UIScreen mainScreen].bounds;
-    CGRect frame = CGRectMake(0, 0, screenRect.size.width-60, 30);
+    CGRect frame = CGRectMake(0, 0, 250, 30);
     for (int i=0; i<fields.count; i++) {
         if ([fields[i] isKindOfClass:[BorderTextField class]]) {
             BorderTextField*field = fields[i];
             [field addBotomLayer:frame];
-            field.validateMode = 2;
-            field.validateLength = 10;
         }
     }
     
-    self.segment.tintColor = COLOR_PRIMARY;
-    
-    self.view.drawerView.mode = 0;
     
     AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [delegate startLocationService];
@@ -91,30 +92,12 @@
     }
     
     g_location_cnt = g_location_cnt + 1;
-    self.txtPhoneNumber.hidden = true;
-    self.btnSubmit.hidden = true;
-    self.txtPhoneNumber.placeholder = @"Phone Number";
-    self.txtPhoneNumber.text = @"+91";
-    self.txtPhoneNumber.validateMode = 2;
-    self.lblReceiverPhone.text = @"Phone Number";
-    self.lblReceiverPhone.textColor = [UIColor darkGrayColor];
-    self.lblReceiverPhone.hidden = true;
     
+    EnvVar* env = [CGlobal sharedId].env;
+    _txtUsername.text= env.username;
+    _txtPassword.text= env.password;
     
-    [self.txtPhoneNumber addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [self updateHintText];
-    
-    
-    NSAttributedString* attr_str = self.txtPhoneNumber.attributedPlaceholder;
-    self.viewTerm.hidden = true;
-//    id value = [attr_str valueForKeyPath:NSForegroundColorAttributeName];
-//    [attr_str setValue:value forKeyPath:NSForegroundColorAttributeName];
-    
-//    [attr_str setValue:[UIColor blackColor] forKeyPath:NSForegroundColorAttributeName];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-////        cityView.imgView.backgroundColor = [UIColor redColor];
-////        cityView.imgView.image = [UIImage imageNamed:@"background.png"];
-//    });
+    self.view.backgroundColor = COLOR_PRIMARY;
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -123,16 +106,88 @@
 -(void)clickView:(UIView*)sender{
     int tag = (int)sender.tag;
     switch (tag) {
+        case 302:{
+            UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ForgotUserViewController*vc = [ms instantiateViewControllerWithIdentifier:@"ForgotUserViewController"] ;
+            vc.segIndex = 0;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController pushViewController:vc animated:true];
+            });
+            break;
+        }
+        case 301:{
+            UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ForgotPasswordViewController*vc = [ms instantiateViewControllerWithIdentifier:@"ForgotPasswordViewController"] ;
+            vc.segIndex = 0;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController pushViewController:vc animated:true];
+            });
+            break;
+        }
         case 200:
         {
             // sign in
-            UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            LoginViewController*vc = [ms instantiateViewControllerWithIdentifier:@"LoginViewController"] ;
-            vc.segIndex = self.segment.selectedSegmentIndex;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.navigationController.navigationBar.hidden = false;
-                [self.navigationController pushViewController:vc animated:true];
-            });
+            NSString* username = _txtUsername.text;
+            NSString* password = _txtPassword.text;
+            if ([username isEqualToString:@""] || [password isEqualToString:@""]) {
+                [CGlobal AlertMessage:@"Please Input all Info" Title:nil];
+                if ([username isEqualToString:@""]) {
+                    [_txtUsername becomeFirstResponder];
+                }else if([password isEqualToString:@""]){
+                    [_txtPassword becomeFirstResponder];
+                }
+                return;
+            }
+            if (![CGlobal isValidEmail:username]) {
+                [CGlobal AlertMessage:@"Invalid Email" Title:nil];
+                return;
+            }
+            NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
+            data[@"email"] = username;
+            NSData *nsdata = [password
+                              dataUsingEncoding:NSUTF8StringEncoding];
+            
+            // Get NSString from NSData object in Base64
+            NSString *base64Encoded = [nsdata base64EncodedStringWithOptions:0];
+            
+            data[@"password"] = [base64Encoded stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+            data[@"user_type"] = [NSString stringWithFormat:@"%d",c_PERSONAL];
+            
+            
+            NetworkParser* manager = [NetworkParser sharedManager];
+            [CGlobal showIndicator:self];
+            [manager ontemplateGeneralRequest2:data BasePath:BASE_URL Path:@"login" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+                if (error == nil) {
+                    // succ
+                    if (dict[@"result" ]!=nil) {
+                        if ([dict[@"result"] intValue] == 400) {
+                            [CGlobal AlertMessage:@"We don't recognise the User Name and Password. Please try again." Title:nil];
+                            [CGlobal stopIndicator:self];
+                            return;
+                        }
+                    }
+                    EnvVar* env = [CGlobal sharedId].env;
+                    TblUser* user = [[TblUser alloc] initWithDictionary:dict];
+                    [user saveResponse:0 Password:_txtPassword.text];
+                    
+                    
+                    // LoginProcess
+                    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
+                    PersonalMainViewController*vc = [ms instantiateViewControllerWithIdentifier:@"PersonalMainViewController"] ;
+                    MyNavViewController* nav = [[MyNavViewController alloc] initWithRootViewController:vc];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                        delegate.window.rootViewController = nav;
+                    });
+                    
+                }else{
+                    // error
+                    NSLog(@"Error");
+                }
+                
+                [CGlobal stopIndicator:self];
+            } method:@"POST"];
             break;
         }
         case 201:
@@ -140,7 +195,7 @@
             // sign up
             UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             SignupViewController*vc = [ms instantiateViewControllerWithIdentifier:@"SignupViewController"] ;
-            vc.segIndex = self.segment.selectedSegmentIndex;
+            vc.segIndex = 0;
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.navigationController.navigationBar.hidden = false;
                 [self.navigationController pushViewController:vc animated:true];
@@ -150,274 +205,103 @@
         case 202:
         {
             // guest
-            self.txtPhoneNumber.hidden = false;
-            self.btnSubmit.hidden = false;
-            [self.txtPhoneNumber becomeFirstResponder];
-            self.lblReceiverPhone.hidden = false;
-            self.viewTerm.hidden = false;
+            
             break;
         }
         case 203:
         {
-            // tracking
-            UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil
-                                                                                      message: @"Input Tracking Number"
-                                                                               preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                textField.placeholder = @"Tracking Number";
-                textField.textColor = [UIColor blueColor];
-                textField.borderStyle = UITextBorderStyleLine;
-            }];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                NSArray * textfields = alertController.textFields;
-                UITextField * namefield = textfields[0];
-                NSString* number = namefield.text;
-                if ([number length]>0) {
-                    if (self.segment.selectedSegmentIndex == 0) {
-                        [self tracking:number];
-                    }else{
-                        [self tracking_corporate:number];
-                    }
-                    
-                }
-                
-            }]];
-            [self presentViewController:alertController animated:YES completion:nil];
+            
             break;
         }
         case 204:
         {
             // call
-            NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
+            NSMutableDictionary* questionDict = [[NSMutableDictionary alloc] init];
             
-            data[@"employer_id"] = @"0";
+            questionDict[@"employer_id"] = @"0";
             
-            NetworkParser* manager = [NetworkParser sharedManager];
-            [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"get_Contact_Details" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
-                @try {
-                    NSArray* array = dict;
-                    NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
-                } @catch (NSException *exception) {
-                    NSLog(@"catch");
+//            NetworkParser* manager = [NetworkParser sharedManager];
+            NSString*path = @"https://mobileapi.hurryr.in/basic/get_Contact_Details";
+//            [manager ontemplateGeneralRequestWithRawUrlNoCheck:data Path:url withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+//                @try {
+//                    NSArray* array = dict;
+//                    NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
+//                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+//                } @catch (NSException *exception) {
+//                    NSLog(@"catch");
+//                }
+//            } method:@"post"];
+            
+//            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//            NSString*serverurl = url;
+//            if ([[serverurl lowercaseString] hasPrefix:@"https://"]) {
+//                manager.securityPolicy.allowInvalidCertificates = YES; // not recommended for production
+//                [manager.securityPolicy setValidatesDomainName:NO];
+//            }
+//
+////            manager.responseSerializer.acceptableContentTypes = NSSet(array: ["text/html", "text/plain", "audio/wav"]);
+//            [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+//
+//            [manager POST:serverurl parameters:questionDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                NSString* str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//                NSLog(@"%@",str);
+//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                NSLog(@"%@",error.localizedDescription);
+//            }];
+
+            NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
+            
+            NSString *userUpdate =[NSString stringWithFormat:@"employer_id=%@",@"0"];
+            
+            //create the Method "GET" or "POST"
+            [urlRequest setHTTPMethod:@"POST"];
+            
+            //Convert the String to Data
+            NSData *data1 = [userUpdate dataUsingEncoding:NSUTF8StringEncoding];
+            
+            //Apply the data to the body
+            [urlRequest setHTTPBody:data1];
+            
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                if(httpResponse.statusCode == 200)
+                {
+                    
+                    @try {
+                        NSError *parseError = nil;
+                        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+                        NSArray* array = responseDictionary;
+                        NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+                        });
+                        
+                    } @catch (NSException *exception) {
+                        NSLog(@"catch");
+                    }
+
                 }
-                
-            } method:@"POST"];
-//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:support_phone]];
+                else
+                {
+                    NSLog(@"Error");
+                }
+            }];
+            [dataTask resume];
+            
             break;
         }
         case 205:
         {
-            NSString* placeholder = self.txtPhoneNumber.placeholder;
-            if ([placeholder isEqualToString:@"Phone Number"]) {
-                if ([self.txtPhoneNumber isValid]) {
-                    [self sendPhone:self.txtPhoneNumber.text];
-                }else{
-                    [CGlobal AlertMessage:@"Please enter a valid phone number" Title:nil];
-                    return;
-                }
-            }else if ([placeholder isEqualToString:@"Otp Code"]) {
-                if ([self.txtPhoneNumber.text length]>0) {
-                    [self verification:self.phone Otp:self.txtPhoneNumber.text];
-                    return;
-                }
-            }
+            
             break;
         }
         default:
             break;
     }
 }
--(void)sendPhone:(NSString*)phone{
-    NSMutableDictionary* data =[[NSMutableDictionary alloc] init];
-    data[@"phone"] = phone;
-    NetworkParser* manager = [NetworkParser sharedManager];
-    [CGlobal showIndicator:self];
-    [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"getOtpGuest" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
-        if (error == nil) {
-            if (dict!=nil && dict[@"result"] != nil) {
-                //
-                int ret = [dict[@"result"] intValue] ;
-                if (ret == 200) {
-                    self.phone = phone;
-                    self.txtPhoneNumber.text = @"";
-                    self.txtPhoneNumber.validateMode = 0;
-                    self.txtPhoneNumber.placeholder = @"Otp Code";
-                    
-                }
-            }
-        }else{
-            [CGlobal AlertMessage:@"Error" Title:nil];
-            NSLog(@"Error");
-        }
-        [CGlobal stopIndicator:self];
-    } method:@"POST"];
-}
--(void)verification:(NSString*)phone Otp:(NSString*)otp{
-    NSMutableDictionary* data =[[NSMutableDictionary alloc] init];
-    data[@"phone"] = phone;
-    data[@"otp"] = otp;
-    NetworkParser* manager = [NetworkParser sharedManager];
-    [CGlobal showIndicator:self];
-    [manager ontemplateGeneralRequest2:data BasePath:BASE_DATA_URL Path:@"otpValidation" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
-        if (error == nil) {
-            if (dict!=nil && dict[@"result"] != nil) {
-                //
-                int ret = [dict[@"result"] intValue] ;
-                if (ret == 200) {
-                    // success
-                    self.txtPhoneNumber.placeholder = @"Phone Number";
-                    self.txtPhoneNumber.validateMode = 2;
-                    self.txtPhoneNumber.hidden = true;
-                    self.lblReceiverPhone.hidden = true;
-                    self.btnSubmit.hidden = true;
-                    [self goGuest];
-                    return;
-                }
-            }
-        }
-        [CGlobal AlertMessage:@"Please enter valid OTP" Title:nil];
-        NSLog(@"Error");
-        [CGlobal stopIndicator:self];
-    } method:@"POST"];
-}
--(void)goGuest{
-    EnvVar*env = [CGlobal sharedId].env;
-    env.lastLogin = 0;
-    g_mode = c_GUEST;
-    env.mode = c_GUEST;
-    env.user_id = @"0";
-    env.corporate_user_id = @"0";
-    
-    // LoginProcess
-    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
-    PersonalMainViewController*vc = [ms instantiateViewControllerWithIdentifier:@"PersonalMainViewController"] ;
-    MyNavViewController* nav = [[MyNavViewController alloc] initWithRootViewController:vc];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        delegate.window.rootViewController = nav;
-    });
-}
--(void)tracking_corporate:(NSString*)number{
-    
-    NSMutableDictionary* params = [[NSMutableDictionary alloc] init];
-    params[@"id"] = number;
-    
-    NetworkParser* manager = [NetworkParser sharedManager];
-    [CGlobal showIndicator:self];
-    [manager ontemplateGeneralRequest2:params BasePath:BASE_URL_ORDER Path:@"corporate_tracking" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
-        if (error == nil) {
-            if (dict!=nil) {
-                if (dict[@"result"]!=nil && [dict[@"result"] intValue] == 400) {
-                    NSString*msg = [[NSBundle mainBundle] localizedStringForKey:@"msg_track" value:@"" table:nil];
-                    [CGlobal AlertMessage:msg Title:nil];
-                }else{
-                    OrderResponse* response = [[OrderResponse alloc] initWithDictionary_his_cor:dict];
-                    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
-                    
-                    TrackingCorViewController*vc = [ms instantiateViewControllerWithIdentifier:@"TrackingCorViewController"] ;
-                    vc.response = response;
-                    vc.trackID = number;
-                    vc.data = response.orders[0];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.navigationController pushViewController:vc animated:true];
-                    });
-                }
-                
-                
-            }
-        }else{
-            NSLog(@"Error");
-        }
-        [CGlobal stopIndicator:self];
-    } method:@"POST"];
-}
--(void)tracking:(NSString*)number{
 
-    NSMutableDictionary* params = [[NSMutableDictionary alloc] init];
-    params[@"id"] = number;
-    
-    NetworkParser* manager = [NetworkParser sharedManager];
-    [CGlobal showIndicator:self];
-    [manager ontemplateGeneralRequest2:params BasePath:BASE_URL_ORDER Path:@"tracking" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
-        if (error == nil) {
-            if (dict!=nil) {
-                if (dict[@"result"]!=nil && [dict[@"result"] intValue] == 400) {
-                    NSString*msg = [[NSBundle mainBundle] localizedStringForKey:@"msg_track" value:@"" table:nil];
-                    [CGlobal AlertMessage:msg Title:nil];
-                }else{
-                    OrderResponse* response = [[OrderResponse alloc] initWithDictionary_his:dict];
-                    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
-                    
-                    TrackingViewController*vc = [ms instantiateViewControllerWithIdentifier:@"TrackingViewController"] ;
-                    vc.response = response;
-                    vc.trackID = number;
-                    vc.inputData = response.orders[0];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        self.navigationController.navigationBar.hidden = true;
-//                        self.navigationController.viewControllers = @[vc];
-                        [self.navigationController pushViewController:vc animated:true];
-                    });
-                }
-                
-                
-            }
-        }else{
-            NSLog(@"Error");
-        }
-        [CGlobal stopIndicator:self];
-    } method:@"POST"];
-}
--(void)onChange:(UISegmentedControl*)seg{
-    NSInteger index = seg.selectedSegmentIndex;
-    if (index == 0) {
-        _btnGuest.hidden = false;
-        self.txtPhoneNumber.hidden = true;
-        self.lblReceiverPhone.hidden = true;
-        self.btnSubmit.hidden = true;
-        self.txtPhoneNumber.placeholder = @"Phone Number";
-        self.txtPhoneNumber.validateMode = 2;
-        self.txtPhoneNumber.text = @"+91";
-        self.viewTerm.hidden = true;
-    }else{
-        _btnGuest.hidden = true;
-        self.txtPhoneNumber.hidden = true;
-        self.lblReceiverPhone.hidden = true;
-        self.btnSubmit.hidden = true;
-        self.viewTerm.hidden = true;
-    }
-    
-    self.view.drawerView.mode = index;
-}
-#pragma -mark textFields
--(void)textFieldDidChange:(UITextField*)textField{
-    if (textField == self.txtPhoneNumber) {
-        [self updateHintText];
-    }
-}
--(void)updateHintText{
-    if ([self.txtPhoneNumber.placeholder isEqualToString:@"Phone Number"]) {
-        if (self.txtPhoneNumber.text.length>3) {
-            self.lblReceiverPhone.hidden = true;
-        }else{
-            self.lblReceiverPhone.hidden = false;
-        }
-    }else{
-        self.lblReceiverPhone.hidden = true;
-    }
-    
-    if (self.txtPhoneNumber.hidden == true) {
-        self.lblReceiverPhone.hidden = true;
-    }
-}
--(void)onLeftItemTouched:(UIBarButtonItem*)sender{
-    if (self.view.drawerLayout!=nil) {
-        self.view.drawerLayout.openFromRight = NO;
-        [self.view.drawerLayout openDrawer];
-    }
-    
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -447,6 +331,7 @@
 }
 -(void)didSubmit:(NSDictionary *)data View:(UIView *)view{
     CityModel* model = data[@"model"];
+    g_city_selection = model;
     if ([view.xo isKindOfClass:[MyPopupDialog class]]) {
         g_cityBounds = [model getGeofences];
         MyPopupDialog * dlg = (MyPopupDialog*)view.xo;

@@ -24,14 +24,15 @@ UIColor*   COLOR_SECONDARY_PRIMARY;
 UIColor*   COLOR_SECONDARY_GRAY;
 UIColor*   COLOR_SECONDARY_THIRD;
 UIColor*   COLOR_RESERVED;
+UIColor*   COLOR_RESERVED2;
 
 // http://192.168.1.106
 // http://pgollapudi-001-site1.atempurl.com
 
 
-NSString* g_baseUrl = @"https://mobileapi.hurryr.in";
+//NSString* g_baseUrl = @"https://mobileapi.hurryr.in";
 //NSString* g_baseUrl = @"http://logistika1-001-site3.ctempurl.com";
-//NSString* g_baseUrl = @"http://pgollapudi-001-site1.atempurl.com";
+NSString* g_baseUrl = @"http://pgollapudi-001-site1.atempurl.com";
 //NSString* g_baseUrl = @"http://192.168.1.133/Delivery";
 NSString* BASE_URL = @"/WebService/";
 NSString* BASE_DATA_URL = @"/Basic/";
@@ -129,6 +130,7 @@ NSMutableArray* g_orderRescheduleModels;
 NSMutableArray* g_truckModels;
 NSMutableArray* g_cityModels;
 NSMutableArray* g_cityBounds;
+CityModel* g_city_selection;
 
 NSString* g_page_type;
 NSString* g_quote_order_id;
@@ -1527,13 +1529,14 @@ NSMutableArray* menu_topList;
     
     c_weight = @[@" < 1 Kg"
                  ,@"1 to 3 Kgs"
-                 ,@"3 to 6 Kgs"
-                 ,@"6 to 10 Kgs"
-                 ,@"10 to 15 Kgs"
-                 ,@"15 to 20 Kgs"
-                 ,@"20 to 25 Kgs"
-                 ,@"25 to 30 Kgs"
-                 ,@"> 30 Kgs"];
+                 ,@"4 to 6 Kgs"
+                 ,@"7 to 10 Kgs"
+                 ,@"11 to 15 Kgs"
+                 ,@"16 to 20 Kgs"
+                 ,@"21 to 25 Kgs"
+                 ,@"26 to 30 Kgs"
+                 ,@"31 to 40 Kgs"
+                 ,@"41 to 50 Kgs"];
     c_weight_value = @[@"1"
                        ,@"3"
                        ,@"6"
@@ -1542,7 +1545,8 @@ NSMutableArray* menu_topList;
                        ,@"20"
                        ,@"25"
                        ,@"30"
-                       ,@"40"];
+                       ,@"40"
+                       ,@"50"];
     c_packageLists = @[@"Small size Package"
                        ,@"Medium size Package"
                        ,@"Large size Package"
@@ -1554,8 +1558,11 @@ NSMutableArray* menu_topList;
                      @"Cash on Pick up"];
     
     COLOR_PRIMARY = [CGlobal colorWithHexString:@"008080" Alpha:1.0f];
-    COLOR_SECONDARY_PRIMARY = [CGlobal colorWithHexString:@"D2AB00" Alpha:1.0f];
-    COLOR_SECONDARY_THIRD = [CGlobal colorWithHexString:@"D6C165" Alpha:1.0f];
+    COLOR_SECONDARY_PRIMARY = [CGlobal colorWithHexString:@"ffffff" Alpha:1.0f];
+    COLOR_SECONDARY_THIRD = [CGlobal colorWithHexString:@"ffffff" Alpha:1.0f];
+    COLOR_RESERVED = [CGlobal colorWithHexString:@"f5f0f5" Alpha:1.0f];
+    COLOR_RESERVED2 = [CGlobal colorWithHexString:@"f5f0f5" Alpha:1.0f];
+    
     PUBLISHABLE_KEY = @"pk_test_C0xTsdez4BI0rXKZp6ObLitq";
     
     c_menu_title = @[@"profile",@"quotes",@"order",@"reschedule",@"cancel",@"about",@"contact",@"feedback",@"policy",@"sign"];

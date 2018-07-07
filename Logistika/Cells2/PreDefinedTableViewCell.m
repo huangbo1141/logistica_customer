@@ -59,8 +59,8 @@
     tb_item.userInteractionEnabled = true;
     done3.tag = 202;
     
-    _txtItem.inputView = self.pkItem;
-    _txtItem.inputAccessoryView = tb_item;
+//    _txtItem.inputView = self.pkItem;
+//    _txtItem.inputAccessoryView = tb_item;
     
     [self.txtWeight addTarget:self action:@selector(doneEdit:) forControlEvents:UIControlEventEditingDidEndOnExit];
     
@@ -76,11 +76,14 @@
     self.pkItem.dataSource = self;
     
 
+    [_txtItem addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
     
 }
 -(void)textChanged:(UITextField*)textField{
     if (self.data!=nil) {
-       
+        if (textField == self.txtItem) {
+            self.data.title = textField.text;
+        }
     }
 }
 -(void)done:(UIView*)sender{
@@ -159,13 +162,13 @@
         model.weight_value = [c_weight_value[0] intValue];
     }
     
-    found = [c_packageLists indexOfObject:model.title];
-    if (found!=NSNotFound) {
-        self.txtItem.text = c_packageLists[found];
-    }else{
-        self.txtItem.text = c_packageLists[0];
-        model.title = c_packageLists[0];
-    }
+//    found = [c_packageLists indexOfObject:model.title];
+//    if (found!=NSNotFound) {
+//        self.txtItem.text = c_packageLists[found];
+//    }else{
+//        self.txtItem.text = c_packageLists[0];
+//        model.title = c_packageLists[0];
+//    }
     if ([model.mPackage isEqualToString:@"1"]) {
         [self.swPackage setOn:true];
     }else{

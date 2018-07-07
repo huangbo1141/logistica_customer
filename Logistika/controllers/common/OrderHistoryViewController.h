@@ -20,4 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView1;
 @property (weak, nonatomic) IBOutlet UITableView *tableView2;
 @property (weak, nonatomic) IBOutlet UITableView *tableView3;
+
+@property (assign, nonatomic) int param1;
 @end

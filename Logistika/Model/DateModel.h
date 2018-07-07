@@ -11,4 +11,5 @@
 @interface DateModel : BaseModel
 @property (nonatomic,copy) NSString* date;
 @property (nonatomic,copy) NSString* time;
+@property (nonatomic,assign) int index;
 @end

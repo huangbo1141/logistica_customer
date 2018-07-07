@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbltext1;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView1;
 -(void)setData:(NSMutableDictionary*)data;
+@property (weak, nonatomic) IBOutlet UIView *viewMask;
 @end

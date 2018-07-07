@@ -22,6 +22,7 @@
 #import "RescheduleViewController.h"
 #import "CancelPickViewController.h"
 #import "FeedBackViewController.h"
+#import "CitySelectView.h"
 
 @implementation LeftView
 
@@ -35,7 +36,7 @@
 -(void)setCurrentMenu:(NSString *)currentMenu{
     _currentMenu = currentMenu;
     // c_menu_title = @[@"profile",@"quotes",@"order",@"reschedule",@"cancel",@"about",@"contact",@"feedback",@"policy",@"sign"];
-    NSArray* menus = @[_menuProfile,_menuQuotes,_menuOrderHistory,_viewReschedule,_viewCancel,_menuAbout,_menuContact,_menuFeedback,_menuPrivacy,_viewSignIn];
+    NSArray* menus = @[_menuProfile,_menuQuotes,_menuOrderHistory,_viewChangeLocation,_menuAbout,_menuContact,_menuFeedback,_menuPrivacy,_viewSignIn];
     
     for (MenuItem*item in menus) {
         item.backMode = 0;
@@ -130,38 +131,25 @@
         }
         case 203:
         {
-            //btnReschedule
-            if (env.lastLogin>0) {
-                if(_vc.navigationController!= nil){
-                    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
-                    RescheduleViewController*vc = [ms instantiateViewControllerWithIdentifier:@"RescheduleViewController"] ;
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        _vc.navigationController.navigationBar.hidden = true;
-                        _vc.navigationController.viewControllers = @[vc];
-                    });
-                }
-            }else{
-                [CGlobal AlertMessage:@"Please Sign in" Title:nil];
-            }
+            //change location
+            NSArray* array = [[NSBundle mainBundle] loadNibNamed:@"UserInfoWindow" owner:self options:nil];
+            CitySelectView* cityView = array[2];
+            MyPopupDialog * dialog = [[MyPopupDialog alloc] init];
+            //    cityView.frame = CGRectMake(0, 0, 300, 500);
+            CGRect scRect = [UIScreen mainScreen].bounds;
+            cityView.frame = scRect;
+            
+            [cityView setData:@{@"list":g_cityModels,@"aDelegate":self}];
+            [dialog setup:cityView backgroundDismiss:false backgroundColor:[UIColor darkGrayColor]];
+            dialog.backgroundColor = [CGlobal colorWithHexString:@"#aaaaaa" Alpha:0.5];
+            [dialog showPopup:self.vc.view];
+            
             break;
         }
         case 204:
         {
             //btnCancel
-            if (env.lastLogin>0) {
-                if(_vc.navigationController!= nil){
-                    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
-                    CancelPickViewController*vc = [ms instantiateViewControllerWithIdentifier:@"CancelPickViewController"] ;
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        _vc.navigationController.navigationBar.hidden = true;
-                        _vc.navigationController.viewControllers = @[vc];
-                    });
-                }
-            }else{
-                [CGlobal AlertMessage:@"Please Sign in" Title:nil];
-            }
+            
             break;
         }
         case 205:
@@ -267,8 +255,8 @@
     [self.btnProfile addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
     [self.btnQuotes addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
     [self.btnOrderHistory addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.btnReschedule addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.btnCancel addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnChangeLocation addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.btnAbout addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
     [self.btnContact addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
     [self.btnFeedback addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
@@ -278,8 +266,8 @@
     self.btnProfile.tag = 200;
     self.btnQuotes.tag = 201;
     self.btnOrderHistory.tag = 202;
-    self.btnReschedule.tag = 203;
-    self.btnCancel.tag = 204;
+    self.btnChangeLocation.tag = 203;
+    
     self.btnAbout.tag = 205;
     self.btnContact.tag = 206;
     self.btnFeedback.tag = 207;
@@ -295,13 +283,6 @@
         self.lblSignIn.text = @"Sign In";
     }
     
-    if (env.mode == c_CORPERATION) {
-        _viewReschedule.hidden = true;
-        _viewCancel.hidden = true;
-    }else{
-        _viewReschedule.hidden = false;
-        _viewCancel.hidden = false;
-    }
     
     if (env.lastLogin<0) {
         _viewSignIn.hidden = true;
@@ -316,12 +297,14 @@
 }
 -(void)setMode:(NSInteger)mode{
     _mode = mode;
-    if (mode == 0) {
-        _viewReschedule.hidden = false;
-        _viewCancel.hidden = false;
-    }else{
-        _viewReschedule.hidden = true;
-        _viewCancel.hidden = true;
+    }
+-(void)didSubmit:(NSDictionary *)data View:(UIView *)view{
+    CityModel* model = data[@"model"];
+    g_city_selection = model;
+    if ([view.xo isKindOfClass:[MyPopupDialog class]]) {
+        g_cityBounds = [model getGeofences];
+        MyPopupDialog * dlg = (MyPopupDialog*)view.xo;
+        [dlg dismissPopup];
     }
 }
 @end

@@ -42,7 +42,7 @@
     [_btnCreate addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];
     _btnCreate.tag = 200;
     //
-    [_btnCreate setTitle:@"Create" forState:UIControlStateNormal];
+    [_btnCreate setTitle:@"CREATE" forState:UIControlStateNormal];
     _btnCreate.tag = 200;
     
     [_btnTerms addTarget:self action:@selector(clickView:) forControlEvents:UIControlEventTouchUpInside];

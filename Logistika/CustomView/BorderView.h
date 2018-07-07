@@ -13,4 +13,6 @@
 @property (nonatomic) IBInspectable NSInteger backMode;
 @property (nonatomic) IBInspectable CGFloat cornerRadious;
 @property (nonatomic) IBInspectable CGFloat borderWidth;
+
+@property (nonatomic) IBInspectable NSInteger status;
 @end

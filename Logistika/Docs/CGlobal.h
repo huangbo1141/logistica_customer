@@ -26,6 +26,7 @@
 #import "CorporateModel.h"
 #import "ItemModel.h"
 #import "QuoteCoperationModel.h"
+#import "CityModel.h"
 
 extern  UIColor*   COLOR_TOOLBAR_TEXT;
 extern  UIColor*   COLOR_TOOLBAR_BACK;
@@ -34,6 +35,7 @@ extern  UIColor*   COLOR_SECONDARY_PRIMARY;
 extern  UIColor*   COLOR_SECONDARY_GRAY;
 extern  UIColor*   COLOR_SECONDARY_THIRD;
 extern  UIColor*   COLOR_RESERVED;
+extern  UIColor*   COLOR_RESERVED2;
 
 extern  NSString * g_baseUrl;
 extern  NSString* BASE_URL;
@@ -129,6 +131,7 @@ extern NSMutableArray* g_orderRescheduleModels;
 extern NSMutableArray* g_truckModels;
 extern NSMutableArray* g_cityModels;
 extern NSMutableArray* g_cityBounds;
+extern CityModel* g_city_selection;
 
 extern NSString* g_page_type;
 extern NSString* g_quote_order_id;

@@ -15,7 +15,7 @@
 #import "AppDelegate.h"
 #import "TrackMapViewController.h"
 #import "OrderTableViewCell.h"
-
+#import "RescheduleDateInput.h"
 @implementation OrderItemView
 
 /*
@@ -46,20 +46,24 @@
     self.lblOrderNumber.text = model.orderId;
     
     int state = [model.state intValue];
+    _btnPos.hidden = true;
     switch (state) {
         case 0:
         {
             _lblStatus.text = @"Order Cancel";
+            
             break;
         }
         case 2:
         {
             _lblStatus.text = @"Associate on the way for pickup";
+            _btnPos.hidden = false;
             break;
         }
         case 3:
         {
             _lblStatus.text = @"On the way to destination";
+            _btnPos.hidden = false;
             break;
         }
         case 4:
@@ -70,6 +74,7 @@
         case 5:
         {
             _lblStatus.text = @"Order on hold";
+            _btnPos.hidden = false;
             break;
         }
         case 6:
@@ -80,6 +85,7 @@
         case 1:
         {
             _lblStatus.text = @"In Process";
+            
             break;
         }
         default:
@@ -87,6 +93,10 @@
     }
     self.vc = vc;
     self.data = model;
+    
+    
+    
+    
 }
 - (IBAction)clickPos:(id)sender {
     if (self.vc.navigationController!=nil) {
@@ -202,13 +212,28 @@
     self.dateModel = [[DateModel alloc] initWithDictionary:nil];
     [self showItemLists:model];
     
+    NSDictionary* pred_str = @{@"step1":@"Associated ",
+                               @"step2":@"Order Picked up & in\ntransit to drop off ",
+                               @"order_delivered":@"Order Delivered ",
+                               @"order_on_hold":@"Order On Hold ",
+                               @"order_returned":@"Order Returned ",
+                               @"associate":@"Associate on the \n way",
+                               @"pickup_cancelled":@"Pickup Cancelled",
+                               };
+    self.lblStat1.text = pred_str[@"associate"];
+    self.lblStat2.text = pred_str[@"step2"];
+    self.lblStat3.text = pred_str[@"order_returned"];
     
     int state = [model.state intValue];
+    _btnPos.hidden = true;
     switch (state) {
         case 1:{
             _lblStatus.text = @"In Process";
+            self.imgStep.image = [UIImage imageNamed:@"step_inprogress.png"];
             self.imgPos.hidden = true;
             self.btnPos.hidden = true;
+            self.lblStat3.text = pred_str[@"order_delivered"];
+            
             break;
             
         }
@@ -218,6 +243,8 @@
             self.imgStep.image = [UIImage imageNamed:@"step_cancel.png"];
             self.imgPos.hidden = true;
             self.btnPos.hidden = true;
+            self.lblStat2.text = pred_str[@"pickup_cancelled"];
+            self.lblStat3.text = pred_str[@"order_delivered"];
             break;
         }
         case 2:
@@ -226,12 +253,16 @@
             self.imgStep.image = [UIImage imageNamed:@"step1.png"];
             self.imgPos.hidden = true;
             self.btnPos.hidden = true;
+            self.lblStat3.text = pred_str[@"order_delivered"];
+            _btnPos.hidden = false;
             break;
         }
         case 3:
         {
             _lblStatus.text = @"On the way to destination";
             self.imgStep.image = [UIImage imageNamed:@"step2.png"];
+            self.lblStat3.text = pred_str[@"order_delivered"];
+            _btnPos.hidden = false;
             break;
         }
         case 4:
@@ -240,12 +271,15 @@
             self.imgPos.hidden = true;
             self.btnPos.hidden = true;
             self.imgStep.image = [UIImage imageNamed:@"step3.png"];
+            self.lblStat3.text = pred_str[@"order_delivered"];
             break;
         }
         case 5:
         {
             _lblStatus.text = @"Order on hold";
             self.imgStep.image = [UIImage imageNamed:@"step_onhold.png"];
+            self.lblStat3.text = pred_str[@"order_on_hold"];
+            _btnPos.hidden = false;
             break;
         }
         case 6:
@@ -254,6 +288,7 @@
             self.imgPos.hidden = true;
             self.btnPos.hidden = true;
             self.imgStep.image = [UIImage imageNamed:@"step_return.png"];
+            self.lblStat3.text = pred_str[@"order_returned"];
             break;
         }
         default:
@@ -264,12 +299,13 @@
     if (model.cellSizeCalculated == false) {
         self.viewContent.hidden = false;
         CGRect scRect = [[UIScreen mainScreen] bounds];
-        scRect.size.width = scRect.size.width -16;
+        scRect.size.width = scRect.size.width;
         CGSize size = [self.stackRoot systemLayoutSizeFittingSize:scRect.size withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityDefaultLow];
         NSLog(@"widthwidth %f height %f",size.width,size.height);
         self.data.cellSize = size;
         
         model.cellSizeCalculated = true;
+        
     }
     self.modelSet = true;
 }
@@ -348,6 +384,7 @@
             
             [cell setData:inputData];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = COLOR_RESERVED2;
             
             return cell;
         }else if(self.orderModel.product_type == g_ITEM_OPTION){
@@ -356,6 +393,7 @@
             [cell initMe:self.orderModel.itemModels[indexPath.row]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.aDelegate = self;
+            cell.backgroundColor = COLOR_RESERVED2;
             return cell;
         }else{
             ReviewPackageTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell3" forIndexPath:indexPath];
@@ -363,6 +401,7 @@
             [cell initMe:self.orderModel.itemModels[indexPath.row]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.aDelegate = self;
+            cell.backgroundColor = COLOR_RESERVED2;
             return cell;
         }
     
@@ -383,12 +422,88 @@
     self.totalHeight = 0;
     for (int i=0; i<self.orderModel.itemModels.count; i++) {
         NSIndexPath*path = [NSIndexPath indexPathForRow:i inSection:0];
-        CGFloat height = [CGlobal tableView1:self.tableView_items heightForRowAtIndexPath:path DefaultHeight:self.cellHeight Data:self.orderModel OrderType:model.orderModel.product_type Padding:16 Width:0];
+        CGFloat height = [CGlobal tableView1:self.tableView_items heightForRowAtIndexPath:path DefaultHeight:self.cellHeight Data:self.orderModel OrderType:model.orderModel.product_type Padding:0 Width:0];
 
         NSString*key = [NSString stringWithFormat:@"%d",i];
         NSString*value = [NSString stringWithFormat:@"%f",height];
         self.height_dict[key] = value;
         self.totalHeight = self.totalHeight + height;
+    }
+}
+-(IBAction)clickSchedule:(UIButton*)sender{
+    int tag = sender.tag;
+    if (tag == 1) {
+        // cancel
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to Cancel" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        alert.tag = 201;
+        [alert show];
+    
+    }else if(tag == 2){
+        // pickup
+        
+        UIViewController* vc = self.vc;
+        NSArray* array = [[NSBundle mainBundle] loadNibNamed:@"ViewPhotoFull" owner:vc options:nil];
+        RescheduleDateInput* view = array[1];
+        [view firstProcess:@{@"vc":vc,@"model":self.data,@"aDelegate":vc}];
+        
+        self.dialog = [[MyPopupDialog alloc] init];
+        [self.dialog setup:view backgroundDismiss:true backgroundColor:[UIColor darkGrayColor]];
+        [self.dialog showPopup:vc.view];
+        
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    int tag = (int)alertView.tag;
+    switch (tag) {
+        case 200:
+        {
+            // Reschedule
+            if (buttonIndex == 0) {
+                
+            }
+            break;
+        }
+        case 201:{
+            if (buttonIndex == 0) {
+                // cancel pickup
+                [CGlobal showIndicator:self.vc];
+                NetworkParser* manager = [NetworkParser sharedManager];
+                NSMutableDictionary* params = [[NSMutableDictionary alloc] init];
+                params[@"id"] = self.data.orderId;
+                
+                [manager ontemplateGeneralRequest2:params BasePath:BASE_URL_ORDER Path:@"cancel_order" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+                    if (error == nil) {
+                        if (dict!=nil && dict[@"result"] != nil) {
+                            //
+                            if([dict[@"result"] intValue] == 400){
+                                NSString* message = @"Fail";
+                                [CGlobal AlertMessage:message Title:nil];
+                            }else if ([dict[@"result"] intValue] == 200){
+                                NSString* message = @"Success";
+                                [CGlobal AlertMessage:message Title:nil];
+                                
+                                // change page
+                                AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                                [delegate goHome:self.vc];
+                                return;
+                            }
+                        }
+                        AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                        [delegate goHome:self.vc];
+                        return;
+                    }else{
+                        NSLog(@"Error");
+                    }
+                    [CGlobal stopIndicator:self.vc];
+                } method:@"POST"];
+                return;
+            }
+            break;
+        }
+            
+            
+        default:
+            break;
     }
 }
 @end

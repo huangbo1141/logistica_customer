@@ -10,6 +10,7 @@
 #import "FontLabel.h"
 #import "ColoredLabel.h"
 
+
 @interface StatViewController : UIViewController<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *view1;
@@ -18,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageIndicator;
 @property (weak, nonatomic) IBOutlet FontLabel *lblLabel;
 @property (strong, nonatomic) IBOutlet UIButton *btnStart;
+@property (weak, nonatomic) IBOutlet UIView *myIndicator;
 
 @end

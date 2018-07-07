@@ -8,6 +8,8 @@
 
 #import "CitySelectView.h"
 #import "CitySelectTableViewCell.h"
+#import "CGlobal.h"
+
 @implementation CitySelectView
 
 /*
@@ -34,6 +36,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CitySelectTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     [cell setData:@{@"model":self.list_city[indexPath.row]}];
+    
+    CityModel*model = self.list_city[indexPath.row];
+    
+    if (g_city_selection && [g_city_selection.id isEqualToString:model.id]) {
+        //
+        cell.viewMask.hidden = false;
+    }else{
+        cell.viewMask.hidden = true;
+    }
     return cell;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -44,8 +55,16 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.aDelegate!=nil) {
-        id model = self.list_city[indexPath.row];
-        [self.aDelegate didSubmit:@{@"model":model} View:self];
+        
+        CityModel* model = self.list_city[indexPath.row];
+        
+        if (g_city_selection && [g_city_selection.id isEqualToString:model.id]) {
+            //
+            [self.aDelegate didSubmit:@{@"model":model} View:self];
+        }else{
+            [self.aDelegate didSubmit:@{@"model":model} View:self];
+        }
+        
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

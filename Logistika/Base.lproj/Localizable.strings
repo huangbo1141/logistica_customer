@@ -45,7 +45,7 @@
 "success" = "Success";
 "failed" = "Fail";
 
-"quote_message" = "Thank you. A quote will be sent to your registered email address in 30 minutes.";
+"quote_message" = "Thank you. A quote will be sent to your \n registered email address in 5 minutes. Alternatively you can check Quotes section in Menu.";
 "password_error" = "We didn’t find the details in our records. Please try again";
 "msg_track" = "Tracking number not found in our records";
 

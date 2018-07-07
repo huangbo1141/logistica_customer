@@ -40,6 +40,7 @@
 @property (weak, nonatomic) IBOutlet BorderTextField *txtArea;
 @property (weak, nonatomic) IBOutlet BorderTextField *txtCity;
 @property (weak, nonatomic) IBOutlet BorderTextField *txtPin;
+@property (weak, nonatomic) IBOutlet UILabel *testFont;
 
 @property (strong, nonatomic) UIPickerView *pkArea;
 @property (strong, nonatomic) UIPickerView *pkCity;

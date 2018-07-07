@@ -12,6 +12,7 @@
 #import "SelectItemViewController.h"
 #import "SelectPackageViewController.h"
 #import "Logistika-Swift.h"
+#import "OrderHistoryViewController.h"
 
 @interface PersonalMainViewController ()
 
@@ -25,9 +26,23 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.contentView.backgroundColor = COLOR_SECONDARY_THIRD;
     
+    self.btnContinue.hidden = true;
     // Do any additional setup after loading the view.
+    
+    [self.txtCholocate addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+   
 }
-
+-(void)textFieldDidChange:(UITextField*)textField{
+    if (textField == self.txtCholocate) {
+        NSString* pp = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if(pp.length > 0){
+            self.btnContinue.hidden = false;
+        }else{
+            self.btnContinue.hidden = true;
+        }
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -68,13 +83,43 @@
     });
 }
 - (IBAction)menu3:(id)sender {
-    UIStoryboard *ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
-    SelectPackageViewController* vc = [ms instantiateViewControllerWithIdentifier:@"SelectPackageViewController"];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    if(self.txtCholocate.text.length>0){
+        UIStoryboard *ms = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
+        SelectPackageViewController* vc = [ms instantiateViewControllerWithIdentifier:@"SelectPackageViewController"];
+        vc.string = self.txtCholocate.text;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            g_ORDER_TYPE = g_PACKAGE_OPTION;
+            [self.navigationController pushViewController:vc animated:true];
+        });
+    }
+    
+    
+}
+- (IBAction)reveal2:(UIButton*)sender {
+    if(sender.tag == 2){
+        // bottom one
+        self.layer1.hidden = false;
+        self.layer2.hidden = !self.layer2.hidden;
         
-        g_ORDER_TYPE = g_PACKAGE_OPTION;
-        [self.navigationController pushViewController:vc animated:true];
-    });
+        if(self.layer2.hidden == true){
+            [_txtCholocate becomeFirstResponder];
+        }
+    }else if(sender.tag == 1){
+        
+        self.layer2.hidden = false;
+        self.layer1.hidden = !self.layer1.hidden;
+        
+        UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
+        OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            vc.param1 = 1;
+            self.navigationController.navigationBar.hidden = true;
+            self.navigationController.viewControllers = @[vc];
+        });
+    }
+    
 }
 
 /*

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2W-X3-KmW" customClass="ColoredView">
-                        <rect key="frame" x="0.0" y="0.0" width="362" height="217.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="362" height="207.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GI9-dg-HbI">
                                 <rect key="frame" x="8" y="8" width="346" height="117"/>
@@ -275,18 +275,18 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="h2W-X3-KmW" secondAttribute="bottom" id="2uM-cL-imP"/>
                     <constraint firstAttribute="trailing" secondItem="h2W-X3-KmW" secondAttribute="trailing" id="6gm-3q-sv5"/>
                     <constraint firstItem="h2W-X3-KmW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9hT-2q-8Bc"/>
                     <constraint firstAttribute="trailing" secondItem="h2W-X3-KmW" secondAttribute="trailing" id="BMS-5e-iSN"/>
                     <constraint firstItem="h2W-X3-KmW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZKM-Zb-uU6"/>
                     <constraint firstItem="h2W-X3-KmW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="j6T-ub-bGm"/>
-                    <constraint firstAttribute="bottom" secondItem="h2W-X3-KmW" secondAttribute="bottom" id="mf8-Yj-zcO"/>
+                    <constraint firstAttribute="bottom" secondItem="h2W-X3-KmW" secondAttribute="bottom" constant="10" id="mf8-Yj-zcO"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="btnRemove" destination="NFv-WG-0N9" id="91I-2P-XoZ"/>
+                <outlet property="cview" destination="h2W-X3-KmW" id="SC6-WR-2uy"/>
                 <outlet property="swPackaging" destination="rkY-Uk-v6J" id="E7p-T2-AD4"/>
                 <outlet property="txtB" destination="fxm-ct-lbl" id="JAE-QU-uKQ"/>
                 <outlet property="txtH" destination="QSM-e7-cwn" id="VCJ-8s-qn7"/>

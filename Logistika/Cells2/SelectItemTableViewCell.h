@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtH;
 @property (weak, nonatomic) IBOutlet UITextField *txtQuantity;
 @property (weak, nonatomic) IBOutlet UITextField *txtWeight;
+@property (weak, nonatomic) IBOutlet UIView *cview;
 
 @property (strong,nonatomic) id<ActionDelegate> aDelegate;
 @property (strong,nonatomic) ItemModel*data;

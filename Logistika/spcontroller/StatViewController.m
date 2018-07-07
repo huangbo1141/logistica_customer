@@ -10,6 +10,7 @@
 #import "CGlobal.h"
 #import "AppDelegate.h"
 #import "NetworkParser.h"
+#import "Logistika-Swift.h"
 
 @interface StatViewController ()
 
@@ -47,6 +48,16 @@
     self.pageIndicator.currentPageIndicatorTintColor = [UIColor blackColor];
     self.pageIndicator.numberOfPages = views.count;
     
+    ISPageControl* pageControl = self.myIndicator;
+    pageControl.radius = 4;
+    pageControl.padding = 4;
+    pageControl.inactiveTintColor = [UIColor whiteColor];
+    pageControl.borderWidth = 1;
+    pageControl.borderColor = [UIColor blackColor];
+    pageControl.currentPageTintColor = COLOR_PRIMARY;
+    pageControl.numberOfPages = 3;
+    pageControl.tintColor = [UIColor redColor];
+    
     self.scrollView.delegate = self;
     
     self.view1.backgroundColor = [UIColor clearColor];
@@ -72,7 +83,9 @@
     
     NSInteger pageIndex = offset.x/width;
     if (pageIndex>=0 && pageIndex<3) {
-        _pageIndicator.currentPage = pageIndex;    
+        _pageIndicator.currentPage = pageIndex;
+        ISPageControl* pageControl = self.myIndicator;
+        pageControl.currentPage = pageIndex;
     }
     if (_pageIndicator.currentPage == 2) {
         _btnStart.hidden = false;

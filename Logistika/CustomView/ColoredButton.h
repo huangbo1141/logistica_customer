@@ -10,6 +10,14 @@
 
 IB_DESIGNABLE
 @interface ColoredButton : UIButton
+@property (nonatomic) IBInspectable NSInteger level;
 @property (nonatomic) IBInspectable NSInteger backMode;
 @property (nonatomic) IBInspectable CGFloat cornerRadious;
+
+@property (nonatomic) IBInspectable UIColor* cl_highLight;
+@property (nonatomic) IBInspectable UIColor* cl_Primary;
+
+@property (nonatomic) IBInspectable CGFloat msize;
+@property (nonatomic) IBInspectable CGFloat bsize;
+@property (nonatomic) IBInspectable CGFloat osize;
 @end

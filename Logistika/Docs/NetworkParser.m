@@ -52,7 +52,7 @@
     }
     
 }
--(void)generalNetworkWithNoCheck:(NSString*)serverurl Data:(NSDictionary*)questionDict withCompletionBlock:(NetworkCompletionBlock)completionBlock{
+-(void)generalNetworkWithNoCheck:(NSString*)serverurl Data:(NSDictionary*)questionDict withCompletionBlock:(NetworkCompletionBlock)completionBlock method:(NSString*)method{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     if ([[serverurl lowercaseString] hasPrefix:@"https://"]) {
@@ -60,38 +60,45 @@
         [manager.securityPolicy setValidatesDomainName:NO];
     }
     
-    
-    
-    [manager GET:serverurl parameters:questionDict progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        //        NSLog(@"JSON: %@", responseObject);
-        if(completionBlock){
-            if (completionBlock) {
-                completionBlock(responseObject,nil);
-            }
-        }
-        
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        if(completionBlock) {
-            completionBlock(nil,error);
-        }
-        
-    }];
-    
-    //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //    [manager GET:serverurl parameters:questionDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    //        if(completionBlock){
-    //            completionBlock(responseObject,nil);
-    //        }
-    //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    //        if(completionBlock) {
-    //            completionBlock(nil,error);
-    //        }
-    //        NSString* string = [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding];
-    //        if (string!=nil) {
-    //            NSLog(@"%@",string);
-    //        }
-    //    }];
+     if ([[method lowercaseString] isEqualToString:@"get"]) {
+         [manager GET:serverurl parameters:questionDict progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+             //        NSLog(@"JSON: %@", responseObject);
+             if(completionBlock){
+                 if (completionBlock) {
+                     completionBlock(responseObject,nil);
+                 }
+             }
+             
+         } failure:^(NSURLSessionTask *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+             if(completionBlock) {
+                 completionBlock(nil,error);
+             }
+             
+         }];
+     }else{
+         [manager POST:serverurl parameters:questionDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             if(completionBlock){
+                 //                NSData *jsonData = [myJsonString dataUsingEncoding:NSUTF8StringEncoding];
+                 NSString* str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                 //str = @"{\"result\":400}";
+                 //NSLog(str);
+                 NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+                 id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                 if(completionBlock){
+                     if (dict!=nil ) {
+                         completionBlock(dict,nil);
+                     }else{
+                         completionBlock(dict,[[NSError alloc] init]);
+                     }
+                 }
+             }
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if(completionBlock) {
+                 completionBlock(nil,error);
+             }
+         }];
+     }
 }
 -(void)generalNetwork2:(NSString*)serverurl Data:(NSDictionary*)questionDict withCompletionBlock:(NetworkCompletionBlock)completionBlock method:(NSString*)method{
     //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -360,7 +367,7 @@
     
     [self generalNetwork2:serverurl Data:questionDict withCompletionBlock:completionBlock method:method];
 }
--(void)ontemplateRequestWithNoCheck2:(id) data BasePath:(NSString*)url Path:(NSString*)path  withCompletionBlock:(NetworkCompletionBlock)completionBlock{
+-(void)ontemplateRequestWithNoCheck2:(id) data BasePath:(NSString*)url Path:(NSString*)path  withCompletionBlock:(NetworkCompletionBlock)completionBlock method:(NSString*)method{
     NSString *serverurl = g_baseUrl ;
     serverurl = [serverurl stringByAppendingString:url];
     
@@ -369,7 +376,7 @@
         questionDict=[BaseModel getQuestionDict:data];
     }
     
-    [self generalNetworkWithNoCheck:serverurl Data:questionDict withCompletionBlock:completionBlock];
+    [self generalNetworkWithNoCheck:serverurl Data:questionDict withCompletionBlock:completionBlock method:method];
 }
 
 -(void)ontemplateGeneralRequest:(id) data Path:(NSString*)url withCompletionBlock:(NetworkCompletionBlock)completionBlock method:(NSString*)method{
@@ -384,7 +391,7 @@
     
     [self generalNetwork:serverurl Data:questionDict withCompletionBlock:completionBlock method:method];
 }
--(void)ontemplateRequestWithNoCheck:(id) data Path:(NSString*)url withCompletionBlock:(NetworkCompletionBlock)completionBlock{
+-(void)ontemplateRequestWithNoCheck:(id) data Path:(NSString*)url withCompletionBlock:(NetworkCompletionBlock)completionBlock method:(NSString*)method{
     NSString *serverurl = g_baseUrl ;
     serverurl = [serverurl stringByAppendingString:url];
     
@@ -393,10 +400,10 @@
         questionDict=[BaseModel getQuestionDict:data];
     }
     
-    [self generalNetworkWithNoCheck:serverurl Data:questionDict withCompletionBlock:completionBlock];
+    [self generalNetworkWithNoCheck:serverurl Data:questionDict withCompletionBlock:completionBlock method:method];
 }
 
--(void)ontemplateGeneralRequestWithRawUrl:(id) data Path:(NSString*)url withCompletionBlock:(NetworkCompletionBlock)completionBlock{
+-(void)ontemplateGeneralRequestWithRawUrl:(id) data Path:(NSString*)url withCompletionBlock:(NetworkCompletionBlock)completionBlock method:(NSString*)method{
     NSString *serverurl = url ;
     
     NSMutableDictionary *questionDict=nil;
@@ -405,9 +412,9 @@
     }
     
     
-    [self generalNetwork:serverurl Data:questionDict withCompletionBlock:completionBlock method:@"GET"];
+    [self generalNetwork:serverurl Data:questionDict withCompletionBlock:completionBlock method:method];
 }
--(void)ontemplateGeneralRequestWithRawUrlNoCheck:(id) data Path:(NSString*)url withCompletionBlock:(NetworkCompletionBlock)completionBlock{
+-(void)ontemplateGeneralRequestWithRawUrlNoCheck:(id) data Path:(NSString*)url withCompletionBlock:(NetworkCompletionBlock)completionBlock method:(NSString*)method{
     NSString *serverurl = url ;
     
     NSMutableDictionary *questionDict=nil;
@@ -416,7 +423,7 @@
     }
     
     
-    [self generalNetworkWithNoCheck:serverurl Data:questionDict withCompletionBlock:completionBlock];
+    [self generalNetworkWithNoCheck:serverurl Data:questionDict withCompletionBlock:completionBlock method:method];
 }
 
 

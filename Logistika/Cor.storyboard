@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,7 +42,7 @@
                                                     <constraint firstAttribute="width" constant="32" id="OCt-v4-XdD"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home.png" translatesAutoresizingMaskIntoConstraints="NO" id="HGd-TZ-WgL">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home_white_24dp.png" translatesAutoresizingMaskIntoConstraints="NO" id="HGd-TZ-WgL">
                                                 <rect key="frame" x="276" y="11" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="Ymt-yb-ZAs"/>
@@ -394,7 +394,7 @@
                                                     <constraint firstAttribute="width" constant="32" id="BU1-E7-tsJ"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home.png" translatesAutoresizingMaskIntoConstraints="NO" id="qKG-cZ-JeW">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home_white_24dp.png" translatesAutoresizingMaskIntoConstraints="NO" id="qKG-cZ-JeW">
                                                 <rect key="frame" x="276" y="11" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="onV-Iu-bC8"/>
@@ -541,7 +541,7 @@
                                                     <constraint firstAttribute="width" constant="32" id="zU6-Ro-gB7"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cy6-Xc-3f9">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home_white_24dp.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cy6-Xc-3f9">
                                                 <rect key="frame" x="276" y="11" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="BwA-If-4gY"/>
@@ -666,7 +666,7 @@
     </scenes>
     <resources>
         <image name="combobox_down.png" width="125" height="125"/>
-        <image name="ic_home.png" width="48" height="48"/>
+        <image name="ic_home_white_24dp.png" width="24" height="24"/>
         <image name="ic_menu.png" width="48" height="48"/>
         <image name="phone_icon.png" width="40" height="40"/>
         <image name="tracking.png" width="48" height="48"/>

@@ -309,7 +309,7 @@
             [CGlobal AlertMessage:@"Fail" Title:nil];
         }
         
-    }];
+    } method:@"get"];
 }
 /*
 #pragma mark - Navigation

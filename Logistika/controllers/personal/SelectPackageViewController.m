@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.cellHeight = 110;
+    self.cellHeight = 120;
     self.scrollView.backgroundColor = COLOR_SECONDARY_THIRD;
     if (self.cameraOrderModel == nil) {
         self.cameraOrderModel =[[OrderModel alloc] initWithDictionary:nil];
@@ -49,6 +49,11 @@
             [weight isEqualToString:@""] ) {
             return nil;
         }
+        
+        title = [title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if(title.length == 0){
+            return nil;
+        }
     }
     return ret;
 }
@@ -58,6 +63,7 @@
         g_packageOrderModel = self.cameraOrderModel;
         UIStoryboard *ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
         AddressDetailViewController* vc = [ms instantiateViewControllerWithIdentifier:@"AddressDetailViewController"];
+        vc.type = @"exceed";
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.navigationController pushViewController:vc animated:true];
@@ -91,6 +97,10 @@
     if (self.cameraOrderModel.itemModels.count < g_limitCnt) {
         ItemModel* itemModel = [[ItemModel alloc] initWithDictionary:nil];
         [itemModel firstPackage];
+        if(sender == nil)
+            itemModel.title = self.string;
+        else
+            itemModel.title = @"";
         
         [self.cameraOrderModel.itemModels addObject:itemModel];
         [self.tableview reloadData];
@@ -112,7 +122,7 @@
     }else{
         self.btnUploadMore.hidden = false;
     }
-    self.topBarView.caption.text = @"Predefined Package";
+    self.topBarView.caption.text = @"I want to order";
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -135,7 +145,8 @@
     [cell initMe:self.cameraOrderModel.itemModels[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.aDelegate = self;
-    cell.backgroundColor = COLOR_SECONDARY_THIRD;
+    cell.backgroundColor = COLOR_SECONDARY_PRIMARY;
+    cell.cview.backgroundColor = COLOR_RESERVED;
     return cell;
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

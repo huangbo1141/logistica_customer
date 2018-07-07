@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.cellHeight = 212;
+    self.cellHeight = 222;
     self.scrollView.backgroundColor = COLOR_SECONDARY_THIRD;
     if (self.cameraOrderModel == nil) {
         self.cameraOrderModel = [[OrderModel alloc] initWithDictionary:nil];
@@ -137,7 +137,9 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.aDelegate = self;
     cell.txtItem.backgroundColor = COLOR_SECONDARY_THIRD;
-    cell.backgroundColor = COLOR_SECONDARY_THIRD;
+    
+    cell.backgroundColor = COLOR_SECONDARY_PRIMARY;
+    cell.cview.backgroundColor = COLOR_RESERVED;
     return cell;
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

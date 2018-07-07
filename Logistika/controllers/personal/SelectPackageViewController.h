@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UIUnderlinedButton *btnUploadMore;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint_TH;
 
+@property (copy, nonatomic) NSString* string;
 @end

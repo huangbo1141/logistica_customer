@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="651-2W-Fy1">
-                        <rect key="frame" x="0.0" y="0.0" width="370" height="112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="101.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVm-GX-Wd9">
                                 <rect key="frame" x="0.0" y="0.0" width="370" height="90"/>
@@ -191,7 +191,7 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HGx-Mc-hdj">
-                                <rect key="frame" x="8" y="69.5" width="168.5" height="31"/>
+                                <rect key="frame" x="8" y="69.5" width="193" height="31"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26k-Av-p12" customClass="CustomSwitch">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
@@ -204,8 +204,8 @@
                                             <action selector="swPackageToggle:" destination="KGk-i7-Jjw" eventType="valueChanged" id="4GE-47-G4p"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need Packaging" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3b-dH-pwS">
-                                        <rect key="frame" x="57" y="0.0" width="111.5" height="31"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Packaging Required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3b-dH-pwS">
+                                        <rect key="frame" x="57" y="0.0" width="136" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -229,13 +229,14 @@
                 <constraints>
                     <constraint firstItem="651-2W-Fy1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6U7-mG-S3l"/>
                     <constraint firstItem="651-2W-Fy1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dIw-dD-EIu"/>
-                    <constraint firstAttribute="bottom" secondItem="651-2W-Fy1" secondAttribute="bottom" id="dhc-Bk-hJ1"/>
+                    <constraint firstAttribute="bottom" secondItem="651-2W-Fy1" secondAttribute="bottom" constant="10" id="dhc-Bk-hJ1"/>
                     <constraint firstAttribute="trailing" secondItem="651-2W-Fy1" secondAttribute="trailing" id="wv0-gn-l3u"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="btnRemove" destination="l5B-CJ-TNR" id="nd0-r4-eAG"/>
+                <outlet property="cview" destination="651-2W-Fy1" id="cVx-G9-ekh"/>
                 <outlet property="imgContent" destination="cFd-Jz-z40" id="6XJ-nh-1pA"/>
                 <outlet property="swPackaging" destination="26k-Av-p12" id="VBH-kI-AT2"/>
                 <outlet property="txtQuantity" destination="j0c-xz-hAT" id="oeQ-0D-WCr"/>
