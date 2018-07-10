@@ -114,7 +114,9 @@
 //        self.txtArea.scrollParent = self.scrollParent;
     }
     
-    self.backgroundColor = [UIColor clearColor];
+//    self.backgroundColor = [UIColor clearColor];
+    self.cview.backgroundColor = COLOR_RESERVED;
+    
 //    UITextField* sample =  [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
 //    self.txtItem.txtField.borderStyle = UITextBorderStyleRoundedRect;
 ////    self.txtItem.txtField.autocorrectionType = UITextAutocorrectionTypeNo;

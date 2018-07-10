@@ -36,6 +36,9 @@
 -(void)setBackMode:(NSInteger)backMode{
     switch (backMode) {
         case 13:{
+//            self.backgroundColor = [UIColor redColor];
+//            self.layer.masksToBounds = false;
+//            self.layer.backgroundColor = [UIColor redColor].CGColor;
             self.backgroundColor = COLOR_RESERVED;
             break;
         }

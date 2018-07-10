@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setModelData:self.inputData VC:self];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = COLOR_PRIMARY;
 
     [self hideAddressFields];
 }

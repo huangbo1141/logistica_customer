@@ -20,14 +20,14 @@
 -(void)initDefault{
     self.expedited_name = @"Expedited";
 //    self.expeditied_price;
-    self.expedited_duration = @"In 4 hours";
+    self.expedited_duration = @"4 hours";
     
     self.express_name = @"Express";
 //    self.express_price;
-    self.express_duration = @"In 8 hours";
+    self.express_duration = @"8 hours";
     
     self.economy_name = @"Economy";
 //    self. economy_price;
-    self.economy_duraiton = @"In 16 hours";
+    self.economy_duraiton = @"16 hours";
 }
 @end

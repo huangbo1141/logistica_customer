@@ -37,6 +37,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.constraint_Width.constant = 400.0f;
+    } else {
+        CGRect rt = [UIScreen mainScreen].bounds;
+        self.constraint_Width.constant = rt.size.width-24.0f;
+    }
+    self.constraint_Username_Width.constant = self.constraint_Width.constant - 36.0f;
+    
     self.lblLabel.textColor = COLOR_PRIMARY;
     UIFont*font = self.lblTest.font;
     NSString* fontname = font.fontName;
@@ -63,13 +71,16 @@
     
     NSArray* fields = @[self.txtUsername,self.txtPassword];
     CGRect screenRect = [UIScreen mainScreen].bounds;
-    CGRect frame = CGRectMake(0, 0, 250, 30);
+    CGRect frame = CGRectMake(0, 0, self.constraint_Username_Width.constant, 30);
     for (int i=0; i<fields.count; i++) {
         if ([fields[i] isKindOfClass:[BorderTextField class]]) {
             BorderTextField*field = fields[i];
             [field addBotomLayer:frame];
         }
     }
+    
+    self.txtUsername.textColor = [UIColor blackColor];
+    self.txtPassword.textColor = [UIColor blackColor];
     
     
     AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -99,6 +110,14 @@
     
     self.view.backgroundColor = COLOR_PRIMARY;
     
+    if (g_isii) {
+        _txtUsername.text = @"Sumanth3004@gmail.com";
+        _txtPassword.text = @"hurryr12";
+    }
+    
+    
+    font = self.lblTop.font;
+    NSLog(@"%@",font.fontName);
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = true;
@@ -216,78 +235,7 @@
         case 204:
         {
             // call
-            NSMutableDictionary* questionDict = [[NSMutableDictionary alloc] init];
-            
-            questionDict[@"employer_id"] = @"0";
-            
-//            NetworkParser* manager = [NetworkParser sharedManager];
-            NSString*path = @"https://mobileapi.hurryr.in/basic/get_Contact_Details";
-//            [manager ontemplateGeneralRequestWithRawUrlNoCheck:data Path:url withCompletionBlock:^(NSDictionary *dict, NSError *error) {
-//                @try {
-//                    NSArray* array = dict;
-//                    NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
-//                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
-//                } @catch (NSException *exception) {
-//                    NSLog(@"catch");
-//                }
-//            } method:@"post"];
-            
-//            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//            NSString*serverurl = url;
-//            if ([[serverurl lowercaseString] hasPrefix:@"https://"]) {
-//                manager.securityPolicy.allowInvalidCertificates = YES; // not recommended for production
-//                [manager.securityPolicy setValidatesDomainName:NO];
-//            }
-//
-////            manager.responseSerializer.acceptableContentTypes = NSSet(array: ["text/html", "text/plain", "audio/wav"]);
-//            [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-//
-//            [manager POST:serverurl parameters:questionDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//                NSString* str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//                NSLog(@"%@",str);
-//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//                NSLog(@"%@",error.localizedDescription);
-//            }];
-
-            NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
-            
-            NSString *userUpdate =[NSString stringWithFormat:@"employer_id=%@",@"0"];
-            
-            //create the Method "GET" or "POST"
-            [urlRequest setHTTPMethod:@"POST"];
-            
-            //Convert the String to Data
-            NSData *data1 = [userUpdate dataUsingEncoding:NSUTF8StringEncoding];
-            
-            //Apply the data to the body
-            [urlRequest setHTTPBody:data1];
-            
-            NSURLSession *session = [NSURLSession sharedSession];
-            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-                if(httpResponse.statusCode == 200)
-                {
-                    
-                    @try {
-                        NSError *parseError = nil;
-                        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-                        NSArray* array = responseDictionary;
-                        NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
-                        });
-                        
-                    } @catch (NSException *exception) {
-                        NSLog(@"catch");
-                    }
-
-                }
-                else
-                {
-                    NSLog(@"Error");
-                }
-            }];
-            [dataTask resume];
+            [CGlobal callSupport];
             
             break;
         }

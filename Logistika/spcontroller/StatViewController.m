@@ -74,6 +74,13 @@
     self.view.backgroundColor = COLOR_SECONDARY_PRIMARY;
     self.lblLabel.textColor = COLOR_PRIMARY;
     self.btnStart.hidden = true;
+    
+//    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+//
+//    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+//
+//        statusBar.backgroundColor = COLOR_PRIMARY_BAR;
+//    }
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGPoint offset = scrollView.contentOffset;

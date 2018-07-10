@@ -19,7 +19,7 @@
 #import "FeedBackViewController.h"
 #import "MainViewController.h"
 #import "OrderHisCorViewController.h"
-#import "OrderHistoryViewController.h"
+#import "OrderHistoryViewController2.h"
 #import "PersonalMainViewController.h"
 #import "PolicyViewController.h"
 #import "ProfileViewController.h"
@@ -33,6 +33,7 @@
 #import "TrackingViewController.h"
 #import "NetworkParser.h"
 #import "TrackMapViewController.h"
+#import "Logistika-Swift.h"
 
 @interface MenuViewController ()
 

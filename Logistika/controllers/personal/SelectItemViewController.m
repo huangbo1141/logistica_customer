@@ -43,7 +43,8 @@
     for (int k=0; k<self.cameraOrderModel.itemModels.count; k++) {
         ItemModel* imodel = self.cameraOrderModel.itemModels[k];
         NSString* title = imodel.title;
-        if ([title isEqualToString:@""] ) {
+        title = [title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if(title.length == 0){
             return nil;
         }
     }

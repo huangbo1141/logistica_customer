@@ -80,7 +80,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = COLOR_PRIMARY;
     self.contentView.backgroundColor = COLOR_SECONDARY_THIRD;
     
     NSString* content = [[NSBundle mainBundle] localizedStringForKey:@"email_corporation" value:@"" table:nil];

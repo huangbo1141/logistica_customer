@@ -26,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self loadData];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = COLOR_PRIMARY;
     self.viewRoot.backgroundColor = COLOR_SECONDARY_THIRD;
     
     NSArray* tvs = @[self.tableview];

@@ -82,6 +82,8 @@ class PhotoViewController: UIViewController ,ELCImagePickerControllerDelegate,UI
     var stillImageOutput: AVCaptureStillImageOutput?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
+    var isAllowed = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -189,6 +191,7 @@ class PhotoViewController: UIViewController ,ELCImagePickerControllerDelegate,UI
             }else{
                 
             }
+            self.isAllowed = ret
             CGlobal.stopIndicator(self)
         }
         
@@ -294,6 +297,10 @@ class PhotoViewController: UIViewController ,ELCImagePickerControllerDelegate,UI
     @IBAction func captureNow(_ sender: Any) {
         if self.cells.count >= self.limit {
             self.alert()
+            return
+        }
+        
+        if self.isAllowed == false {
             return
         }
         

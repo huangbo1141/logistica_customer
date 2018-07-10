@@ -12,6 +12,7 @@
 @interface BaseTableViewCell : UITableViewCell
 
 @property (nonatomic,strong) UITableView* tableView;
+//@property (nonatomic,strong) UITableView* tableView2;
 @property (nonatomic,strong) NSIndexPath* indexPath;
 @property (nonatomic,strong) id model;
 

@@ -28,10 +28,20 @@
     self.orderItemView.lblStatus_lbl.textColor = [CGlobal colorWithHexString:@"626262" Alpha:1.0f];
     self.orderItemView.lblStatus.textColor = [CGlobal colorWithHexString:@"626262" Alpha:1.0f];
     
-    CGFloat ptSize = self.orderItemView.lblStatus_lbl.font.pointSize;
-    self.orderItemView.lblStatus_lbl.font = [UIFont boldSystemFontOfSize:ptSize];
-    self.orderItemView.lblStatus.font = [UIFont boldSystemFontOfSize:ptSize];
+    
+    self.orderItemView.lblStatus_lbl.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightHeavy];
+    self.orderItemView.lblStatus.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightHeavy];
     // Initialization code
+    
+    UIView* shadowView = self.orderItemView;
+    shadowView.backgroundColor= COLOR_RESERVED;
+    [shadowView.layer setCornerRadius:1.0f];
+    [shadowView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [shadowView.layer setBorderWidth:0.1f];
+    [shadowView.layer setShadowColor:[UIColor colorWithRed:225.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1.0].CGColor];
+    [shadowView.layer setShadowOpacity:1.0];
+    [shadowView.layer setShadowRadius:8.0];
+    [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 1.2f)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

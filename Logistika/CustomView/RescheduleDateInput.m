@@ -43,6 +43,7 @@
         params[@"time"] = self.dateModel.time;
         
         [manager ontemplateGeneralRequest2:params BasePath:BASE_URL_ORDER Path:@"reschedule" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+            [CGlobal stopIndicator:self.vc];
             if (error == nil) {
                 if (dict!=nil && dict[@"result"] != nil) {
                     //
@@ -51,11 +52,11 @@
                         [CGlobal AlertMessage:message Title:nil];
                     }else if ([dict[@"result"] intValue] == 200){
                         NSString* message = @"Success";
-                        [CGlobal AlertMessage:message Title:nil];
+//                        [CGlobal AlertMessage:message Title:nil];
                         
                         // change page
                         if(self.aDelegate!=nil){
-                            [self.aDelegate didSubmit:nil View:self];
+                            [self.aDelegate didSubmit:self.orginal_data View:self];
                         }else{
                             AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
                             [delegate goHome:self.vc];
@@ -85,6 +86,7 @@
         if (data[@"vc"] != nil) {
             self.vc = data[@"vc"];
         }
+        self.orginal_data = data;
         if (data[@"model"] != nil) {
             UIDatePicker* date = [[UIDatePicker alloc] init];
             date.date = [NSDate date];

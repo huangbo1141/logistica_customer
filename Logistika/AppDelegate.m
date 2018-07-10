@@ -38,13 +38,13 @@
     EnvVar*env = [CGlobal sharedId].env;
     env.lastLogin = -1;
     env.quote = true;
-    g_isii = true;
+    g_isii = false;
     g_location_cnt = 0;
 
     [GMSPlacesClient provideAPIKey:@"AIzaSyAPN34OpSc-JfgEi_bCO08qmd1GOTTmeF0"];
     [GMSServices provideAPIKey:@"AIzaSyAPN34OpSc-JfgEi_bCO08qmd1GOTTmeF0"];
     
-    [self installCrashHandler];
+//    [self installCrashHandler];
     
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
@@ -209,7 +209,7 @@
 {
     KSCrashInstallation* installation = [self makeEmailInstallation];
     [installation install];
-    [KSCrash sharedInstance].deleteBehaviorAfterSendAll = KSCDeleteNever; // TODO: Remove this
+    [KSCrash sharedInstance].deleteBehaviorAfterSendAll = KSCDeleteAlways; // TODO: Remove this
     
     
     // Send all outstanding reports. You can do this any time; it doesn't need

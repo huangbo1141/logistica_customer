@@ -24,4 +24,5 @@
 @property (strong, nonatomic) DateModel* dateModel;
 
 @property (strong, nonatomic) OrderHisModel* data;
+@property (strong, nonatomic) NSDictionary*orginal_data;
 @end

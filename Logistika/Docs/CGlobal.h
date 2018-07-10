@@ -31,6 +31,7 @@
 extern  UIColor*   COLOR_TOOLBAR_TEXT;
 extern  UIColor*   COLOR_TOOLBAR_BACK;
 extern  UIColor*   COLOR_PRIMARY;
+extern  UIColor*   COLOR_PRIMARY_BAR;
 extern  UIColor*   COLOR_SECONDARY_PRIMARY;
 extern  UIColor*   COLOR_SECONDARY_GRAY;
 extern  UIColor*   COLOR_SECONDARY_THIRD;
@@ -268,4 +269,6 @@ typedef void (^ImagePickerCallback)(UIImage* image);
 +(BOOL)isPointInPolygon:(CLLocationCoordinate2D) tap ArrayList:(NSMutableArray*)vertices;
 +(NSString*)getValidPhoneNumber:(NSString*)param Output:(int)output Prefix:(NSString*)prefix Length:(int)length;
 +(CGFloat)tableView1:(UITableView *)tableView1 heightForRowAtIndexPath:(NSIndexPath *)indexPath DefaultHeight:(CGFloat)cellHeight Data:(OrderModel*)orderModel OrderType:(int)orderType Padding:(CGFloat)padding Width:(CGFloat)width;
++(NSDictionary*)processDataFor_OrderHistory:(NSDictionary *)dict Error:(NSError *)error;
++(void)callSupport;
 @end

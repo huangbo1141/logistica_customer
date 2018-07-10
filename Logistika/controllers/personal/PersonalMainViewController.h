@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnRealContinue;
 @property (weak, nonatomic) IBOutlet UIView *layer1;
 @property (weak, nonatomic) IBOutlet UIView *layer2;
+@property (weak, nonatomic) IBOutlet UIView *blinkingView;
 
 @end

@@ -16,10 +16,13 @@
 #import "ReviewItemTableViewCell.h"
 #import "ReviewPackageTableViewCell.h"
 #import "ReviewCameraTableViewCell.h"
+#import "OrderResponse.h"
+#import "OrderHisModel.h"
 
 UIColor*   COLOR_TOOLBAR_TEXT;
 UIColor*   COLOR_TOOLBAR_BACK;
 UIColor*   COLOR_PRIMARY;
+UIColor*   COLOR_PRIMARY_BAR;
 UIColor*   COLOR_SECONDARY_PRIMARY;
 UIColor*   COLOR_SECONDARY_GRAY;
 UIColor*   COLOR_SECONDARY_THIRD;
@@ -1557,7 +1560,8 @@ NSMutableArray* menu_topList;
                      @"Net Banking",
                      @"Cash on Pick up"];
     
-    COLOR_PRIMARY = [CGlobal colorWithHexString:@"008080" Alpha:1.0f];
+    COLOR_PRIMARY = [CGlobal colorWithHexString:@"008080" Alpha:1.0f];  // 186e6c
+    COLOR_PRIMARY_BAR = [CGlobal colorWithHexString:@"008080" Alpha:1.0f];  // 1b7a79
     COLOR_SECONDARY_PRIMARY = [CGlobal colorWithHexString:@"ffffff" Alpha:1.0f];
     COLOR_SECONDARY_THIRD = [CGlobal colorWithHexString:@"ffffff" Alpha:1.0f];
     COLOR_RESERVED = [CGlobal colorWithHexString:@"f5f0f5" Alpha:1.0f];
@@ -1879,4 +1883,113 @@ NSMutableArray* menu_topList;
 //    UIGraphicsEndImageContext();
 //    return resultImage;
 //}
++(NSDictionary*)processDataFor_OrderHistory:(NSDictionary *)dict Error:(NSError *)error{
+    if (error == nil) {
+        // succ
+        if (dict[@"result" ]!=nil) {
+            if ([dict[@"result"] intValue] == 200) {
+                g_orderHisModels = [[NSMutableArray alloc] init];
+                
+                // parse
+                OrderResponse* response = [[OrderResponse alloc] initWithDictionary_his:dict];
+                if (response.orders.count == 0) {
+                    return nil;
+                }else{
+                    return [self filterData:response];
+                }
+                return nil;
+            }
+        }
+    }else{
+        // error
+        NSLog(@"Error");
+    }
+    return nil;
+}
++(NSDictionary*)filterData:(OrderResponse*)response{
+    NSMutableArray* data_0 = [[NSMutableArray alloc] init];
+    NSMutableArray* data_1 = [[NSMutableArray alloc] init];
+    NSMutableArray* data_2 = [[NSMutableArray alloc] init];
+    for (int i=0; i<response.orders.count; i++) {
+        OrderHisModel*model = response.orders[i];
+        int state = [model.state intValue];
+        if (state == 2 || state == 3 || state == 5 || state == 1) {
+            if (!([model.is_quote_request isEqualToString:@"1"] && state == 1)) {
+                [data_1 addObject:model];
+            }
+        }else if(state == 4 || state == 0){
+            [data_0 addObject:model];
+        }else{
+            if (state == 0 || state == 6) {
+                [data_2 addObject:model];
+            }
+        }
+    }
+    [self sortData:data_0];
+    [self sortData:data_1];
+    [self sortData:data_2];
+    
+    return @{@"data0":data_0
+             ,@"data1":data_1
+             ,@"data2":data_2
+             };
+}
++(void)sortData:(NSMutableArray*)data{
+    [data sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        OrderHisModel*model1 = obj1;
+        OrderHisModel*model2 = obj2;
+        int int1 = [model1.orderId intValue];
+        int int2 = [model2.orderId intValue];
+        NSNumber* n1 =[NSNumber numberWithInt:int1];
+        NSNumber* n2 =[NSNumber numberWithInt:int2];
+        return [n2 compare:n1];
+    }];
+}
++(void)callSupport{
+    NSMutableDictionary* questionDict = [[NSMutableDictionary alloc] init];
+    
+    questionDict[@"employer_id"] = @"0";
+    
+    NSString*path = @"https://mobileapi.hurryr.in/basic/get_Contact_Details";
+    
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
+    
+    NSString *userUpdate =[NSString stringWithFormat:@"employer_id=%@",@"0"];
+    
+    //create the Method "GET" or "POST"
+    [urlRequest setHTTPMethod:@"POST"];
+    
+    //Convert the String to Data
+    NSData *data1 = [userUpdate dataUsingEncoding:NSUTF8StringEncoding];
+    
+    //Apply the data to the body
+    [urlRequest setHTTPBody:data1];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if(httpResponse.statusCode == 200)
+        {
+            
+            @try {
+                NSError *parseError = nil;
+                NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+                NSArray* array = responseDictionary;
+                NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+                });
+                
+            } @catch (NSException *exception) {
+                NSLog(@"catch");
+            }
+            
+        }
+        else
+        {
+            NSLog(@"Error");
+        }
+    }];
+    [dataTask resume];
+}
 @end

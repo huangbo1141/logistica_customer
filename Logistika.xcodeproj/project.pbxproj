@@ -18,6 +18,9 @@
 		4D01CBFA203C020B000A4521 /* swipe5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D01CBF6203C0208000A4521 /* swipe5.png */; };
 		4D01CBFB203C020B000A4521 /* swipe3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D01CBF7203C0209000A4521 /* swipe3.png */; };
 		4D01CBFC203C020B000A4521 /* swipe4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D01CBF8203C020A000A4521 /* swipe4.png */; };
+		4D1085B320F348A5006B0B97 /* OrderHistoryTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1085B220F348A5006B0B97 /* OrderHistoryTopViewController.m */; };
+		4D1085B520F34A01006B0B97 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1085B420F34A01006B0B97 /* OrderHistoryViewController.swift */; };
+		4D1085BB20F34E33006B0B97 /* ChildExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1085B920F34E32006B0B97 /* ChildExampleViewController.swift */; };
 		4D126BAC1EA5AA2700C69B89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D126BAB1EA5AA2700C69B89 /* main.m */; };
 		4D126BAF1EA5AA2700C69B89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D126BAE1EA5AA2700C69B89 /* AppDelegate.m */; };
 		4D126BB21EA5AA2700C69B89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D126BB11EA5AA2700C69B89 /* ViewController.m */; };
@@ -262,7 +265,7 @@
 		4DA31B821EB1D8EF006A4AFD /* RescheduleItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA31B811EB1D8EF006A4AFD /* RescheduleItemView.xib */; };
 		4DA31B871EB1D9E7006A4AFD /* ViewScrollContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA31B861EB1D9E7006A4AFD /* ViewScrollContainer.m */; };
 		4DA31B891EB1DBDB006A4AFD /* ViewScrollContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA31B881EB1DBDB006A4AFD /* ViewScrollContainer.xib */; };
-		4DA31B8C1EB1E7C6006A4AFD /* OrderHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA31B8B1EB1E7C6006A4AFD /* OrderHistoryViewController.m */; };
+		4DA31B8C1EB1E7C6006A4AFD /* OrderHistoryViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA31B8B1EB1E7C6006A4AFD /* OrderHistoryViewController2.m */; };
 		4DA31B8F1EB1FBB4006A4AFD /* OrderItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA31B8E1EB1FBB4006A4AFD /* OrderItemView.m */; };
 		4DA31B911EB1FBC3006A4AFD /* OrderItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA31B901EB1FBC3006A4AFD /* OrderItemView.xib */; };
 		4DA31B931EB202E1006A4AFD /* Cor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DA31B921EB202E1006A4AFD /* Cor.storyboard */; };
@@ -307,6 +310,7 @@
 		4DE728BA20ED0F4A00E82819 /* ic_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DE728B920ED0F4900E82819 /* ic_password.png */; };
 		4DE728BC20ED1C5200E82819 /* ic_i_send.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DE728BB20ED1C5100E82819 /* ic_i_send.png */; };
 		4DE728BE20ED219F00E82819 /* ic_want.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DE728BD20ED219B00E82819 /* ic_want.png */; };
+		4DE82BE720F369A300E79FA7 /* TableChildExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE82BE620F369A200E79FA7 /* TableChildExampleViewController.swift */; };
 		4DF07B1B1F79019000D56D16 /* capture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5722A1F75624500EC7924 /* capture.png */; };
 		4DF07B1C1F79019000D56D16 /* option_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5722B1F75624600EC7924 /* option_camera.png */; };
 		4DF07B1D1F79019000D56D16 /* option_package.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5722D1F75624700EC7924 /* option_package.png */; };
@@ -317,6 +321,7 @@
 		4DF2060720EF0E8300212633 /* ic_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF2060620EF0E8300212633 /* ic_home.png */; };
 		4DF2060920EF0F9700212633 /* ic_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF2060820EF0F9400212633 /* ic_phone.png */; };
 		4DF4B10B20F06567008DD193 /* ISPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4B10A20F06567008DD193 /* ISPageControl.swift */; };
+		4DF776B820F112F9005574AD /* step_inprogress.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF776B720F112F9005574AD /* step_inprogress.png */; };
 		4DFEAC4E1F3AA5DF004A832B /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFEAC4C1F3AA5DF004A832B /* OrderTableViewCell.m */; };
 		4DFEAC4F1F3AA5DF004A832B /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFEAC4D1F3AA5DF004A832B /* OrderTableViewCell.xib */; };
 		4DFEAC581F3AEAE5004A832B /* OrderCorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFEAC561F3AEAE5004A832B /* OrderCorTableViewCell.m */; };
@@ -356,6 +361,10 @@
 		4D01CBF6203C0208000A4521 /* swipe5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swipe5.png; sourceTree = "<group>"; };
 		4D01CBF7203C0209000A4521 /* swipe3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swipe3.png; sourceTree = "<group>"; };
 		4D01CBF8203C020A000A4521 /* swipe4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swipe4.png; sourceTree = "<group>"; };
+		4D1085B120F348A5006B0B97 /* OrderHistoryTopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderHistoryTopViewController.h; sourceTree = "<group>"; };
+		4D1085B220F348A5006B0B97 /* OrderHistoryTopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderHistoryTopViewController.m; sourceTree = "<group>"; };
+		4D1085B420F34A01006B0B97 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
+		4D1085B920F34E32006B0B97 /* ChildExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildExampleViewController.swift; sourceTree = "<group>"; };
 		4D126BA71EA5AA2700C69B89 /* Logistika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logistika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D126BAB1EA5AA2700C69B89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D126BAD1EA5AA2700C69B89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -757,8 +766,8 @@
 		4DA31B851EB1D9E7006A4AFD /* ViewScrollContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewScrollContainer.h; sourceTree = "<group>"; };
 		4DA31B861EB1D9E7006A4AFD /* ViewScrollContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewScrollContainer.m; sourceTree = "<group>"; };
 		4DA31B881EB1DBDB006A4AFD /* ViewScrollContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewScrollContainer.xib; sourceTree = "<group>"; };
-		4DA31B8A1EB1E7C6006A4AFD /* OrderHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderHistoryViewController.h; sourceTree = "<group>"; };
-		4DA31B8B1EB1E7C6006A4AFD /* OrderHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderHistoryViewController.m; sourceTree = "<group>"; };
+		4DA31B8A1EB1E7C6006A4AFD /* OrderHistoryViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderHistoryViewController2.h; sourceTree = "<group>"; };
+		4DA31B8B1EB1E7C6006A4AFD /* OrderHistoryViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderHistoryViewController2.m; sourceTree = "<group>"; };
 		4DA31B8D1EB1FBB4006A4AFD /* OrderItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItemView.h; sourceTree = "<group>"; };
 		4DA31B8E1EB1FBB4006A4AFD /* OrderItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItemView.m; sourceTree = "<group>"; };
 		4DA31B901EB1FBC3006A4AFD /* OrderItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderItemView.xib; sourceTree = "<group>"; };
@@ -831,11 +840,13 @@
 		4DE728B920ED0F4900E82819 /* ic_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_password.png; sourceTree = "<group>"; };
 		4DE728BB20ED1C5100E82819 /* ic_i_send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_i_send.png; sourceTree = "<group>"; };
 		4DE728BD20ED219B00E82819 /* ic_want.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_want.png; sourceTree = "<group>"; };
+		4DE82BE620F369A200E79FA7 /* TableChildExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableChildExampleViewController.swift; sourceTree = "<group>"; };
 		4DF14DA6204FD84100875047 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		4DF14DA8204FDA4600875047 /* MultilineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		4DF2060620EF0E8300212633 /* ic_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_home.png; sourceTree = "<group>"; };
 		4DF2060820EF0F9400212633 /* ic_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_phone.png; sourceTree = "<group>"; };
 		4DF4B10A20F06567008DD193 /* ISPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISPageControl.swift; sourceTree = "<group>"; };
+		4DF776B720F112F9005574AD /* step_inprogress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step_inprogress.png; sourceTree = "<group>"; };
 		4DFEAC4B1F3AA5DF004A832B /* OrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
 		4DFEAC4C1F3AA5DF004A832B /* OrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewCell.m; sourceTree = "<group>"; };
 		4DFEAC4D1F3AA5DF004A832B /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
@@ -1347,6 +1358,7 @@
 				4D29068C20EE7EE0007E0856 /* myswipe3.png */,
 				4D29068B20EE7EDE007E0856 /* myswipe4.png */,
 				4D29068D20EE7EE1007E0856 /* myswipe6.png */,
+				4DF776B720F112F9005574AD /* step_inprogress.png */,
 				4DE728BD20ED219B00E82819 /* ic_want.png */,
 				4DE728BB20ED1C5100E82819 /* ic_i_send.png */,
 				4DE728B720ED0EAE00E82819 /* ic_user.png */,
@@ -1547,10 +1559,15 @@
 				4DA31B751EB19008006A4AFD /* RescheduleViewController.m */,
 				4DA31B771EB190A4006A4AFD /* CancelPickViewController.h */,
 				4DA31B781EB190A4006A4AFD /* CancelPickViewController.m */,
-				4DA31B8A1EB1E7C6006A4AFD /* OrderHistoryViewController.h */,
-				4DA31B8B1EB1E7C6006A4AFD /* OrderHistoryViewController.m */,
+				4DA31B8A1EB1E7C6006A4AFD /* OrderHistoryViewController2.h */,
+				4DA31B8B1EB1E7C6006A4AFD /* OrderHistoryViewController2.m */,
 				4D4974891F27381000677DA9 /* PickupLocationViewController.h */,
 				4D49748A1F27381000677DA9 /* PickupLocationViewController.m */,
+				4D1085B120F348A5006B0B97 /* OrderHistoryTopViewController.h */,
+				4D1085B220F348A5006B0B97 /* OrderHistoryTopViewController.m */,
+				4D1085B420F34A01006B0B97 /* OrderHistoryViewController.swift */,
+				4D1085B920F34E32006B0B97 /* ChildExampleViewController.swift */,
+				4DE82BE620F369A200E79FA7 /* TableChildExampleViewController.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1980,6 +1997,7 @@
 				4D126C751EA5AA4500C69B89 /* Info.plist in Resources */,
 				4D126CB61EA5ABC700C69B89 /* ic_launcher.png in Resources */,
 				4D8CAB6A1EA8B298001BCF17 /* ic_camera.png in Resources */,
+				4DF776B820F112F9005574AD /* step_inprogress.png in Resources */,
 				4D126CAC1EA5ABC700C69B89 /* cancel.png in Resources */,
 				4D014E1320EFD1C900DE985A /* feedback.png in Resources */,
 				4D29068F20EE7EE3007E0856 /* myswipe4.png in Resources */,
@@ -2126,6 +2144,7 @@
 				4D863CE41EFB69CF000B06E5 /* BorderTextField.m in Sources */,
 				4D31EEAF1EADEA8600D21CBF /* ReviewOrderViewController.m in Sources */,
 				4D126C591EA5AA4500C69B89 /* GraphTableViewCell.m in Sources */,
+				4D1085B320F348A5006B0B97 /* OrderHistoryTopViewController.m in Sources */,
 				4D77F6281EAB00FF0081689D /* PickAddressProfileViewController.m in Sources */,
 				4D126BAF1EA5AA2700C69B89 /* AppDelegate.m in Sources */,
 				4D126C8A1EA5AA4500C69B89 /* GeoCodeResult.m in Sources */,
@@ -2178,6 +2197,7 @@
 				4D8CAAEB1EA76679001BCF17 /* PersonalMainViewController.m in Sources */,
 				4D126C631EA5AA4500C69B89 /* CGlobal.m in Sources */,
 				4D31EEB51EADEF8A00D21CBF /* tmpPaymentViewController.m in Sources */,
+				4DE82BE720F369A300E79FA7 /* TableChildExampleViewController.swift in Sources */,
 				4D126C841EA5AA4500C69B89 /* AutomCompletePlaces.m in Sources */,
 				4D8CAAFB1EA7A0C3001BCF17 /* AddressModel.m in Sources */,
 				4D94DB9F1EFAB30900BB0638 /* GoogleBound.m in Sources */,
@@ -2198,6 +2218,7 @@
 				4D1BC9521EB88C66008E39C4 /* BorderLabel.m in Sources */,
 				4D126C5E1EA5AA4500C69B89 /* ColoredLabel.m in Sources */,
 				4D126C721EA5AA4500C69B89 /* TLYDelegateProxy.m in Sources */,
+				4D1085BB20F34E33006B0B97 /* ChildExampleViewController.swift in Sources */,
 				4D126CD71EA70FD700C69B89 /* TopBarView.m in Sources */,
 				4D8CAB1F1EA7A337001BCF17 /* ServiceModel.m in Sources */,
 				4D126C921EA5AA4500C69B89 /* WNACountry.m in Sources */,
@@ -2225,7 +2246,7 @@
 				4D126C851EA5AA4500C69B89 /* MatchedSubstrings.m in Sources */,
 				4D2B728A1EE7001C00122AFE /* TermViewController.m in Sources */,
 				4D126C691EA5AA4500C69B89 /* NSString+HTMLTrim.m in Sources */,
-				4DA31B8C1EB1E7C6006A4AFD /* OrderHistoryViewController.m in Sources */,
+				4DA31B8C1EB1E7C6006A4AFD /* OrderHistoryViewController2.m in Sources */,
 				4D31EEAC1EADA4D500D21CBF /* ConfirmBar.m in Sources */,
 				4DA31B9A1EB2478D006A4AFD /* TrackingViewController.m in Sources */,
 				4D7736B71EA9FD840027F966 /* ProductCellCamera.m in Sources */,
@@ -2243,6 +2264,7 @@
 				4D126C5D1EA5AA4500C69B89 /* ColoredButton.m in Sources */,
 				4D8CAB621EA8B272001BCF17 /* ELCImagePickerController.m in Sources */,
 				4D8CAAE11EA748CE001BCF17 /* ForgotPasswordViewController.m in Sources */,
+				4D1085B520F34A01006B0B97 /* OrderHistoryViewController.swift in Sources */,
 				4D94DB9C1EFAB2B700BB0638 /* GooglePos.m in Sources */,
 				4DDDAC7C1EE8011900AFF452 /* CAAutoCompleteObject.m in Sources */,
 				4D8CAAF31EA77053001BCF17 /* AboutUsViewController.m in Sources */,

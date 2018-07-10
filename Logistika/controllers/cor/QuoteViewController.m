@@ -36,6 +36,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.topBarView.caption.text = @"Quotes";
+    g_dateModel = nil;
 }
 -(void)addViews{
     // determine area
@@ -175,7 +176,12 @@
                         EnvVar* env = [CGlobal sharedId].env;
                         env.quote = true;
                         g_ORDER_TYPE = model.orderModel.product_type;
+                        
+                        // product type can be 
                         g_cameraOrderModel = model.orderModel;
+                        g_itemOrderModel = model.orderModel;
+                        g_packageOrderModel = model.orderModel;
+                        
                         g_quote_order_id = model.orderId;
                         g_quote_id = model.quote_id;
                         g_addressModel = model.addressModel;

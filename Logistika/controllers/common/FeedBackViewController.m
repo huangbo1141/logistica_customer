@@ -37,7 +37,7 @@
         [field addBotomLayer:frame];
     }
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = COLOR_PRIMARY;
     self.viewRoot.backgroundColor = COLOR_SECONDARY_THIRD;
 }
 -(void)viewWillAppear:(BOOL)animated{

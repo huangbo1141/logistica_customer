@@ -1,21 +1,23 @@
 //
-//  OrderHisCorViewController.m
+//  OrderHistoryViewController.m
 //  Logistika
 //
 //  Created by BoHuang on 4/27/17.
 //  Copyright © 2017 BoHuang. All rights reserved.
 //
 
-#import "OrderHisCorViewController.h"
+#import "OrderHistoryViewController2.h"
 #import "CGlobal.h"
 #import "NetworkParser.h"
 #import "OrderResponse.h"
-#import "OrderCorporateHisModel.h"
+#import "OrderHisModel.h"
 #import "ViewScrollContainer.h"
-#import "OrderItemCorView.h"
-#import "OrderCorTableViewCell.h"
+#import "OrderItemView.h"
+#import "OrderTableViewCell.h"
+#import "RescheduleDateInput.h"
+#import "UIView+Property.h"
 
-@interface OrderHisCorViewController ()
+@interface OrderHistoryViewController2 ()
 @property(nonatomic,strong) OrderResponse*response;
 
 @property(nonatomic,strong) NSMutableArray*data_0;
@@ -25,31 +27,35 @@
 @property(nonatomic,assign) BOOL stackAdded_0;
 @property(nonatomic,assign) BOOL stackAdded_1;
 @property(nonatomic,assign) BOOL stackAdded_2;
-@property(nonatomic,assign) NSInteger curPage;
 
+@property(nonatomic,assign) NSInteger curPage;
 @end
 
-@implementation OrderHisCorViewController
+@implementation OrderHistoryViewController2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = COLOR_PRIMARY;
+    self.viewSegBack.backgroundColor = COLOR_SECONDARY_THIRD;
+    self.viewRoot.backgroundColor = COLOR_SECONDARY_THIRD;
+    self.tableView1.backgroundColor = COLOR_SECONDARY_THIRD;
+    self.tableView2.backgroundColor = COLOR_SECONDARY_THIRD;
+    self.tableView3.backgroundColor = COLOR_SECONDARY_THIRD;
     // Do any additional setup after loading the view.
     self.stackAdded_0 = false;
     self.stackAdded_1 = false;
     self.stackAdded_2 = false;
-    self.view.backgroundColor = COLOR_PRIMARY;
-    self.viewSegBack.backgroundColor = COLOR_SECONDARY_THIRD;
-    self.viewRoot.backgroundColor = COLOR_SECONDARY_THIRD;
+    
     
     self.data_0 = [[NSMutableArray alloc] init];
     self.data_1 = [[NSMutableArray alloc] init];
     self.data_2 = [[NSMutableArray alloc] init];
-    self.curPage = 0;
     [self loadData];
+    
     NSArray* tvs = @[self.tableView1,self.tableView2,self.tableView3];
     for (int i=0; i<tvs.count; i++) {
         UITableView* tv = tvs[i];
-        UINib* nib1 = [UINib nibWithNibName:@"OrderCorTableViewCell" bundle:nil];
+        UINib* nib1 = [UINib nibWithNibName:@"OrderTableViewCell" bundle:nil];
         [tv registerNib:nib1 forCellReuseIdentifier:@"cell"];
         tv.separatorStyle = UITableViewCellSelectionStyleNone;
         tv.hidden = false;
@@ -57,26 +63,17 @@
         tv.dataSource = self;
     }
     
+    
+//    self.segControl.tintColor = COLOR_PRIMARY;
     self.segControl.tintColor = COLOR_PRIMARY;
+    
+    self.segControl.layer.cornerRadius = 4;
+    self.segControl.layer.masksToBounds = true;
+    self.segControl.layer.backgroundColor = [UIColor whiteColor].CGColor;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.topBarView.caption.text = @"Order History";
-}
--(void)setCurPage:(NSInteger)curPage{
-    _curPage = curPage;
-    NSArray* views = @[self.viewRoot1,self.viewRoot2,self.viewRoot3];
-    NSArray* tvs = @[self.tableView1,self.tableView2,self.tableView3];
-    for (int i=0; i<views.count; i++) {
-        UIView* view = views[i];
-        UITableView*tv = tvs[i];
-        view.hidden = true;
-    }
-    UIView* view = views[curPage];
-    UITableView*tv = tvs[curPage];
-    
-    view.hidden = false;
-    [tv reloadData];
 }
 -(void)filterData{
     int type_none = 0;
@@ -87,15 +84,16 @@
     self.data_1 = [[NSMutableArray alloc] init];
     self.data_2 = [[NSMutableArray alloc] init];
     for (int i=0; i<_response.orders.count; i++) {
-        OrderCorporateHisModel*model = self.response.orders[i];
+        OrderHisModel*model = self.response.orders[i];
         int state = [model.state intValue];
-        if (state == 2 || state == 3 || state == 5  ) { // || state == 1
-            [self.data_1 addObject:model];
-        }
-        else if (state == 4 || state == 0) {
+        if (state == 2 || state == 3 || state == 5 || state == 1) {
+            if (!([model.is_quote_request isEqualToString:@"1"] && state == 1)) {
+                [self.data_1 addObject:model];
+            }
+        }else if(state == 4 || state == 0){
             [self.data_0 addObject:model];
         }else{
-            if (state == 6){
+            if (state == 0 || state == 6) {
                 [self.data_2 addObject:model];
             }
         }
@@ -104,20 +102,54 @@
     [self sortData:self.data_1];
     [self sortData:self.data_2];
     
+    if(self.param1 == 1){
+        [self.segControl setSelectedSegmentIndex:1];
+        self.curPage = 1;
+    }else{
+        [self.segControl setSelectedSegmentIndex:0];
+        self.curPage = 0;
+    }
 //    [self addViews:self.data_0 Parent:self.viewRoot1];
 //    self.stackAdded_0 = true;
 //    [self addViews:self.data_1 Parent:self.viewRoot2];
 //    [self addViews:self.data_2 Parent:self.viewRoot3];
     
-//    self.viewRoot1.hidden = false;
-//    self.viewRoot2.hidden = true;
-//    self.viewRoot3.hidden = true;
-    self.curPage = 0;
-    
     if (self.data_0.count == 0 && self.data_1.count == 0 && self.data_2.count == 0) {
         [CGlobal stopIndicator:self];
         [CGlobal AlertMessage:@"No Orders" Title:nil];
     }
+}
+-(void)setCurPage:(NSInteger)curPage{
+    _curPage = curPage;
+    [CGlobal showIndicator:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray* views = @[self.viewRoot1,self.viewRoot2,self.viewRoot3];
+        NSArray* tvs = @[self.tableView1,self.tableView2,self.tableView3];
+        for (int i=0; i<views.count; i++) {
+            UIView* view = views[i];
+            UITableView*tv = tvs[i];
+            view.hidden = true;
+        }
+        UIView* view = views[curPage];
+        UITableView*tv = tvs[curPage];
+        
+        view.hidden = false;
+        [tv reloadData];
+        
+        [CGlobal stopIndicator:self];
+    });
+    
+}
+-(void)sortData:(NSMutableArray*)data{
+    [data sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        OrderHisModel*model1 = obj1;
+        OrderHisModel*model2 = obj2;
+        int int1 = [model1.orderId intValue];
+        int int2 = [model2.orderId intValue];
+        NSNumber* n1 =[NSNumber numberWithInt:int1];
+        NSNumber* n2 =[NSNumber numberWithInt:int2];
+        return [n2 compare:n1];
+    }];
 }
 -(void)addViews:(NSMutableArray*)data Parent:(UIView*)view{
     if (data.count == 0) {
@@ -141,10 +173,12 @@
     
     ViewScrollContainer* scrollContainer = (ViewScrollContainer*)[[NSBundle mainBundle] loadNibNamed:@"ViewScrollContainer" owner:self options:nil][0];
     for (int i=0; i<data.count; i++) {
-        OrderCorporateHisModel*model = data[i];
-        OrderItemCorView* itemView = (OrderItemCorView*)[[NSBundle mainBundle] loadNibNamed:@"OrderItemCorView" owner:self options:nil][0];
+        OrderHisModel*model = data[i];
+        OrderItemView* itemView = (OrderItemView*)[[NSBundle mainBundle] loadNibNamed:@"OrderItemView" owner:self options:nil][0];
         [itemView firstProcess:0 Data:model VC:self];
         [scrollContainer addOneView:itemView];
+        
+        
     }
     
     if (self.response.orders.count>0) {
@@ -152,17 +186,6 @@
         scrollContainer.frame = CGRectMake(dx, dy, newRect.size.width, newRect.size.height);
         
     }
-}
--(void)sortData:(NSMutableArray*)data{
-    [data sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-        OrderCorporateHisModel*model1 = obj1;
-        OrderCorporateHisModel*model2 = obj2;
-        int int1 = [model1.orderId intValue];
-        int int2 = [model2.orderId intValue];
-        NSNumber* n1 =[NSNumber numberWithInt:int1];
-        NSNumber* n2 =[NSNumber numberWithInt:int2];
-        return [n2 compare:n1];
-    }];
 }
 - (IBAction)segChanged:(id)sender {
     NSInteger index= self.segControl.selectedSegmentIndex;
@@ -184,12 +207,11 @@
                     [self addViews:self.data_1 Parent:self.viewRoot2];
                     self.stackAdded_1 = true;
                     [CGlobal stopIndicator:self];
-                });
+                });                
             }
             self.viewRoot1.hidden = true;
             self.viewRoot2.hidden = false;
             self.viewRoot3.hidden = true;
-            
             break;
         }
         case 2:
@@ -201,13 +223,12 @@
                     self.stackAdded_2 = true;
                     [CGlobal stopIndicator:self];
                 });
-                
+               
                 
             }
             self.viewRoot1.hidden = true;
             self.viewRoot2.hidden = true;
             self.viewRoot3.hidden = false;
-            
             break;
         }
         default:
@@ -226,27 +247,28 @@
     }
     NetworkParser* manager = [NetworkParser sharedManager];
     [CGlobal showIndicator:self];
-    [manager ontemplateGeneralRequest2:params BasePath:BASE_URL_ORDER Path:@"get_corporate_orders_his" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+    [manager ontemplateGeneralRequest2:params BasePath:BASE_URL_ORDER Path:@"get_orders_his" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
         if (error == nil) {
             // succ
-            if (dict[@"orders" ]!=nil) {
-                [self clearReschedule];
-                
-                // parse
-                OrderResponse* response = [[OrderResponse alloc] initWithDictionary_his_cor:dict];
-                self.response = response;
-                if (self.response.orders.count == 0) {
-                    [CGlobal AlertMessage:@"No Orders" Title:nil];
+            if (dict[@"result" ]!=nil) {
+                if ([dict[@"result"] intValue] == 200) {
+                    [self clearReschedule];
                     
-                }else{
-                    [self filterData];
+                    // parse
+                    OrderResponse* response = [[OrderResponse alloc] initWithDictionary_his:dict];
+                    self.response = response;
+                    if (self.response.orders.count == 0) {
+                        
+                        [CGlobal stopIndicator:self];
+                        [CGlobal AlertMessage:@"No Orders" Title:nil];
+                    }else{
+                        [self filterData];
+                        [CGlobal stopIndicator:self];
+                    }
+                    
+                    return;
                 }
-                
-                
-                [CGlobal stopIndicator:self];
-                return;
             }
-            
         }else{
             // error
             NSLog(@"Error");
@@ -260,7 +282,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)clearReschedule{
-    g_orderCorporateHisModels = [[NSMutableArray alloc] init];
+    g_orderHisModels = [[NSMutableArray alloc] init];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -275,7 +297,7 @@
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    OrderCorporateHisModel*model;
+    OrderHisModel*model;
     if (tableView == self.tableView1) {
         model = self.data_0[indexPath.row];
     }else if(tableView == self.tableView2){
@@ -283,16 +305,31 @@
     }else{
         model = self.data_2[indexPath.row];
     }
+    CGFloat padding = 30.0f;
     if (model.viewContentHidden) {
-        return 100.0f;
+        CGFloat padding = 10.0f;
+        NSLog(@"orderhistory %d column = %d",100,indexPath.row);
+//        if([model.state intValue] == 1){
+//            return 150.0f + padding;
+//        }else{
+//            return 100.0f + padding;
+//        }
+        return 100.0f + padding;
     }
     CGSize size = model.cellSize;
-    return size.height + 30;
+    CGFloat height = size.height + padding;
+    
+    if (indexPath.row == 3) {
+        NSLog(@"ooooooooooooo %f column = %d",1162.0f, indexPath.row );
+        return 1162.0f;
+    }
+    NSLog(@"ooooooooooooo %f column = %d",height, indexPath.row );
+    return height;
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    OrderCorTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    OrderCorporateHisModel*model;
+    OrderTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    OrderHisModel*model;
     if (tableView == self.tableView1) {
         model = self.data_0[indexPath.row];
     }else if(tableView == self.tableView2){
@@ -307,11 +344,12 @@
     data[@"vc"] = self;
     data[@"aDelegate"] = self;
     [cell setData:data];
-    cell.backgroundColor = COLOR_SECONDARY_THIRD;
+    
+    cell.orderItemView.backgroundColor = COLOR_RESERVED;
     return cell;
 }
 -(void)didSubmit:(NSDictionary *)data View:(UIView *)view{
-    if ([view isKindOfClass:[OrderItemCorView class]]) {
+    if ([view isKindOfClass:[OrderItemView class]]) {
         if( [data[@"tableView"] isKindOfClass:[UITableView class]]){
             UITableView*tv = data[@"tableView"];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -319,7 +357,26 @@
             });
         };
         
+    }else if ([view isKindOfClass:[RescheduleDateInput class]]) {
+        self.curPage = _curPage;
+        if ([view.xo isKindOfClass:[MyPopupDialog class]]) {
+            MyPopupDialog * dlg = (MyPopupDialog*)view.xo;
+            [dlg dismissPopup];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.curPage = _curPage;
+        });
+        
     }
 }
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

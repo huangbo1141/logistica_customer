@@ -75,7 +75,7 @@
     }
     [viewParent addSubview:self.autoCompleteTableView];
     self.autoCompleteTableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    viewParent.backgroundColor = [UIColor clearColor];
+    viewParent.backgroundColor = COLOR_RESERVED;
     
 }
 - (id) initWithFrame:(CGRect)frame {

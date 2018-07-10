@@ -29,7 +29,7 @@
     
     self.view.backgroundColor = COLOR_SECONDARY_THIRD;
     
-    NSArray* fields = @[self.txtEmailAddress];
+    NSArray* fields = @[self.txtDate,_txtTime,_txtEmailAddress];
     CGRect screenRect = [UIScreen mainScreen].bounds;
     CGRect frame = CGRectMake(0, 0, 200, 30);
     for (int i=0; i<fields.count; i++) {
@@ -38,6 +38,9 @@
             [field addBotomLayer:frame];
         }
     }
+    
+    [self chooseService:-1];
+    
     if (g_mode == c_GUEST) {    //|| g_mode == c_CORPERATION
         
     }else{
@@ -120,6 +123,7 @@
         view.backgroundColor = [UIColor whiteColor];
     }
     
+    
     EnvVar* env = [CGlobal sharedId].env;
     if (env.mode != c_CORPERATION) {
         [self addService];
@@ -196,41 +200,40 @@
     
     for (int i=0; i< array1.count; i++) {
         UILabel* label = array1[i];
-        label.textColor = COLOR_PRIMARY;
+        label.textColor = [CGlobal colorWithHexString:@"253e3e" Alpha:1.0f];
     }
     for (int i=0; i< array2.count; i++) {
         UILabel* label = array2[i];
-        label.textColor = COLOR_PRIMARY;
+        label.textColor = [CGlobal colorWithHexString:@"253e3e" Alpha:1.0f];
     }
     for (int i=0; i< array3.count; i++) {
         UILabel* label = array3[i];
-        label.textColor = COLOR_PRIMARY;
+        label.textColor = [CGlobal colorWithHexString:@"253e3e" Alpha:1.0f];
     }
     
     for (int i=0; i< array_b.count; i++) {
         ColoredView* view = array_b[i];
         view.backgroundColor = [UIColor whiteColor];
     }
-    ColoredView* view = array_b[index];
-    view.backgroundColor = COLOR_PRIMARY;
     
-//    UILabel*label1 = array1[index];
-//    UILabel*label2 = array2[index];
-//    UILabel*label3 = array3[index];
-//    label1.textColor = [UIColor whiteColor];
-//    label2.textColor = [UIColor whiteColor];
-//    label3.textColor = [UIColor whiteColor];
+    if(index>=0){
+        ColoredView* view = array_b[index];
+        view.backgroundColor = COLOR_PRIMARY;
+        
+        g_serviceModel.name = ((UILabel*)array1[index]).text;
+        g_serviceModel.price = [((UILabel*)array2[index]).text stringByReplacingOccurrencesOfString:symbol_dollar withString:@""];
+        g_serviceModel.time_in = ((UILabel*)array3[index]).text;
+        
+        
+        self.index = index;
+        
+        g_dateModel.index = index;
+        
+        [self showEstmiatedDate];
+    }
     
-    g_serviceModel.name = ((UILabel*)array1[index]).text;
-    g_serviceModel.price = [((UILabel*)array2[index]).text stringByReplacingOccurrencesOfString:symbol_dollar withString:@""];
-    g_serviceModel.time_in = ((UILabel*)array3[index]).text;
     
-    
-    self.index = index;
-    
-    g_dateModel.index = index;
-    
-    [self showEstmiatedDate];
+
 }
 -(void)timeChanged:(UIDatePicker*)picker{
     int tag = (int)picker.tag;

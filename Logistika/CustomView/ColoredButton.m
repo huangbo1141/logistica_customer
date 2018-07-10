@@ -44,6 +44,7 @@
                 
             }
             break;
+        case 12:
         case 5:
             if(highlighted) {
                 self.backgroundColor = [UIColor lightGrayColor];
@@ -77,7 +78,31 @@
 }
 -(void)setBackMode:(NSInteger)backMode{
     switch (backMode) {
-        
+        case 12:{
+            self.backgroundColor = COLOR_PRIMARY;
+            [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0f];
+            
+            
+            UIView* shadowView = self;
+            shadowView.backgroundColor= COLOR_PRIMARY;
+            [shadowView.layer setCornerRadius:4.0f];
+            
+            [shadowView.layer setBorderWidth:0.0f];
+            [shadowView.layer setShadowColor:[UIColor colorWithRed:225.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1.0].CGColor];
+            [shadowView.layer setShadowOpacity:1.0];
+            [shadowView.layer setShadowRadius:5.0];
+            [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 4.0f)];
+            shadowView.layer.masksToBounds = false;
+            
+            [self setTitle:[self.titleLabel.text uppercaseString] forState:UIControlStateNormal];
+            break;
+        }
+        case 11:{
+            UIColor* clr = [CGlobal colorWithHexString:@"626262" Alpha:1.0];
+            [self setTitleColor:clr forState:UIControlStateNormal];
+            break;
+        }
         case 10:{
             // ORDER HISTORY RESCHEDULE PICKUP BUTTON
             self.cl_Primary = [CGlobal colorWithHexString:@"620b94" Alpha:1.0];
@@ -93,6 +118,10 @@
             [shadowView.layer setShadowRadius:5.0];
             [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 8.0f)];
             shadowView.layer.masksToBounds = false;
+            
+            self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            self.titleLabel.numberOfLines = 2;
+            self.titleLabel.textAlignment = UITextAlignmentCenter;
             break;
         }
         case 9:{
@@ -131,7 +160,7 @@
         }
         case 7:{
             // DASHBOARD I WANT ORDER
-            self.cl_Primary = [CGlobal colorWithHexString:@"FFCC00" Alpha:1.0];
+            self.cl_Primary = [CGlobal colorWithHexString:@"FFCC00" Alpha:1.0f];
             self.cl_highLight = [UIColor lightGrayColor];
             
             UIView* shadowView = self;
@@ -148,7 +177,7 @@
         }
         case 6:{
             // DASHBOARD I WANT SEND
-            self.cl_Primary = [UIColor grayColor];
+            self.cl_Primary = [CGlobal colorWithHexString:@"c1c1c1" Alpha:1.0f];
             self.cl_highLight = [UIColor lightGrayColor];
             
             UIView* shadowView = self;
@@ -167,7 +196,8 @@
             // NORMAL PRIMARY BUTTON WITH CLICK HIGHLIGHT
             self.backgroundColor = COLOR_PRIMARY;
             [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:15.0f];
+            self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0f];
+            
             
             UIView* shadowView = self;
             shadowView.backgroundColor= COLOR_PRIMARY;

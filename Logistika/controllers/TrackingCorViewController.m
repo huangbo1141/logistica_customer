@@ -31,7 +31,7 @@
     [self firstProcess:0 Data:self.data VC:self];
     [self setModelData:self.data VC:self];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = COLOR_PRIMARY;
     [self hideAddressFields];
 }
 -(void)hideAddressFields{

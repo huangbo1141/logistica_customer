@@ -27,5 +27,8 @@
 @property (copy, nonatomic) NSString* phone;
 @property (weak, nonatomic) IBOutlet FontLabel *lblLabel;
 @property (weak, nonatomic) IBOutlet FontLabel *lblTest;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint_Width;
+@property (weak, nonatomic) IBOutlet UILabel *lblTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint_Username_Width;
 
 @end

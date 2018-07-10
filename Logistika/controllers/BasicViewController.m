@@ -38,6 +38,15 @@
 -(void)dealloc{
     self.returnKeyHandler = nil;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        
+        statusBar.backgroundColor = COLOR_PRIMARY_BAR;
+    }
+}
 
 
 -(void)orderTracking:(NSString*)trackId{

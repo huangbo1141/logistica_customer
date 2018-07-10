@@ -115,7 +115,9 @@
         self.leftViewMode = UITextFieldViewModeAlways;
         
         self.lblRequired = [[UILabel alloc] init];
-        UIFont* font = [UIFont fontWithName:@"HelveticaNeue-Italic" size:14.0f];
+        UIFont* font = [UIFont fontWithName:@"HelveticaNeue-Italic" size:13.0f];
+//        UIFont* font = [UIFont fontWithName:@"HoeflerText-Italic" size:14.0f];
+        
         self.lblRequired.font = font;
         self.lblRequired.text = @"(required)";
         [self addSubview:self.lblRequired];

@@ -16,6 +16,8 @@
 #import "TrackMapViewController.h"
 #import "OrderTableViewCell.h"
 #import "RescheduleDateInput.h"
+#import "Logistika-Swift.h"
+
 @implementation OrderItemView
 
 /*
@@ -94,9 +96,7 @@
     self.vc = vc;
     self.data = model;
     
-    
-    
-    
+        
 }
 - (IBAction)clickPos:(id)sender {
     if (self.vc.navigationController!=nil) {
@@ -122,7 +122,9 @@
     UIView* view = [[self superview] superview];
     if ([view isKindOfClass:[OrderTableViewCell class]]) {
         OrderTableViewCell* cell = (OrderTableViewCell*)view;
-        [cell.tableView reloadData];
+        [cell.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//        tableView.reloadRows(at: [indexPath], with: .top)
+//        [cell.tableView reloadData];
     }
 }
 - (IBAction)clickAction:(id)sender {
@@ -301,10 +303,11 @@
         CGRect scRect = [[UIScreen mainScreen] bounds];
         scRect.size.width = scRect.size.width;
         CGSize size = [self.stackRoot systemLayoutSizeFittingSize:scRect.size withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityDefaultLow];
-        NSLog(@"widthwidth %f height %f",size.width,size.height);
+        NSLog(@"HQHQHQ order id %@",model.orderId);
+        NSLog(@"HQHQHQ OV W=%f h=%f",size.width,size.height);
         self.data.cellSize = size;
         
-        model.cellSizeCalculated = true;
+        model.cellSizeCalculated = false;
         
     }
     self.modelSet = true;
@@ -434,21 +437,30 @@
     int tag = sender.tag;
     if (tag == 1) {
         // cancel
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to Cancel" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to Cancel" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
         alert.tag = 201;
         [alert show];
     
     }else if(tag == 2){
         // pickup
+        UIView* view1 = [[self superview] superview];
+        
         
         UIViewController* vc = self.vc;
         NSArray* array = [[NSBundle mainBundle] loadNibNamed:@"ViewPhotoFull" owner:vc options:nil];
         RescheduleDateInput* view = array[1];
-        [view firstProcess:@{@"vc":vc,@"model":self.data,@"aDelegate":vc}];
+        [view firstProcess:@{@"vc":vc,@"model":self.data,@"aDelegate":vc,@"view":self}];
         
         self.dialog = [[MyPopupDialog alloc] init];
         [self.dialog setup:view backgroundDismiss:true backgroundColor:[UIColor darkGrayColor]];
-        [self.dialog showPopup:vc.view];
+        if ([vc isKindOfClass:[TableChildExampleViewController class]]) {
+            TableChildExampleViewController*vcc = vc;
+            if(vcc.rootVC!=nil)
+                [self.dialog showPopup:vcc.rootVC.view];
+        }else{
+            [self.dialog showPopup:vc.view];
+        }
+        
         
     }
 }
@@ -464,7 +476,7 @@
             break;
         }
         case 201:{
-            if (buttonIndex == 0) {
+            if (buttonIndex == 1) {
                 // cancel pickup
                 [CGlobal showIndicator:self.vc];
                 NetworkParser* manager = [NetworkParser sharedManager];

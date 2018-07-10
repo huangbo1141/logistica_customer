@@ -12,10 +12,12 @@
 #import "SelectItemViewController.h"
 #import "SelectPackageViewController.h"
 #import "Logistika-Swift.h"
-#import "OrderHistoryViewController.h"
+#import "OrderHistoryViewController2.h"
 
-@interface PersonalMainViewController ()
-
+@interface PersonalMainViewController ()<UITextFieldDelegate>
+@property (nonatomic,strong) NSTimer* timer;
+@property (nonatomic,assign) BOOL blinkStatus;
+@property (nonatomic,assign) BOOL allowed;
 @end
 
 @implementation PersonalMainViewController
@@ -23,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = COLOR_PRIMARY;
     self.contentView.backgroundColor = COLOR_SECONDARY_THIRD;
     
     self.btnContinue.hidden = true;
@@ -31,7 +33,29 @@
     
     [self.txtCholocate addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
-   
+   [self.txtCholocate setTintColor:[UIColor whiteColor]];
+    
+    self.timer = [NSTimer
+                      scheduledTimerWithTimeInterval:(NSTimeInterval)(0.6)
+                      target:self
+                      selector:@selector(blink)
+                      userInfo:nil
+                      repeats:TRUE];
+    self.blinkStatus = NO;
+    self.blinkingView.hidden = true;
+    self.allowed = true;
+    
+    self.txtCholocate.delegate = self;
+    
+}
+-(void)blink{
+    if(_blinkStatus == NO){
+        _blinkingView.backgroundColor = [UIColor whiteColor];
+        _blinkStatus = YES;
+    }else {
+        _blinkingView.backgroundColor = [UIColor clearColor];
+        _blinkStatus = NO;
+    }
 }
 -(void)textFieldDidChange:(UITextField*)textField{
     if (textField == self.txtCholocate) {
@@ -101,35 +125,50 @@
         // bottom one
         self.layer1.hidden = false;
         self.layer2.hidden = !self.layer2.hidden;
+                
         
-        if(self.layer2.hidden == true){
-            [_txtCholocate becomeFirstResponder];
+        if(self.allowed == false){
+            self.blinkingView.hidden = true;
+        }else{
+            if (self.layer2.hidden) {
+//                NSString* pp = [self.txtCholocate.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                NSString* pp = self.txtCholocate.text;
+                if (pp.length > 0) {
+                    self.blinkingView.hidden = true;
+                }else{
+                    self.blinkingView.hidden = false;
+                }
+                
+            }else{
+                self.blinkingView.hidden = true;
+            }
         }
+        
     }else if(sender.tag == 1){
         
         self.layer2.hidden = false;
         self.layer1.hidden = !self.layer1.hidden;
         
-        UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
-        OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            vc.param1 = 1;
-            self.navigationController.navigationBar.hidden = true;
-            self.navigationController.viewControllers = @[vc];
-        });
+//        UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
+//        OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            vc.param1 = 1;
+//            self.navigationController.navigationBar.hidden = true;
+//            self.navigationController.viewControllers = @[vc];
+//        });
+        
+        
     }
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+//    self.allowed = false;
+    self.blinkingView.hidden = true;
 }
-*/
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+//    self.allowed = false;
+    self.blinkingView.hidden = true;
+}
 
 @end

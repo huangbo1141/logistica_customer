@@ -29,6 +29,7 @@
     self.aDelegate = data[@"aDelegate"];
     self.indexPath = data[@"indexPath"];
     self.tableView = data[@"tableView"];
+//    self.tableView2 = data[@"tableView"];
     self.model = data[@"model"];
     
     self.inputData = data;
