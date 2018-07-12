@@ -190,7 +190,7 @@
         }
         case 202:{
             // call
-            [CGlobal callSupport];
+             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:support_phone]];
             break;
         }
         default:

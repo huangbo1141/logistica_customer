@@ -78,6 +78,15 @@
     }else{
         self.desInstruction = @" ";
     }
+    
+    if(self.sourceInstruction == [NSNull null]){
+        self.sourceInstruction = @" ";
+    }else if ([self.sourceInstruction length]>0) {
+        //ok
+    }else{
+        self.sourceInstruction = @" ";
+    }
+    
     if(self.desName == [NSNull null]){
         self.desName = @" ";
     }else if ([self.desName length]>0) {

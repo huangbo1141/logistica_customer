@@ -1576,16 +1576,32 @@ NSMutableArray* menu_topList;
 }
 
 +(BOOL)validatePassword:(NSString*)password{
-    NSError *error = NULL;
+    /*NSError *error = NULL;
     NSString *pattern = @".*\\d.*";
+    pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
     NSRange range = NSMakeRange(0, password.length);
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
-    NSArray *matches = [regex matchesInString:password options:NSMatchingProgress range:range];
+//    NSArray *matches = [regex matchesInString:password options:NSMatchingProgress range:range];
+    NSArray *matches = matches = [regex matchesInString:password options:NSMatchingAnchored range:range];
     if ([matches count] == 0) {
         return false;
     }else{
         return true;
+    }*/
+    
+    NSString *str = password;
+    if([str rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location == NSNotFound){
+        return false;
     }
+    if([str rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location == NSNotFound){
+        return false;
+    }
+    if (str.length < 8 ) {
+        // this matches the criteria
+        return false;
+    }
+    
+    return true;
 }
 +(BOOL)isPostCode:(NSString*)postcode{
     if ([postcode length] >= 4) {

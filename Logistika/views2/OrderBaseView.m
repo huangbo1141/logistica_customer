@@ -10,6 +10,9 @@
 #import "NetworkParser.h"
 #import "OrderResponse.h"
 #import "TrackMapViewController.h"
+#import "AppDelegate.h"
+#import "RescheduleDateInput.h"
+#import "Logistika-Swift.h"
 
 @implementation OrderBaseView
 -(void)orderTracking:(NSString*)orderId Employee:(NSString*)employeeId{
@@ -65,5 +68,107 @@
         } method:@"POST"];
     }
     
+}
+- (IBAction)clickTrack:(id)sender {
+    if (self.vc.navigationController!=nil) {
+        
+        g_addressModel = self.data.addressModel;
+        g_state = self.data.state;
+        g_ORDER_TYPE = self.data.orderModel.product_type;
+        if (g_ORDER_TYPE == g_CAMERA_OPTION) {
+            g_cameraOrderModel = self.data.orderModel;
+        }else if(g_ORDER_TYPE == g_ITEM_OPTION){
+            g_itemOrderModel = self.data.orderModel;
+        }else if(g_ORDER_TYPE == g_PACKAGE_OPTION  ){
+            g_packageOrderModel = self.data.orderModel;
+        }
+        
+        [self orderTracking:self.data.orderId Employee:self.data.accepted_by];
+    }
+}
+- (IBAction)clickReschedule:(id)sender {
+    UIView* view1 = [[self superview] superview];
+    
+    
+    UIViewController* vc = self.vc;
+    NSArray* array = [[NSBundle mainBundle] loadNibNamed:@"ViewPhotoFull" owner:vc options:nil];
+    RescheduleDateInput* view = array[1];
+    [view firstProcess:@{@"vc":vc,@"model":self.data,@"aDelegate":vc,@"view":self}];
+    
+    self.dialog = [[MyPopupDialog alloc] init];
+    [self.dialog setup:view backgroundDismiss:true backgroundColor:[UIColor darkGrayColor]];
+    if ([vc isKindOfClass:[OrderFrameViewController class]]) {
+        OrderFrameViewController*vcc = vc;
+        if(vcc.rootVC!=nil)
+            [self.dialog showPopup:vcc.rootVC.view];
+    }else{
+        [self.dialog showPopup:vc.view];
+    }
+}
+
+- (IBAction)clickEntire:(id)sender {
+    if (self.aDelegate!=nil){
+        [self.aDelegate didSubmit:self.original_data View:self];
+    }
+}
+
+- (IBAction)clickCancelSchedule:(id)sender {
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to Cancel" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    alert.tag = 201;
+    [alert show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    int tag = (int)alertView.tag;
+    switch (tag) {
+        case 200:
+        {
+            // Reschedule
+            if (buttonIndex == 0) {
+                
+            }
+            break;
+        }
+        case 201:{
+            if (buttonIndex == 1) {
+                // cancel pickup
+                [CGlobal showIndicator:self.vc];
+                NetworkParser* manager = [NetworkParser sharedManager];
+                NSMutableDictionary* params = [[NSMutableDictionary alloc] init];
+                params[@"id"] = self.data.orderId;
+                
+                [manager ontemplateGeneralRequest2:params BasePath:BASE_URL_ORDER Path:@"cancel_order" withCompletionBlock:^(NSDictionary *dict, NSError *error) {
+                    if (error == nil) {
+                        if (dict!=nil && dict[@"result"] != nil) {
+                            //
+                            if([dict[@"result"] intValue] == 400){
+                                NSString* message = @"Fail";
+                                [CGlobal AlertMessage:message Title:nil];
+                            }else if ([dict[@"result"] intValue] == 200){
+                                NSString* message = @"Success";
+                                [CGlobal AlertMessage:message Title:nil];
+                                
+                                // change page
+                                AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                                [delegate goHome:self.vc];
+                                return;
+                            }
+                        }
+                        AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                        [delegate goHome:self.vc];
+                        return;
+                    }else{
+                        NSLog(@"Error");
+                    }
+                    [CGlobal stopIndicator:self.vc];
+                } method:@"POST"];
+                return;
+            }
+            break;
+        }
+            
+            
+        default:
+            break;
+    }
 }
 @end

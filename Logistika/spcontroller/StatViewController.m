@@ -154,8 +154,11 @@
                     if (data.cities.count > 0) {
                         g_cityModels = data.cities;
                         
-                        AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                        [delegate defaultLogin];
+                        [self fetchSupport];
+                        
+                        return;
+                        
+                        
                     }else{
                         [CGlobal AlertMessage:@"Fail" Title:nil];
                     }
@@ -171,6 +174,54 @@
     } method:@"POST"];
 
 
+}
+-(void)fetchSupport{
+    NSMutableDictionary* questionDict = [[NSMutableDictionary alloc] init];
+    
+    questionDict[@"employer_id"] = @"0";
+    
+    NSString*path = @"https://mobileapi.hurryr.in/basic/get_Contact_Details";
+    
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
+    
+    NSString *userUpdate =[NSString stringWithFormat:@"employer_id=%@",@"0"];
+    
+    //create the Method "GET" or "POST"
+    [urlRequest setHTTPMethod:@"POST"];
+    
+    //Convert the String to Data
+    NSData *data1 = [userUpdate dataUsingEncoding:NSUTF8StringEncoding];
+    
+    //Apply the data to the body
+    [urlRequest setHTTPBody:data1];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [CGlobal stopIndicator:self];
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if(httpResponse.statusCode == 200)
+        {
+            
+            @try {
+                NSError *parseError = nil;
+                NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+                NSArray* array = responseDictionary;
+                NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
+                support_phone = num;
+                
+                AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                [delegate defaultLogin];
+            } @catch (NSException *exception) {
+                NSLog(@"catch");
+            }
+            
+        }
+        else
+        {
+            NSLog(@"Error");
+        }
+    }];
+    [dataTask resume];
 }
 
 /*

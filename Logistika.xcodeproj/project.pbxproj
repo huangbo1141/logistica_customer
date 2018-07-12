@@ -147,6 +147,10 @@
 		4D31EED11EB0544700D21CBF /* PreDefinedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31EECF1EB0544700D21CBF /* PreDefinedTableViewCell.m */; };
 		4D31EED21EB0544700D21CBF /* PreDefinedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D31EED01EB0544700D21CBF /* PreDefinedTableViewCell.xib */; };
 		4D31EED51EB056DD00D21CBF /* SelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31EED41EB056DD00D21CBF /* SelectItemViewController.m */; };
+		4D3C56B220F5AE8B00B30FB8 /* OrderHistoryViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C56B120F5AE8B00B30FB8 /* OrderHistoryViews.xib */; };
+		4D3C56BB20F5B59F00B30FB8 /* OrderFrameSmall.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C56BA20F5B59F00B30FB8 /* OrderFrameSmall.m */; };
+		4D3C56BE20F5B94200B30FB8 /* OrderFrameExpand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C56BD20F5B94200B30FB8 /* OrderFrameExpand.m */; };
+		4D3C56C120F5BB7600B30FB8 /* OrderFrameContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C56C020F5BB7600B30FB8 /* OrderFrameContainer.m */; };
 		4D3D99021EC4508D00D600B9 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D99011EC4508D00D600B9 /* BasicViewController.m */; };
 		4D3F92F21EA8EDD400821456 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3F92F11EA8EDD400821456 /* MobileCoreServices.framework */; };
 		4D40FE751EC3104E00EE1018 /* SelectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D40FE741EC3104E00EE1018 /* SelectImageCell.xib */; };
@@ -288,6 +292,12 @@
 		4DD572301F7564FB00EC7924 /* CitySelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5722F1F7564FB00EC7924 /* CitySelectView.m */; };
 		4DD572341F756B6E00EC7924 /* CitySelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD572321F756B6E00EC7924 /* CitySelectTableViewCell.m */; };
 		4DD572351F756B6E00EC7924 /* CitySelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD572331F756B6E00EC7924 /* CitySelectTableViewCell.xib */; };
+		4DDC0ADE20F66D39000F449A /* TableOrderFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0ADD20F66D38000F449A /* TableOrderFrameViewController.swift */; };
+		4DDC0AE720F66DDF000F449A /* OrderFrameSmallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0AE520F66DDF000F449A /* OrderFrameSmallTableViewCell.swift */; };
+		4DDC0AE820F66DDF000F449A /* OrderFrameSmallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC0AE620F66DDF000F449A /* OrderFrameSmallTableViewCell.xib */; };
+		4DDC0AEB20F66DF3000F449A /* OrderFrameExpandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0AE920F66DF3000F449A /* OrderFrameExpandTableViewCell.swift */; };
+		4DDC0AEC20F66DF3000F449A /* OrderFrameExpandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC0AEA20F66DF3000F449A /* OrderFrameExpandTableViewCell.xib */; };
+		4DDC0AEE20F674A2000F449A /* TableOrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0AED20F674A2000F449A /* TableOrderHistoryViewController.swift */; };
 		4DDC8EFE1F00BA7900F069F3 /* Verdanab.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC8EFD1F00BA7900F069F3 /* Verdanab.ttf */; };
 		4DDC8F011F00BCB400F069F3 /* ECDrawerLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC8F001F00BCB400F069F3 /* ECDrawerLayout.m */; };
 		4DDDAC7C1EE8011900AFF452 /* CAAutoCompleteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDAC791EE8011900AFF452 /* CAAutoCompleteObject.m */; };
@@ -320,6 +330,7 @@
 		4DF14DA9204FDA4600875047 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF14DA8204FDA4600875047 /* MultilineTextField.swift */; };
 		4DF2060720EF0E8300212633 /* ic_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF2060620EF0E8300212633 /* ic_home.png */; };
 		4DF2060920EF0F9700212633 /* ic_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF2060820EF0F9400212633 /* ic_phone.png */; };
+		4DF46A4E20F5E27C00500ED0 /* OrderFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF46A4D20F5E27C00500ED0 /* OrderFrameViewController.swift */; };
 		4DF4B10B20F06567008DD193 /* ISPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4B10A20F06567008DD193 /* ISPageControl.swift */; };
 		4DF776B820F112F9005574AD /* step_inprogress.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF776B720F112F9005574AD /* step_inprogress.png */; };
 		4DFEAC4E1F3AA5DF004A832B /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFEAC4C1F3AA5DF004A832B /* OrderTableViewCell.m */; };
@@ -574,6 +585,13 @@
 		4D31EED01EB0544700D21CBF /* PreDefinedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreDefinedTableViewCell.xib; sourceTree = "<group>"; };
 		4D31EED31EB056DD00D21CBF /* SelectItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectItemViewController.h; sourceTree = "<group>"; };
 		4D31EED41EB056DD00D21CBF /* SelectItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectItemViewController.m; sourceTree = "<group>"; };
+		4D3C56B120F5AE8B00B30FB8 /* OrderHistoryViews.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHistoryViews.xib; sourceTree = "<group>"; };
+		4D3C56B920F5B59F00B30FB8 /* OrderFrameSmall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderFrameSmall.h; sourceTree = "<group>"; };
+		4D3C56BA20F5B59F00B30FB8 /* OrderFrameSmall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderFrameSmall.m; sourceTree = "<group>"; };
+		4D3C56BC20F5B94200B30FB8 /* OrderFrameExpand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderFrameExpand.h; sourceTree = "<group>"; };
+		4D3C56BD20F5B94200B30FB8 /* OrderFrameExpand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderFrameExpand.m; sourceTree = "<group>"; };
+		4D3C56BF20F5BB7600B30FB8 /* OrderFrameContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderFrameContainer.h; sourceTree = "<group>"; };
+		4D3C56C020F5BB7600B30FB8 /* OrderFrameContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderFrameContainer.m; sourceTree = "<group>"; };
 		4D3D99001EC4508D00D600B9 /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
 		4D3D99011EC4508D00D600B9 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		4D3F92F11EA8EDD400821456 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -806,6 +824,12 @@
 		4DD572311F756B6E00EC7924 /* CitySelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitySelectTableViewCell.h; sourceTree = "<group>"; };
 		4DD572321F756B6E00EC7924 /* CitySelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitySelectTableViewCell.m; sourceTree = "<group>"; };
 		4DD572331F756B6E00EC7924 /* CitySelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitySelectTableViewCell.xib; sourceTree = "<group>"; };
+		4DDC0ADD20F66D38000F449A /* TableOrderFrameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOrderFrameViewController.swift; sourceTree = "<group>"; };
+		4DDC0AE520F66DDF000F449A /* OrderFrameSmallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFrameSmallTableViewCell.swift; sourceTree = "<group>"; };
+		4DDC0AE620F66DDF000F449A /* OrderFrameSmallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderFrameSmallTableViewCell.xib; sourceTree = "<group>"; };
+		4DDC0AE920F66DF3000F449A /* OrderFrameExpandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFrameExpandTableViewCell.swift; sourceTree = "<group>"; };
+		4DDC0AEA20F66DF3000F449A /* OrderFrameExpandTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderFrameExpandTableViewCell.xib; sourceTree = "<group>"; };
+		4DDC0AED20F674A2000F449A /* TableOrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOrderHistoryViewController.swift; sourceTree = "<group>"; };
 		4DDC8EFD1F00BA7900F069F3 /* Verdanab.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdanab.ttf; sourceTree = "<group>"; };
 		4DDC8EFF1F00BCB400F069F3 /* ECDrawerLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDrawerLayout.h; sourceTree = "<group>"; };
 		4DDC8F001F00BCB400F069F3 /* ECDrawerLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDrawerLayout.m; sourceTree = "<group>"; };
@@ -845,6 +869,7 @@
 		4DF14DA8204FDA4600875047 /* MultilineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		4DF2060620EF0E8300212633 /* ic_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_home.png; sourceTree = "<group>"; };
 		4DF2060820EF0F9400212633 /* ic_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_phone.png; sourceTree = "<group>"; };
+		4DF46A4D20F5E27C00500ED0 /* OrderFrameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFrameViewController.swift; sourceTree = "<group>"; };
 		4DF4B10A20F06567008DD193 /* ISPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISPageControl.swift; sourceTree = "<group>"; };
 		4DF776B720F112F9005574AD /* step_inprogress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step_inprogress.png; sourceTree = "<group>"; };
 		4DFEAC4B1F3AA5DF004A832B /* OrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
@@ -1023,6 +1048,13 @@
 				10E90518206E455300CDAD7D /* CustomScrollView.m */,
 				10E9051A206E472F00CDAD7D /* CustomTableView.h */,
 				10E9051B206E472F00CDAD7D /* CustomTableView.m */,
+				4D3C56B120F5AE8B00B30FB8 /* OrderHistoryViews.xib */,
+				4D3C56B920F5B59F00B30FB8 /* OrderFrameSmall.h */,
+				4D3C56BA20F5B59F00B30FB8 /* OrderFrameSmall.m */,
+				4D3C56BC20F5B94200B30FB8 /* OrderFrameExpand.h */,
+				4D3C56BD20F5B94200B30FB8 /* OrderFrameExpand.m */,
+				4D3C56BF20F5BB7600B30FB8 /* OrderFrameContainer.h */,
+				4D3C56C020F5BB7600B30FB8 /* OrderFrameContainer.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1566,8 +1598,15 @@
 				4D1085B120F348A5006B0B97 /* OrderHistoryTopViewController.h */,
 				4D1085B220F348A5006B0B97 /* OrderHistoryTopViewController.m */,
 				4D1085B420F34A01006B0B97 /* OrderHistoryViewController.swift */,
+				4DDC0AED20F674A2000F449A /* TableOrderHistoryViewController.swift */,
 				4D1085B920F34E32006B0B97 /* ChildExampleViewController.swift */,
 				4DE82BE620F369A200E79FA7 /* TableChildExampleViewController.swift */,
+				4DF46A4D20F5E27C00500ED0 /* OrderFrameViewController.swift */,
+				4DDC0ADD20F66D38000F449A /* TableOrderFrameViewController.swift */,
+				4DDC0AE520F66DDF000F449A /* OrderFrameSmallTableViewCell.swift */,
+				4DDC0AE620F66DDF000F449A /* OrderFrameSmallTableViewCell.xib */,
+				4DDC0AE920F66DF3000F449A /* OrderFrameExpandTableViewCell.swift */,
+				4DDC0AEA20F66DF3000F449A /* OrderFrameExpandTableViewCell.xib */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1911,6 +1950,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF07B1B1F79019000D56D16 /* capture.png in Resources */,
+				4DDC0AE820F66DDF000F449A /* OrderFrameSmallTableViewCell.xib in Resources */,
+				4DDC0AEC20F66DF3000F449A /* OrderFrameExpandTableViewCell.xib in Resources */,
 				4D126CBC1EA5ABC700C69B89 /* resched.png in Resources */,
 				4D126CDB1EA711A600C69B89 /* ic_menu.png in Resources */,
 				4D287950207D11550041C463 /* RescheduleTableViewCell.xib in Resources */,
@@ -2000,6 +2041,7 @@
 				4DF776B820F112F9005574AD /* step_inprogress.png in Resources */,
 				4D126CAC1EA5ABC700C69B89 /* cancel.png in Resources */,
 				4D014E1320EFD1C900DE985A /* feedback.png in Resources */,
+				4D3C56B220F5AE8B00B30FB8 /* OrderHistoryViews.xib in Resources */,
 				4D29068F20EE7EE3007E0856 /* myswipe4.png in Resources */,
 				4DF07B1F1F79019000D56D16 /* background.png in Resources */,
 				4DF2060920EF0F9700212633 /* ic_phone.png in Resources */,
@@ -2126,6 +2168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3C56BB20F5B59F00B30FB8 /* OrderFrameSmall.m in Sources */,
 				4D126CE11EA71AD500C69B89 /* LoginViewController.m in Sources */,
 				4D126BB21EA5AA2700C69B89 /* ViewController.m in Sources */,
 				108782E1204FE94F00362428 /* CustomSwitch.m in Sources */,
@@ -2136,6 +2179,7 @@
 				4D126C681EA5AA4500C69B89 /* NSString+Common.m in Sources */,
 				4D31EEA71EAB9E0900D21CBF /* ProfileViewController.m in Sources */,
 				4D8CAB631EA8B272001BCF17 /* ELCOverlayImageView.m in Sources */,
+				4DF46A4E20F5E27C00500ED0 /* OrderFrameViewController.swift in Sources */,
 				4D8CAB0A1EA7A218001BCF17 /* OrderCorporateHisModel.m in Sources */,
 				4D126C8F1EA5AA4500C69B89 /* LoginResponse.m in Sources */,
 				4D8CAB311EA7BF62001BCF17 /* NSString+Base64.m in Sources */,
@@ -2154,6 +2198,7 @@
 				4D126C8C1EA5AA4500C69B89 /* GooglePlaceResult.m in Sources */,
 				4D2B728D1EE705E100122AFE /* TblArea.m in Sources */,
 				4DF14DA7204FD84100875047 /* test.swift in Sources */,
+				4DDC0AE720F66DDF000F449A /* OrderFrameSmallTableViewCell.swift in Sources */,
 				4D8CAAE71EA75E3B001BCF17 /* TblAddress.m in Sources */,
 				4DF4B10B20F06567008DD193 /* ISPageControl.swift in Sources */,
 				4DA31BA01EB254BB006A4AFD /* QuoteItemView.m in Sources */,
@@ -2175,7 +2220,9 @@
 				4D126C831EA5AA4500C69B89 /* AddressComponent.m in Sources */,
 				4DE1FFCE1EB8BFF9002E69FF /* TrackingCorViewController.m in Sources */,
 				4DA31BAD1EB2F21F006A4AFD /* OrderHisCorViewController.m in Sources */,
+				4D3C56BE20F5B94200B30FB8 /* OrderFrameExpand.m in Sources */,
 				4D8CAB2D1EA7BF62001BCF17 /* AESCrypt.m in Sources */,
+				4D3C56C120F5BB7600B30FB8 /* OrderFrameContainer.m in Sources */,
 				4D7736BA1EAA00030027F966 /* CameraOrderViewController.m in Sources */,
 				4D94DB821EFA2FD900BB0638 /* TrackMapViewController.m in Sources */,
 				4D77F6251EAAFCBA0081689D /* AddressDetailViewController.m in Sources */,
@@ -2212,6 +2259,7 @@
 				4D8CAB301EA7BF62001BCF17 /* NSData+CommonCrypto.m in Sources */,
 				4D8CAAE41EA74953001BCF17 /* SignupViewController.m in Sources */,
 				4D126C881EA5AA4500C69B89 /* BaseModel.m in Sources */,
+				4DDC0AEB20F66DF3000F449A /* OrderFrameExpandTableViewCell.swift in Sources */,
 				4D28794F207D11550041C463 /* RescheduleTableViewCell.m in Sources */,
 				4D8CAB441EA8AEAE001BCF17 /* PhotoUploadViewController.m in Sources */,
 				4DD572341F756B6E00EC7924 /* CitySelectTableViewCell.m in Sources */,
@@ -2223,6 +2271,7 @@
 				4D8CAB1F1EA7A337001BCF17 /* ServiceModel.m in Sources */,
 				4D126C921EA5AA4500C69B89 /* WNACountry.m in Sources */,
 				4D126C771EA5AA4500C69B89 /* TLYShyStatusBarController.m in Sources */,
+				4DDC0ADE20F66D39000F449A /* TableOrderFrameViewController.swift in Sources */,
 				4DA31B7C1EB19859006A4AFD /* OrderResponse.m in Sources */,
 				4D126C891EA5AA4500C69B89 /* EftGoogleAddressComponent.m in Sources */,
 				4D126C811EA5AA4500C69B89 /* UIComboBox.m in Sources */,
@@ -2300,6 +2349,7 @@
 				4D94DB921EFA70C700BB0638 /* InfoView2.m in Sources */,
 				4D8CAB0D1EA7A252001BCF17 /* OrderHisModel.m in Sources */,
 				4D83772D209D9E750056778D /* PhotoViewController.swift in Sources */,
+				4DDC0AEE20F674A2000F449A /* TableOrderHistoryViewController.swift in Sources */,
 				4D94DB951EFA78DB00BB0638 /* MyBaseView.m in Sources */,
 				4D126C711EA5AA4500C69B89 /* NSObject+TLYSwizzlingHelpers.m in Sources */,
 				4D126C701EA5AA4500C69B89 /* NSString+Common.m in Sources */,

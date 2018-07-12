@@ -25,7 +25,7 @@
 import Foundation
 import XLPagerTabStrip
 
-class OrderHistoryViewController: ButtonBarPagerTabStripViewController,ECDrawerLayoutDelegate {
+class TableOrderHistoryViewController: ButtonBarPagerTabStripViewController,ECDrawerLayoutDelegate {
     
     public var param1:Int = 0
     
@@ -129,16 +129,13 @@ class OrderHistoryViewController: ButtonBarPagerTabStripViewController,ECDrawerL
         self.topBarView.caption.text = "Order History"
     }
     
-//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if self.pages[1] == 0 {
-//            let pt = pageOffsetForChild(at: 1)
-//            if scrollView.contentOffset.x > pt {
-//                CGlobal.showIndicator(self)
-//                self.pages[1] = 1
-//            }
-//        }
-//        super.scrollViewDidScroll(scrollView)
-//    }
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.pages[1] == 0 {
+            CGlobal.showIndicator(self)
+            
+        }
+        
+    }
     
     func loadData(isInitial:Bool){
         if let env = CGlobal.sharedId().env {
@@ -200,7 +197,7 @@ class OrderHistoryViewController: ButtonBarPagerTabStripViewController,ECDrawerL
         let v2 = main.instantiateViewController(withIdentifier: "OrderFrameViewController") as! OrderFrameViewController
         v2.setInfo(itemInfo: "Returned")
         
-        v0.rootVC = self; v1.rootVC = self; v2.rootVC = self;
+//        v0.rootVC = self; v1.rootVC = self; v2.rootVC = self;
         v0.index = 0; v1.index = 1; v2.index = 2;
         self.child0 = v0; self.child1 = v1; self.child2 = v2;
         

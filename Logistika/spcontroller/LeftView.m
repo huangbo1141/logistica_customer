@@ -50,6 +50,15 @@
         }
     }
 }
+-(void)reopenOrderHistory{
+    UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
+    OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _vc.navigationController.navigationBar.hidden = true;
+        _vc.navigationController.viewControllers = @[vc];
+    });
+}
 -(void)clickView:(UIView*)sender{
     int tag = (int)sender.tag;
     EnvVar* env = [CGlobal sharedId].env;

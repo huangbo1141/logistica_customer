@@ -9,7 +9,7 @@
 #import "SelectImageCell.h"
 #import "CGlobal.h"
 #import "ViewPhotoFull.h"
-
+#import "Logistika-Swift.h"
 
 @implementation SelectImageCell
 
@@ -46,7 +46,15 @@
         
         self.dialog = [[MyPopupDialog alloc] init];
         [self.dialog setup:view backgroundDismiss:true backgroundColor:[UIColor grayColor]];
-        [self.dialog showPopup:vc.view];
+        
+        if ([vc isKindOfClass:[OrderFrameViewController class]]) {
+            OrderFrameViewController*vcc = vc;
+            if(vcc.rootVC!=nil)
+                [self.dialog showPopup:vcc.rootVC.view];
+        }else{
+            [self.dialog showPopup:vc.view];
+        }
+        
     }
     
 }

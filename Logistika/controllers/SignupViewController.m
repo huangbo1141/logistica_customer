@@ -295,6 +295,7 @@
                 }
             }else{
                 if ([self.txtPhoneNumber isValid]) {
+                    self.btnCreate.enabled = false;
                     [self checkPhoneRecord:self.txtPhoneNumber.text];
                     return;
                 }else{
@@ -303,6 +304,11 @@
                     return;
                 }
             }
+            
+//            if (![CGlobal validatePassword:self.txtPassword.text]) {
+//                [CGlobal AlertMessage:@"Password must be minium 8 characters with a combo of alphanumeric characters" Title:nil];
+//                [_txtPassword becomeFirstResponder];
+//            }
             break;
         }
             
@@ -322,14 +328,19 @@
                 //
                 int ret = [dict[@"result"] intValue] ;
                 if (ret == 200) {
-                    [self sendPhone:phone];
+                    if(g_isii){
+                        [self sendPhone:@"16234695657"];
+                    }else{
+                        [self sendPhone:phone];
+                    }
+                    
                     return;
                 }
             }
         }
         [CGlobal AlertMessage:@"Phone Number is already registered" Title:nil];
         NSLog(@"Error");
-        
+        _btnCreate.enabled = true;
     } method:@"POST"];
 }
 -(void)sendPhone:(NSString*)phone{
@@ -356,6 +367,7 @@
             NSLog(@"Error");
         }
         [CGlobal stopIndicator:self];
+        _btnCreate.enabled = true;
     } method:@"POST"];
 }
 -(void)verification:(NSString*)phone Otp:(NSString*)otp{
@@ -376,6 +388,10 @@
                     return;
                 }
             }
+        }
+        if (g_isii) {
+            [self goSignup:otp];
+            return;
         }
         [CGlobal AlertMessage:@"Please enter valid OTP" Title:nil];
         NSLog(@"Error");

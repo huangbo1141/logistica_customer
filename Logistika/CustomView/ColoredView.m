@@ -35,6 +35,19 @@
 }
 -(void)setBackMode:(NSInteger)backMode{
     switch (backMode) {
+        case 14:{
+            // orderframe small rect
+            UIView* shadowView = self;
+            shadowView.backgroundColor= COLOR_RESERVED;
+            [shadowView.layer setCornerRadius:2.0f];
+            [shadowView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+            [shadowView.layer setBorderWidth:0.1f];
+            [shadowView.layer setShadowColor:[UIColor colorWithRed:225.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1.0].CGColor];
+            [shadowView.layer setShadowOpacity:1.0];
+            [shadowView.layer setShadowRadius:3.0];
+            [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 2.0f)];
+            break;
+        }
         case 13:{
 //            self.backgroundColor = [UIColor redColor];
 //            self.layer.masksToBounds = false;

@@ -59,6 +59,18 @@ bool isPaymentCompleted = false;
 
 -(void)initData{
     
+    EnvVar* env = [CGlobal sharedId].env;
+    if (env.quote) {
+        c_paymentWay = @[@"Pay using Card",
+                         @"Net Banking"];
+        selectedRow = 0;
+    }else{
+        c_paymentWay = @[@"Pay using Card",
+                         @"Net Banking",
+                         @"Cash on Pick up"];
+        selectedRow = 2;
+    }
+    
     self.pkWeight = [[UIPickerView alloc] init];
     self.pkWeight.delegate = self;
     self.pkWeight.dataSource = self;
@@ -97,59 +109,16 @@ bool isPaymentCompleted = false;
     [self.txtPaymentCard resignFirstResponder];
     NSInteger row = [self.pkWeight selectedRowInComponent:0];
     
+    selectedRow = (int) row;
+    self.mPayment = c_paymentWay[row];
+    self.txtPaymentCard.text = c_paymentWay[row];
+    curPaymentWay = self.mPayment;
+    
+    /*
     if (row == 0 || row == 1) {
         // show
         
-        EnvVar *env = [CGlobal sharedId].env;
-        
-        NSString *email = @"";
-        NSString *phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
-        
-        if (env.mode == c_GUEST) {
-            email = g_guestEmail;
-            phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
-        } else {
-            if (env.mode == c_PERSONAL) {
-                email = env.email;
-            }else if (env.mode == c_CORPERATION) {
-                email = env.cor_email;
-            }else  {
-                return;
-            }
-            
-            phone = [CGlobal getValidPhoneNumber:env.phone Output:0 Prefix:@"+91" Length:10];
-        }
-        
-        /// Procced for Payment
-        double price = [g_serviceModel.price doubleValue];
-        g_serviceModel.price = [NSString stringWithFormat:@"%.02f",price];
-        
-        [PayUManager proceedForPayment:self
-                            withAmount:g_serviceModel.price
-                                 email:email
-                                mobile:phone
-                             firstName:env.first_name
-                        AndProductInfo:g_serviceModel.name
-                       isForNetbanking: (row == 1)
-                   withCompletionBlock:^(NSDictionary *paymentResponse, NSError *error, id extraParam) {
-                       
-                       __weak __typeof__(self) weakSelf = self;
-                       
-                       if (weakSelf != nil) {
-                           
-                           if (error != nil) {
-                               [CGlobal AlertMessage:error.localizedDescription Title:nil];
-                           } else {
-                               
-                               selectedRow = (int) row;
-                               
-                               self.mPayment = c_paymentWay[row];
-                               self.txtPaymentCard.text = c_paymentWay[row];
-                               curPaymentWay = c_paymentWay[row];
-                               [self showOrderConfirm];
-                           }
-                       }
-                   }];
+     
         
     }else{
         // hide
@@ -159,6 +128,55 @@ bool isPaymentCompleted = false;
         self.txtPaymentCard.text = c_paymentWay[row];
         curPaymentWay = self.mPayment;
     }
+     */
+}
+
+-(void)goOnlinePayment{
+    EnvVar *env = [CGlobal sharedId].env;
+    
+    NSString *email = @"";
+    NSString *phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
+    
+    if (env.mode == c_GUEST) {
+        email = g_guestEmail;
+        phone = [CGlobal getValidPhoneNumber:g_addressModel.sourcePhonoe Output:0 Prefix:@"+91" Length:10];
+    } else {
+        if (env.mode == c_PERSONAL) {
+            email = env.email;
+        }else if (env.mode == c_CORPERATION) {
+            email = env.cor_email;
+        }else  {
+            return;
+        }
+        
+        phone = [CGlobal getValidPhoneNumber:env.phone Output:0 Prefix:@"+91" Length:10];
+    }
+    
+    /// Procced for Payment
+    double price = [g_serviceModel.price doubleValue];
+    g_serviceModel.price = [NSString stringWithFormat:@"%.02f",price];
+    
+    [PayUManager proceedForPayment:self
+                        withAmount:g_serviceModel.price
+                             email:email
+                            mobile:phone
+                         firstName:env.first_name
+                    AndProductInfo:g_serviceModel.name
+                   isForNetbanking: (selectedRow == 1)
+               withCompletionBlock:^(NSDictionary *paymentResponse, NSError *error, id extraParam) {
+                   
+                   __weak __typeof__(self) weakSelf = self;
+                   
+                   if (weakSelf != nil) {
+                       
+                       if (error != nil) {
+                           [CGlobal AlertMessage:error.localizedDescription Title:nil];
+                       } else {
+                           
+                           [self showOrderConfirm];
+                       }
+                   }
+               }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -177,8 +195,11 @@ bool isPaymentCompleted = false;
 
 
 -(IBAction)clickContinue:(id)sender {
-    
-    [self showOrderConfirm];
+    if (selectedRow == 2) {
+        [self showOrderConfirm];
+    }else{
+        [self goOnlinePayment];
+    }
 }
 
 -(void)showOrderConfirm{

@@ -45,4 +45,5 @@
 -(void)initMe:(UIViewController*)vc;
 @property (copy, nonatomic) NSString *currentMenu;
 @property (assign, nonatomic) NSInteger mode;
+-(void)reopenOrderHistory;
 @end

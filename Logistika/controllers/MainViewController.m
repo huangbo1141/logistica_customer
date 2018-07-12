@@ -235,7 +235,7 @@
         case 204:
         {
             // call
-            [CGlobal callSupport];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:support_phone]];
             
             break;
         }

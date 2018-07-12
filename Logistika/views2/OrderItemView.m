@@ -453,15 +453,7 @@
         
         self.dialog = [[MyPopupDialog alloc] init];
         [self.dialog setup:view backgroundDismiss:true backgroundColor:[UIColor darkGrayColor]];
-        if ([vc isKindOfClass:[TableChildExampleViewController class]]) {
-            TableChildExampleViewController*vcc = vc;
-            if(vcc.rootVC!=nil)
-                [self.dialog showPopup:vcc.rootVC.view];
-        }else{
-            [self.dialog showPopup:vc.view];
-        }
-        
-        
+        [self.dialog showPopup:vc.view];
     }
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
