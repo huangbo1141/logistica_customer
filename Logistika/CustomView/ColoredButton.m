@@ -115,8 +115,8 @@
             [shadowView.layer setBorderWidth:0.0f];
             [shadowView.layer setShadowColor:[UIColor colorWithRed:225.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1.0].CGColor];
             [shadowView.layer setShadowOpacity:1.0];
-            [shadowView.layer setShadowRadius:5.0];
-            [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 8.0f)];
+            [shadowView.layer setShadowRadius:2.0];
+            [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 2.0f)];
             shadowView.layer.masksToBounds = false;
             
             self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -136,8 +136,8 @@
             [shadowView.layer setBorderWidth:0.0f];
             [shadowView.layer setShadowColor:[UIColor colorWithRed:225.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1.0].CGColor];
             [shadowView.layer setShadowOpacity:1.0];
-            [shadowView.layer setShadowRadius:5.0];
-            [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 8.0f)];
+            [shadowView.layer setShadowRadius:2.0];
+            [shadowView.layer setShadowOffset:CGSizeMake(0.0f, 2.0f)];
             shadowView.layer.masksToBounds = false;
             break;
         }

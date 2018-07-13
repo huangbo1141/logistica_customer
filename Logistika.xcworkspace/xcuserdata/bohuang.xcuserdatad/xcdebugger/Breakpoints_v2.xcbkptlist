@@ -202,12 +202,12 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/personal/TrackMapViewController.m"
-                  timestampString = "553023590.2756391"
+                  timestampString = "553106606.304327"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "135"
                   endingLineNumber = "135"
-                  offsetFromSymbolStart = "3360">
+                  offsetFromSymbolStart = "2048">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -217,12 +217,12 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/personal/TrackMapViewController.m"
-                  timestampString = "553023590.278684"
+                  timestampString = "553106606.308296"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "135"
                   endingLineNumber = "135"
-                  offsetFromSymbolStart = "3448">
+                  offsetFromSymbolStart = "2880">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -250,12 +250,12 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/personal/TrackMapViewController.m"
-                  timestampString = "553023590.2842489"
+                  timestampString = "553106606.318676"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
                   endingLineNumber = "81"
-                  offsetFromSymbolStart = "3254">
+                  offsetFromSymbolStart = "2760">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -265,12 +265,12 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/personal/TrackMapViewController.m"
-                  timestampString = "553023590.28798"
+                  timestampString = "553106606.322574"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
                   endingLineNumber = "82"
-                  offsetFromSymbolStart = "42">
+                  offsetFromSymbolStart = "80">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -280,12 +280,12 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/personal/TrackMapViewController.m"
-                  timestampString = "553023590.291172"
+                  timestampString = "553106606.326604"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
                   endingLineNumber = "81"
-                  offsetFromSymbolStart = "10">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -537,7 +537,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/CGlobal.m"
-            timestampString = "552971715.533321"
+            timestampString = "553143244.090873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1719"
@@ -793,7 +793,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/CustomView/ColoredButton.m"
-            timestampString = "552886390.293532"
+            timestampString = "553062293.685261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "199"
@@ -809,7 +809,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/CustomView/ColoredButton.m"
-            timestampString = "552886390.293573"
+            timestampString = "553062293.685421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "215"
@@ -825,7 +825,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/CustomView/ColoredButton.m"
-            timestampString = "552886390.293608"
+            timestampString = "553062293.685467"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "218"
@@ -841,7 +841,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/CustomView/ColoredButton.m"
-            timestampString = "552886390.293641"
+            timestampString = "553062293.685506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
@@ -857,7 +857,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/CustomView/ColoredButton.m"
-            timestampString = "552886390.2936749"
+            timestampString = "553062293.6855429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -873,7 +873,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/NetworkParser.m"
-            timestampString = "552508692.678773"
+            timestampString = "553100251.55549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
@@ -889,7 +889,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/NetworkParser.m"
-            timestampString = "552508692.6788189"
+            timestampString = "553100251.556025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -905,7 +905,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/NetworkParser.m"
-            timestampString = "552508692.6788599"
+            timestampString = "553100251.556276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -921,7 +921,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/NetworkParser.m"
-            timestampString = "552508692.678902"
+            timestampString = "553100251.556518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "426"
@@ -937,7 +937,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/NetworkParser.m"
-            timestampString = "552508692.67896"
+            timestampString = "553100251.556778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
@@ -953,7 +953,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/NetworkParser.m"
-            timestampString = "552508692.6790169"
+            timestampString = "553100251.557062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -1049,7 +1049,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/CustomView/ColoredButton.m"
-            timestampString = "552886390.293897"
+            timestampString = "553062293.685879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
@@ -1161,12 +1161,12 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "553023590.579712"
+                  timestampString = "553106606.609611"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "538"
                   endingLineNumber = "538"
-                  offsetFromSymbolStart = "1078">
+                  offsetFromSymbolStart = "1092">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1176,12 +1176,12 @@
                   moduleName = "Logistika"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/personal/PaymentViewController.m"
-                  timestampString = "553023590.584089"
+                  timestampString = "553106606.6155469"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "512"
                   endingLineNumber = "512"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1305,7 +1305,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/CGlobal.m"
-            timestampString = "552971715.534362"
+            timestampString = "553143244.093003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1282"
@@ -1321,7 +1321,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/Docs/CGlobal.m"
-            timestampString = "552971715.534439"
+            timestampString = "553143244.0935071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1293"
@@ -1397,27 +1397,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/spcontroller/LeftView.m"
-            timestampString = "553024123.809357"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-setCurrentMenu:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/spcontroller/LeftView.m"
-            timestampString = "553024123.809804"
+            timestampString = "553107392.385587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -1923,139 +1907,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/AppDelegate.m"
-            timestampString = "553024123.8109781"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-loadBasicData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/AppDelegate.m"
-            timestampString = "553024123.811509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-loadBasicData"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AppDelegate loadBasicData]"
-                  moduleName = "Logistika"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/AppDelegate.m"
-                  timestampString = "552901135.927878"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "204">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__28-[AppDelegate loadBasicData]_block_invoke"
-                  moduleName = "Logistika"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/AppDelegate.m"
-                  timestampString = "552901135.931527"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "46">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/AppDelegate.m"
-            timestampString = "553024123.811654"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-loadBasicData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/AppDelegate.m"
-            timestampString = "553024123.811727"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-loadBasicData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.535373"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
-            landmarkName = "-verification:Otp:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.535452"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
-            landmarkName = "-verification:Otp:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.535525"
+            timestampString = "553062293.6864361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "397"
@@ -2071,7 +1927,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.535597"
+            timestampString = "553062293.686828"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
+            landmarkName = "-verification:Otp:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/SignupViewController.m"
+            timestampString = "553062293.6870461"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "-verification:Otp:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/SignupViewController.m"
+            timestampString = "553062293.687255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
+            landmarkName = "-goSignup:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/SignupViewController.m"
+            timestampString = "553062293.6875859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "405"
@@ -2087,23 +1991,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.5357209"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
-            landmarkName = "-goSignup:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.535794"
+            timestampString = "553062293.688126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
@@ -2119,7 +2007,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.5358649"
+            timestampString = "553062293.688378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "237"
@@ -2135,7 +2023,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.535935"
+            timestampString = "553062293.688589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "247"
@@ -2151,7 +2039,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logistika/controllers/SignupViewController.m"
-            timestampString = "552971715.536009"
+            timestampString = "553062293.688797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "211"
@@ -2381,6 +2269,166 @@
             startingLineNumber = "154"
             endingLineNumber = "154"
             landmarkName = "didSubmit(_:view:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/CustomView/OrderFrameExpand.m"
+            timestampString = "553106095.028181"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-firstProcess:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/CustomView/OrderFrameExpand.m"
+            timestampString = "553106095.02888"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "-showItemLists:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/Docs/NetworkParser.m"
+            timestampString = "553100251.559814"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-generalNetwork2:Data:withCompletionBlock:method:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/controllers/common/OrderHistoryViewController.swift"
+            timestampString = "553097226.770438"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "loadData(isInitial:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Logistika.OrderHistoryViewController.loadData(isInitial: Swift.Bool) -&gt; ()"
+                  moduleName = "Logistika"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/common/OrderHistoryViewController.swift"
+                  timestampString = "553106607.196353"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "2440">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Logistika.OrderHistoryViewController.loadData(isInitial: Swift.Bool) -&gt; ()"
+                  moduleName = "Logistika"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Untitled%202/icc/devel/2018/201807/sumanth%203/new_design_customer/Logistika/controllers/common/OrderHistoryViewController.swift"
+                  timestampString = "553106607.200069"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/spcontroller/LeftView.m"
+            timestampString = "553107392.387617"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-clickView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/spcontroller/LeftView.m"
+            timestampString = "553107392.387779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-clickView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/spcontroller/LeftView.m"
+            timestampString = "553107392.38791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-setCurrentMenu:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logistika/spcontroller/LeftView.m"
+            timestampString = "553107392.388034"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-setCurrentMenu:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

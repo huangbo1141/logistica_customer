@@ -47,6 +47,22 @@
         if(title.length == 0){
             return nil;
         }
+        
+//        NSString*d1 = [imodel.dimension1 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//        if(d1.length == 0){
+//            return nil;
+//        }
+//        
+//        NSString*d2 = [imodel.dimension2 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//        if(d2.length == 0){
+//            return nil;
+//        }
+//        
+//        NSString*d3 = [imodel.dimension3 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//        if(d3.length == 0){
+//            return nil;
+//        }
+        
     }
     return ret;
 }

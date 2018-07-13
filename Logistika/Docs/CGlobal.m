@@ -1569,7 +1569,7 @@ NSMutableArray* menu_topList;
     
     PUBLISHABLE_KEY = @"pk_test_C0xTsdez4BI0rXKZp6ObLitq";
     
-    c_menu_title = @[@"profile",@"quotes",@"order",@"reschedule",@"cancel",@"about",@"contact",@"feedback",@"policy",@"sign"];
+    c_menu_title = @[@"profile",@"quotes",@"order",@"change",@"about",@"contact",@"feedback",@"policy",@"sign"];
     
 //    g_areaData = [[LoginResponse alloc] init];
     symbol_dollar = @"₹";

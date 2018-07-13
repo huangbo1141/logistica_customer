@@ -196,12 +196,14 @@
     [urlRequest setHTTPBody:data1];
     
     NSURLSession *session = [NSURLSession sharedSession];
+    
+    [CGlobal stopIndicator:self];
+    
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        [CGlobal stopIndicator:self];
+        
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if(httpResponse.statusCode == 200)
         {
-            
             @try {
                 NSError *parseError = nil;
                 NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
@@ -209,8 +211,11 @@
                 NSString*num = [NSString stringWithFormat:@"tel:%@",array[0][@"PhoneNumber"]];
                 support_phone = num;
                 
-                AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                [delegate defaultLogin];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                    [delegate defaultLogin];
+                });
+                
             } @catch (NSException *exception) {
                 NSLog(@"catch");
             }

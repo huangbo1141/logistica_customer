@@ -63,13 +63,13 @@
     }else if ([self isKindOfClass:[CancelPickViewController class]]) {
         [leftView setCurrentMenu:c_menu_title[4]];
     }else if ([self isKindOfClass:[AboutUsViewController class]]) {
-        [leftView setCurrentMenu:c_menu_title[5]];
+        [leftView setCurrentMenu:c_menu_title[4]];
     }else if ([self isKindOfClass:[ContactUsViewController class]]) {
-        [leftView setCurrentMenu:c_menu_title[6]];
+        [leftView setCurrentMenu:c_menu_title[5]];
     }else if ([self isKindOfClass:[FeedBackViewController class]]) {
-        [leftView setCurrentMenu:c_menu_title[7]];
+        [leftView setCurrentMenu:c_menu_title[6]];
     }else if ([self isKindOfClass:[PolicyViewController class]]) {
-        [leftView setCurrentMenu:c_menu_title[8]];
+        [leftView setCurrentMenu:c_menu_title[7]];
     }else {
         [leftView setCurrentMenu:nil];
     }

@@ -314,6 +314,7 @@
 		4DE22DAE1F6920B800C45671 /* swipe4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4DE22DA91F6920B800C45671 /* swipe4.jpg */; };
 		4DE22DAF1F6920B800C45671 /* swipe5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4DE22DAA1F6920B800C45671 /* swipe5.jpg */; };
 		4DE22DB51F69239600C45671 /* StatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE22DB41F69239600C45671 /* StatViewController.m */; };
+		4DE6459B20F7B91B00EF3B3C /* MyWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6459A20F7B91B00EF3B3C /* MyWebView.m */; };
 		4DE728B420ED04DC00E82819 /* blue_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DE728B320ED04DC00E82819 /* blue_back.png */; };
 		4DE728B620ED04EA00E82819 /* bg_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DE728B520ED04E900E82819 /* bg_img.png */; };
 		4DE728B820ED0EAE00E82819 /* ic_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DE728B720ED0EAE00E82819 /* ic_user.png */; };
@@ -858,6 +859,8 @@
 		4DE22DAA1F6920B800C45671 /* swipe5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = swipe5.jpg; sourceTree = "<group>"; };
 		4DE22DB31F69239600C45671 /* StatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatViewController.h; sourceTree = "<group>"; };
 		4DE22DB41F69239600C45671 /* StatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatViewController.m; sourceTree = "<group>"; };
+		4DE6459920F7B91B00EF3B3C /* MyWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWebView.h; sourceTree = "<group>"; };
+		4DE6459A20F7B91B00EF3B3C /* MyWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWebView.m; sourceTree = "<group>"; };
 		4DE728B320ED04DC00E82819 /* blue_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_back.png; sourceTree = "<group>"; };
 		4DE728B520ED04E900E82819 /* bg_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_img.png; sourceTree = "<group>"; };
 		4DE728B720ED0EAE00E82819 /* ic_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_user.png; sourceTree = "<group>"; };
@@ -1055,6 +1058,8 @@
 				4D3C56BD20F5B94200B30FB8 /* OrderFrameExpand.m */,
 				4D3C56BF20F5BB7600B30FB8 /* OrderFrameContainer.h */,
 				4D3C56C020F5BB7600B30FB8 /* OrderFrameContainer.m */,
+				4DE6459920F7B91B00EF3B3C /* MyWebView.h */,
+				4DE6459A20F7B91B00EF3B3C /* MyWebView.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -2274,6 +2279,7 @@
 				4DDC0ADE20F66D39000F449A /* TableOrderFrameViewController.swift in Sources */,
 				4DA31B7C1EB19859006A4AFD /* OrderResponse.m in Sources */,
 				4D126C891EA5AA4500C69B89 /* EftGoogleAddressComponent.m in Sources */,
+				4DE6459B20F7B91B00EF3B3C /* MyWebView.m in Sources */,
 				4D126C811EA5AA4500C69B89 /* UIComboBox.m in Sources */,
 				4DDC8F011F00BCB400F069F3 /* ECDrawerLayout.m in Sources */,
 				4D8CAB711EA8B4BB001BCF17 /* SelectImageCell.m in Sources */,

@@ -172,7 +172,9 @@
         model.cellSizeCalculated = true;
         
         // get total height
-        CGFloat baseHeight = 183;
+        
+        CGFloat baseHeight = self.viewHeader.frame.origin.y + 30;
+        baseHeight = 196;
         CGFloat height = baseHeight + size.height + self.tableHeight;
         
         self.constraint_Height.constant = height + 4;
@@ -215,6 +217,13 @@
         self.cellHeight = 40;
         self.tableView_items.delegate = self;
         self.tableView_items.dataSource = self;
+    }else{
+        self.viewHeader_CAMERA.hidden = true;
+        self.viewHeader_ITEM.hidden = true;
+        self.viewHeader_PACKAGE.hidden = true;
+        
+        self.constraint_TH.constant = 0;
+        return;
     }
     [self calculateRowHeight:model];
     self.constraint_TH.constant = self.tableHeight;

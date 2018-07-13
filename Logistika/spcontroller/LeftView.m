@@ -50,11 +50,12 @@
         }
     }
 }
--(void)reopenOrderHistory{
+-(void)reopenOrderHistory:(int)page{
     UIStoryboard* ms = [UIStoryboard storyboardWithName:@"Common" bundle:nil];
     OrderHistoryViewController*vc = [ms instantiateViewControllerWithIdentifier:@"OrderHistoryViewController"] ;
-    
+    vc.param1 = page;
     dispatch_async(dispatch_get_main_queue(), ^{
+        
         _vc.navigationController.navigationBar.hidden = true;
         _vc.navigationController.viewControllers = @[vc];
     });

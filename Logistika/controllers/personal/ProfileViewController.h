@@ -6,13 +6,13 @@
 //  Copyright © 2017 BoHuang. All rights reserved.
 //
 
-#import "BasicViewController.h"
+#import "MenuViewController.h"
 #import "UIComboBox.h"
 #import "BorderView.h"
 #import "CAAutoFillTextField.h"
 #import "BorderTextField.h"
 
-@interface ProfileViewController : BasicViewController
+@interface ProfileViewController : MenuViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *lblPicker1;
 @property (strong, nonatomic) UIView *viewPickerContainer1;

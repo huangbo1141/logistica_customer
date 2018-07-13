@@ -219,7 +219,7 @@
     
     // check special
     if (![CGlobal validatePassword:mPassword]) {
-        [CGlobal AlertMessage:@"Password must be minium 8 characters with a combo of alphanumeric characters" Title:nil];
+        [CGlobal AlertMessage:@"Password must be minmium 8 characters with a combo of alphanumeric characters" Title:nil];
         [_txtPassword becomeFirstResponder];
         return nil;
     }

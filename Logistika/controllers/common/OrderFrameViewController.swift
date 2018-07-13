@@ -128,7 +128,7 @@ class OrderFrameViewController: UIViewController, IndicatorInfoProvider, ViewDia
             
             // open orderhistory again
             if let rootVC = self.rootVC , let leftView:LeftView = rootVC.view.drawerView {
-                leftView.reopenOrderHistory()
+                leftView.reopenOrderHistory(1)
             }
         }
     }
