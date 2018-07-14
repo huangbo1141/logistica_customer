@@ -78,7 +78,7 @@
             self.imgStep.image = [UIImage imageNamed:@"step_cancel.png"];
             self.btnPos.hidden = true;
             self.lblStat2.text = pred_str[@"pickup_cancelled"];
-            self.lblStat3.text = pred_str[@"order_delivered"];
+            self.lblStat3.text = @"";
             break;
         }
         case 2:
