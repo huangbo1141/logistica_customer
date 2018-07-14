@@ -153,6 +153,7 @@ class OrderHistoryViewController: ButtonBarPagerTabStripViewController,ECDrawerL
             CGlobal.showIndicator(self)
             manager.ontemplateGeneralRequest2(params, basePath: BASE_URL_ORDER, path: "get_orders_his", withCompletionBlock: { (dict_ret, error) in
                 
+                CGlobal.stopIndicator(self)
                 if let dict = CGlobal.processData(for_OrderHistory: dict_ret, error: error) as? NSDictionary{
                     if let child0 = self.child0 , let child1 = self.child1 , let child2 = self.child2 {
                         
@@ -173,14 +174,19 @@ class OrderHistoryViewController: ButtonBarPagerTabStripViewController,ECDrawerL
                             }
                             
                             if(child0.data?.count == 0 && child1.data?.count == 0 && child2.data?.count == 0){
-                                CGlobal.alertMessage("No Orders", title: nil)
-                                
+                                DispatchQueue.main.async {
+                                    CGlobal.alertMessage("No Orders to Show", title: nil)
+                                }
                             }
+                            return
                             
                         }
                     }
                 }
-                CGlobal.stopIndicator(self)
+                DispatchQueue.main.async {
+                    CGlobal.alertMessage("No Orders to Show", title: nil)
+                }
+                
                 
             }, method: "post")
         }
